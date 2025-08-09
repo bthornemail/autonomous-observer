@@ -24,6 +24,9 @@
   "observer:activate": "node src/observer/activate-meta-observer.js",
   "universe:start": "node src/universe/AutonomousUniverseRouter.js"
   },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/test/jest.setup.js"]
+  },
   "keywords": [
     "autonomous-ai",
     "consciousness",
