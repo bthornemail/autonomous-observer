@@ -117,8 +117,9 @@ describe('Performance Benchmarks - Autonomous Observer', () => {
       
       const memoryAfterCleanup = process.memoryUsage().heapUsed;
       
-      // Memory should be partially cleaned up after shutdown (allow for 5MB overhead)
-      expect(memoryAfterCleanup).toBeLessThan(memoryIncrease + (5 * 1024 * 1024));
+  // Memory should be partially cleaned up after shutdown (allow for 5MB over initial)
+  const postCleanupIncrease = memoryAfterCleanup - initialMemory;
+  expect(postCleanupIncrease).toBeLessThan(5 * 1024 * 1024);
     });
 
     test('Knowledge system manages memory efficiently with evolution', async () => {

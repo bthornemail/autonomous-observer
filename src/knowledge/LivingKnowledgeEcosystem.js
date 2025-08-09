@@ -19,6 +19,11 @@ class LivingKnowledgeEcosystem {
   async shutdown() {
     console.log('🌱 Shutting down living knowledge ecosystem...');
     this.isActive = false;
+    // Free large in-memory structures for tests
+    try {
+      this.patterns.length = 0;
+      this.knowledgeUnits.length = 0;
+    } catch (_) {}
     return this;
   }
 

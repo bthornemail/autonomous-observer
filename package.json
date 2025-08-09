@@ -7,20 +7,22 @@
   "types": "dist/index.d.ts",
   "bin": {
     "ulp-observer": "./bin/ulp-observer.js",
-    "autonomous-agent": "./bin/autonomous-agent.js"
+  "autonomous-agent": "./bin/autonomous-agent.js",
+  "universe-router": "./bin/universe-router.js"
   },
   "scripts": {
-    "start": "node index.js",
+  "start": "node index.js",
     "demo:consciousness": "node demos/consciousness-demo.js",
     "demo:living-knowledge": "node demos/living-knowledge-demo.js", 
     "demo:complete": "node demos/complete-system-demo.js",
-    "test": "jest",
+  "test": "node --expose-gc ./node_modules/jest/bin/jest.js",
     "build": "tsc && rollup -c",
     "dev": "nodemon index.js",
     "clarion:train": "node src/clarion/train-autonomous-agent.js",
     "mdu:process": "node src/mdu/process-immanent-transcendence.js",
     "cue:serve": "node src/cue/serve-computational-universe.js",
-    "observer:activate": "node src/observer/activate-meta-observer.js"
+  "observer:activate": "node src/observer/activate-meta-observer.js",
+  "universe:start": "node src/universe/AutonomousUniverseRouter.js"
   },
   "keywords": [
     "autonomous-ai",
