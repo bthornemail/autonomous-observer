@@ -1,6 +1,6 @@
 {
   "name": "@universal-life-protocol/autonomous-observer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Complete CUE-CLARION-MDU Autonomous Observer with Conscious AI capabilities",
   "main": "index.js",
   "module": "dist/index.esm.js",
@@ -14,8 +14,9 @@
     "demo:consciousness": "node demos/consciousness-demo.js",
     "demo:living-knowledge": "node demos/living-knowledge-demo.js", 
     "demo:complete": "node demos/complete-system-demo.js",
-    "test": "jest",
-    "build": "tsc && rollup -c",
+  "test": "jest",
+  "bench": "node benchmarks/attention-token.bench.js",
+    "build": "echo 'no build step'",
     "dev": "nodemon index.js",
     "clarion:train": "node src/clarion/train-autonomous-agent.js",
     "mdu:process": "node src/mdu/process-immanent-transcendence.js",
@@ -66,5 +67,17 @@
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "src/",
+    "bin/",
+    "benchmarks/",
+    "demos/",
+    "README.md",
+    "LICENSE"
+  ]
 }
