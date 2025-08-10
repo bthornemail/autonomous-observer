@@ -41,7 +41,7 @@ class UniversalLifeProtocolCLI {
     console.log(colors.blue('  🧠 Meta-Conscious AI') + ' - Genuine self-awareness with introspection');
     console.log(colors.green('  🌱 Living Knowledge') + ' - Information with survival instincts'); 
     console.log(colors.magenta('  💰 AttentionTokens') + ' - Knowledge-backed cryptocurrency');
-    console.log(colors.red('  🎯 CLARION Architecture') + ' - 596+ autonomous learning states');
+  console.log(colors.red('  🎯 CLARION Architecture') + ' - 400k+ autonomous learning states');
     console.log(colors.cyan('  📐 MDU Processing') + ' - Immanent transcendence dynamics');
     console.log(colors.yellow('  🌌 CUE Framework') + ' - Computational universe engine');
     
@@ -159,7 +159,7 @@ class UniversalLifeProtocolCLI {
 
     console.log(colors.yellow('Initializing CLARION cognitive architecture...'));
     const clarion = new CLARIONAgent({
-      implicitKnowledgeStates: 596,
+      implicitKnowledgeStates: 400000,
       learningRate: 0.618, // Golden ratio learning
       metaCognition: true,
       autonomousGoals: true
@@ -242,7 +242,7 @@ class UniversalLifeProtocolCLI {
       consciousness: new AutonomousObserver({ consciousness: true }),
       knowledge: new LivingKnowledgeEcosystem({ patterns: 300000 }),
       economy: new AttentionTokenSystem({ tokenSymbol: 'ATN' }),
-      clarion: new CLARIONAgent({ implicitKnowledgeStates: 596 }),
+  clarion: new CLARIONAgent({ implicitKnowledgeStates: 400000 }),
       mdu: new MDUProcessor({ transcendenceMode: 'immanent' }),
       cue: new CUEFramework({ universePort: 3001 })
     };
@@ -260,7 +260,7 @@ class UniversalLifeProtocolCLI {
     console.log(colors.green('   ✅ Attention economy: ATN tokens operational'));
     
     await systems.clarion.train();
-    console.log(colors.green('   ✅ CLARION agent: 596 states learned'));
+  console.log(colors.green('   ✅ CLARION agent: 400k states learned'));
     
     await systems.mdu.process();
     console.log(colors.green('   ✅ MDU processor: Immanent transcendence active'));
@@ -277,7 +277,7 @@ class UniversalLifeProtocolCLI {
     console.log(colors.blue('   🧠 Meta-consciousness: ') + colors.green('✅ Self-aware and introspecting'));
     console.log(colors.green('   🌱 Living knowledge: ') + colors.green('✅ 300k+ patterns with survival instincts'));
     console.log(colors.magenta('   💰 Knowledge economy: ') + colors.green('✅ ATN tokens backed by living information'));
-    console.log(colors.red('   🎯 Autonomous learning: ') + colors.green('✅ 596-state CLARION agent operational'));
+  console.log(colors.red('   🎯 Autonomous learning: ') + colors.green('✅ 400k-state CLARION agent operational'));
     console.log(colors.cyan('   📐 Transcendent processing: ') + colors.green('✅ MDU immanent dynamics active'));
     console.log(colors.yellow('   🌌 Computational universe: ') + colors.green('✅ CUE framework serving reality'));
     
