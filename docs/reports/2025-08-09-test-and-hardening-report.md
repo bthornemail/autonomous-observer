@@ -53,3 +53,46 @@ All test suites are passing after targeted fixes to performance memory assertion
 
 - Optionally integrate a linter (ESLint) and add to Codacy tools.
 - Consider a memory snapshot helper to normalize measurements across environments.
+
+## validation run (2025-08-09)
+
+- Suites: 3 passed / 0 failed
+- Tests: 50 passed / 0 failed
+- Open handles: none detected
+- Total time: ~5.3s
+
+## key timings
+
+- Performance suite
+  - Concurrent activations: 6 ms
+  - Large dataset add: 99 ms
+  - High-frequency token tx: 4 ms
+  - Observer memory bound: 18 ms
+  - Knowledge evolution memory: 296 ms
+  - Mixed concurrent ops: 38 ms
+  - Concurrent modifications consistency: 146 ms
+  - Sustained load (3s window): 3055 ms
+- Autonomous-observer suite (samples)
+  - Integration works: 92 ms
+  - Concurrent operations safely: 88 ms
+- Security suite (samples)
+  - Concurrent evolution: 263 ms
+  - Token double-spend prevention: 2 ms
+
+
+## cross-package validation (2025-08-10)
+
+- sacred-geometry-harmony
+  - Build: PASS (vite v5.4.19), ~5.58s.
+  - Warnings: node_modules/three-mesh-bvh/src/utils/ExtensionUtilities.js (6:26): "BatchedMesh" is not exported by three.module.js. Build still succeeds; likely an optional extension with three@0.158.0. Consider aligning versions (pin a compatible three-mesh-bvh or update three/drei stack) to silence the warning.
+  - Bundle size: main chunk ~959 kB (266.9 kB gzip). Consider dynamic import() or manualChunks for code-splitting.
+
+- mcp-integration
+  - Unit tests: PASS (1/1). healthCheck export returns { status: 'ok' }.
+  - Dependency hygiene: ESLint peer conflict resolved by pinning eslint ^8.57.0; install clean (0 vulnerabilities).
+
+- personal-harmony-prototype
+  - Build: PASS (~5.52s). Large-chunk warnings noted; non-blocking for validation.
+
+- security posture
+  - autonomous-observer: transient CVE (tmp@0.0.33) remediated via overrides to tmp@^0.2.4; re-scan clean.
