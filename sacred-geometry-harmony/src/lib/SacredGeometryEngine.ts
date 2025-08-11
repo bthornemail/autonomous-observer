@@ -84,6 +84,36 @@ class SacredGeometryEngine {
   }
 
   /**
+   * Generate Seed of Life sacred positions (7 circles)
+   */
+  static generateSeedOfLifePositions(): SacredPoint[] {
+    const points: SacredPoint[] = [];
+    const radius = 100;
+
+    // Center circle
+    points.push({
+      x: 0, y: 0, z: 0, layer: 0, angle: 0, distance: 0,
+      geometryType: 'seed_of_life_center'
+    });
+
+    // Six outer circles arranged in hexagonal pattern
+    for (let i = 0; i < 6; i++) {
+      const angle = (i / 6) * 2 * Math.PI;
+      points.push({
+        x: Math.cos(angle) * radius,
+        y: Math.sin(angle) * radius,
+        z: 0,
+        layer: 1,
+        angle,
+        distance: radius,
+        geometryType: 'seed_of_life'
+      });
+    }
+
+    return points;
+  }
+
+  /**
    * Generate Golden Spiral points
    */
   static generateGoldenSpiral(turns: number = 5, pointsPerTurn: number = 20): SacredPoint[] {

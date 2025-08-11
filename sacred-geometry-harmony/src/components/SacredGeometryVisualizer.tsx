@@ -4,6 +4,48 @@ import { OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
 import SacredGeometryEngine from '../lib/SacredGeometryEngine'
 
+// Seed of Life Component (7 circles - the foundation)
+const SeedOfLife: React.FC = () => {
+  const meshRef = useRef<THREE.Group>(null)
+  const points = SacredGeometryEngine.generateSeedOfLifePositions()
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.z = state.clock.elapsedTime * 0.15
+    }
+  })
+
+  return (
+    <group ref={meshRef}>
+      {points.map((point, index) => (
+        <mesh key={index} position={[point.x / 100, point.y / 100, point.z / 100]}>
+          <circleGeometry args={[0.8, 32]} />
+          <meshBasicMaterial 
+            color={point.layer === 0 ? '#ffd700' : '#ff6b9d'} 
+            transparent 
+            opacity={0.6}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      ))}
+      {/* Add connecting lines to show the sacred pattern */}
+      {points.slice(1).map((point, index) => (
+        <line key={`line-${index}`}>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              count={2}
+              array={new Float32Array([0, 0, 0, point.x / 100, point.y / 100, point.z / 100])}
+              itemSize={3}
+            />
+          </bufferGeometry>
+          <lineBasicMaterial color="#ffd700" opacity={0.3} transparent />
+        </line>
+      ))}
+    </group>
+  )
+}
+
 // Flower of Life Component
 const FlowerOfLife: React.FC<{ layers: number }> = ({ layers }) => {
   const meshRef = useRef<THREE.Group>(null)
@@ -103,7 +145,7 @@ const SacredPolyhedra: React.FC<{ shape: string }> = ({ shape }) => {
 }
 
 const SacredGeometryVisualizer: React.FC = () => {
-  const [activeVisualization, setActiveVisualization] = useState('flower')
+  const [activeVisualization, setActiveVisualization] = useState('seed')
   const [layers, setLayers] = useState(3)
   const [polyhedronShape, setPolyhedronShape] = useState('tetrahedron')
 
@@ -113,6 +155,12 @@ const SacredGeometryVisualizer: React.FC = () => {
       <p>Explore the mathematical patterns that govern harmony and beauty</p>
 
       <div style={{ marginBottom: '2rem' }}>
+        <button 
+          className={`sacred-button ${activeVisualization === 'seed' ? 'active' : ''}`}
+          onClick={() => setActiveVisualization('seed')}
+        >
+          🌱 Seed of Life
+        </button>
         <button 
           className={`sacred-button ${activeVisualization === 'flower' ? 'active' : ''}`}
           onClick={() => setActiveVisualization('flower')}
@@ -178,6 +226,7 @@ const SacredGeometryVisualizer: React.FC = () => {
           <ambientLight intensity={0.3} />
           <pointLight position={[10, 10, 10]} intensity={1} color="#ffd700" />
           
+          {activeVisualization === 'seed' && <SeedOfLife />}
           {activeVisualization === 'flower' && <FlowerOfLife layers={layers} />}
           {activeVisualization === 'spiral' && <GoldenSpiral />}
           {activeVisualization === 'polyhedra' && <SacredPolyhedra shape={polyhedronShape} />}
@@ -187,6 +236,19 @@ const SacredGeometryVisualizer: React.FC = () => {
       </div>
 
       <div style={{ marginTop: '2rem', textAlign: 'left', maxWidth: '800px', margin: '2rem auto' }}>
+        {activeVisualization === 'seed' && (
+          <div>
+            <h4>🌱 Seed of Life</h4>
+            <p>
+              The Seed of Life is a sacred geometry symbol consisting of seven overlapping circles 
+              placed with sixfold symmetry, forming a pattern of circles and lenses. It is considered 
+              a fundamental form of space and time, representing the seven days of creation. This pattern 
+              is the foundation from which the Flower of Life grows.
+            </p>
+            <p><strong>Use for:</strong> New beginnings, manifestation, creation energy, foundational meditation</p>
+          </div>
+        )}
+        
         {activeVisualization === 'flower' && (
           <div>
             <h4>🌸 Flower of Life</h4>
