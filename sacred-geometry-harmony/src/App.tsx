@@ -3,6 +3,8 @@ import PersonalHarmonyCalculator from './components/PersonalHarmonyCalculator'
 import SacredGeometryVisualizer from './components/SacredGeometryVisualizer'
 import MeditationCompanion from './components/MeditationCompanion'
 import PersonalityProfiler from './components/PersonalityProfiler'
+import TetrahedronExplorer from './components/TetrahedronExplorer'
+import DocumentationViewer from './components/DocumentationViewer'
 import './App.css'
 
 function App() {
@@ -47,6 +49,20 @@ function App() {
         >
           🧠 Personality Profiler
         </button>
+        <button 
+          className={activeTab === 'tetrahedron' ? 'active' : ''}
+          onClick={() => setActiveTab('tetrahedron')}
+          title="Explore the Universal Life Protocol Tetrahedron Architecture"
+        >
+          🔺 Tetrahedron
+        </button>
+        <button 
+          className={activeTab === 'documentation' ? 'active' : ''}
+          onClick={() => setActiveTab('documentation')}
+          title="Interactive documentation and framework guides"
+        >
+          📚 Documentation
+        </button>
       </nav>
 
       <main className="app-main">
@@ -54,6 +70,8 @@ function App() {
         {activeTab === 'visualizer' && <SacredGeometryVisualizer />}
         {activeTab === 'meditation' && <MeditationCompanion />}
         {activeTab === 'personality' && <PersonalityProfiler />}
+        {activeTab === 'tetrahedron' && <TetrahedronExplorer />}
+        {activeTab === 'documentation' && <DocumentationViewer />}
       </main>
 
       <footer className="app-footer">

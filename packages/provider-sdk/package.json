@@ -1,0 +1,43 @@
+{
+  "name": "@ulp/provider-sdk",
+  "version": "3.0.0", 
+  "description": "Universal Life Protocol Provider SDK - Backend services with full MCP agent access",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "dev": "nodemon src/index.ts",
+    "test": "jest",
+    "start:hub": "node dist/agents/hub.js",
+    "start:knowledge": "node dist/knowledge/trie-server.js",
+    "start:economy": "node dist/economy/attention-tokens.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@universal-life-protocol/autonomous-observer": "workspace:*",
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "redis": "^4.0.0",
+    "postgres": "^3.4.0",
+    "web3": "^4.0.0",
+    "ethers": "^6.0.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "nodemon": "^3.0.0",
+    "jest": "^29.7.0"
+  },
+  "keywords": [
+    "universal-life-protocol",
+    "provider",
+    "backend", 
+    "mcp",
+    "agents",
+    "knowledge-trie",
+    "attention-tokens",
+    "web3"
+  ],
+  "license": "MIT"
+}
