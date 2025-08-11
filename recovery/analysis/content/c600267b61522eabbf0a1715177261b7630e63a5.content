@@ -1,0 +1,20 @@
+{
+  "name": "universal-life-protocol-mcp",
+  "version": "1.0.0",
+  "description": "Advanced MCP Integration Server for Universal Life Protocol - Consciousness simulation with AgentRPC, A2A Gateway, and Browser automation capabilities",
+  "main": "ulp-mcp-server.js",
+  "type": "commonjs",
+  "bin": {
+    "ulp-mcp": "./ulp-mcp-server.js"
+  },
+  "scripts": {
+    "start": "node ulp-mcp-server.js",
+    "dev": "nodemon ulp-mcp-server.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest --testPathPattern=tests/unit",
+  "test:integration": "jest --testPathPattern=tests/integration --passWithNoTests",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
+    "health-check": "node -e \"require('./ulp-mcp-server.js').healthCheck()\"",
+    "demo": "node demos/consciousness-demo.js",

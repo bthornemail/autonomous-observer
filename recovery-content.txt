@@ -1,0 +1,1219 @@
+# 🌌 ULP Git History Recovery - MCP Optimized
+# Recovered Content from 11645 dangling objects
+# Recovery Date: 2025-08-11T06:25:10Z
+
+## Recovery Statistics
+- Total Objects: 11645
+- JavaScript/TS: 100  
+- Markdown/Docs: 100
+- JSON/Config: 100
+- Sample Analysis: 100 objects
+
+## Pattern Analysis
+## Sample Recovered Content
+=========================
+### Object: 00020c9f221d1dd002e65c27a854b9b5e1ce05a2
+```
+{"version":3,"file":"Realm.js","sourceRoot":"","sources":["../../../../src/api/Realm.ts"],"names":[],"mappings":";AAAA;;;;GAIG;;;AAQH,uDAA4D;AAC5D,yDAAoD;AAMpD;;GAEG;AACH,MAAsB,KAAK;IACN,eAAe,CAAkB;IAC3C,WAAW,GAAG,IAAI,yBAAW,EAAE,CAAC;IAEzC,YAAY,eAAgC;QAC1C,IAAI,CAAC,eAAe,GAAG,eAAe,CAAC;IACzC,CAAC;IAqBD,KAAK,CAAC,eAAe,CAMnB,YAA2B,EAC3B,UAKI,EAAE,EACN,GAAG,IAAY;QAEf,MAAM,EACJ,OAAO,GAAG,KAAK,EACf,OAAO,GAAG,IAAI,CAAC,eAAe,CAAC,OAAO,EAAE,EACxC,IAAI,EACJ,MAAM,GACP,GAAG,OAAO,CAAC;QACZ,IAAI,OAAO,OAAO,KAAK,QAAQ,IAAI,OAAO,GAAG,CAAC,EAAE,CAAC;YAC/C,MAAM,IAAI,KAAK,CAAC,wCAAwC,CAAC,CAAC;QAC5D,CAAC;QACD,MAAM,QAAQ,GAAG,IAAI,sBAAQ,CAC3B,IAAI,EACJ;YACE,OAAO;YACP,IAAI;YACJ,OAAO;YACP,MAAM;SACP,EACD,YAEU,EACV,GAAG,IAAI,CACR,CAAC;QACF,OAAO,MAAM,QAAQ,CAAC,MAAM,CAAC;IAC/B,CAAC;IAID,IAAI,QAAQ;QACV,OAAO,IAAI,CAAC,SAAS,CAAC;IACxB,CAAC;IAED,SAAS,GAAG,KAAK,CAAC;IAClB,gBAAgB;IAChB,OAAO;QACL,IAAI,CAAC,SAAS,GAAG,IAAI,CAAC;QACtB,IAAI,CAAC,WAAW,CAAC,YAAY,CAC3B,IAAI,KAAK,CAAC,6CAA6C,CAAC,CACzD,CAAC;IACJ,CAAC;IACD,gBAAgB;IAChB,CAAC,6BAAa,CAAC;QACb,IAAI,CAAC,OAAO,EAAE,CAAC;IACjB,CAAC;CACF;AArFD,sBAqFC"}```
+
+### Object: 01031e8ccc000cd7382e490f39d985a6f76b97df
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ifftDependencies = void 0;
+var _dependenciesConjGenerated = require("./dependenciesConj.generated.js");
+var _dependenciesDotDivideGenerated = require("./dependenciesDotDivide.generated.js");
+var _dependenciesFftGenerated = require("./dependenciesFft.generated.js");
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+```
+
+### Object: 0403c2a3684eb00202e32f05f8dd16fbf81b7d3d
+```
+var isIndex = require('./_isIndex');
+
+/**
+ * The base implementation of `_.nth` which doesn't coerce arguments.
+ *
+ * @private
+ * @param {Array} array The array to query.
+ * @param {number} n The index of the element to return.
+ * @returns {*} Returns the nth element of `array`.
+ */
+```
+
+### Object: 0603fc37eabef8e55357ceec7951deac717d5dba
+```
+/**
+ * The base implementation of `_.times` without support for iteratee shorthands
+ * or max array length checks.
+ *
+ * @private
+ * @param {number} n The number of times to invoke `iteratee`.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the array of results.
+ */
+function baseTimes(n, iteratee) {
+```
+
+### Object: 070374048dd49ed36a5ecedd843a3ee9c6658249
+```
+// Copyright 2013 Lovell Fuller and others.
+// SPDX-License-Identifier: Apache-2.0
+
+#include <cmath>
+#include <string>
+#include <cstdio>
+
+#include <napi.h>
+#include <vips/vips8>
+#include <vips/vector.h>
+```
+
+### Object: 070482761a700cbce577f4b67e2cbe6c832e3a6a
+```
+type EncodeTrieNode = string | {
+    v?: string;
+    n: number | Map<number, EncodeTrieNode>;
+    o?: string;
+};
+declare const _default: Map<number, EncodeTrieNode>;
+export default _default;
+//# sourceMappingURL=encode-html.d.ts.map```
+
+### Object: 0a045c09c3c0b77c063d8b113d37a38693613c25
+```
+define(['./_cb', './_isArrayLike', './keys'], function (_cb, _isArrayLike, keys) {
+
+  // Return the results of applying the iteratee to each element.
+  function map(obj, iteratee, context) {
+    iteratee = _cb(iteratee, context);
+    var _keys = !_isArrayLike(obj) && keys(obj),
+        length = (_keys || obj).length,
+        results = Array(length);
+    for (var index = 0; index < length; index++) {
+      var currentKey = _keys ? _keys[index] : index;
+```
+
+### Object: 0d00de5bc1774af9bb27f2d031938908d3a83aff
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.eDependencies = void 0;
+var _factoriesNumber = require("../../factoriesNumber.js");
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+```
+
+### Object: 0e0228ae0985e07ecfe38dfb0bddc5b00cb07880
+```
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import path from 'path';
+import { getText } from '../httpUtil.js';
+import { BrowserPlatform } from './types.js';
+function archive(platform, buildId) {
+    switch (platform) {
+```
+
+### Object: 14004888a6816d731200da9c4457ea4b42dbe3ed
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { createLN10 } from '../../factoriesNumber.js';
+export var LN10Dependencies = {
+  createLN10
+};```
+
+### Object: 14006c5dc62b61909d1a3c57ba662a154c6694fc
+```
+'use strict';
+
+exports.__esModule = true;
+
+const Module = require('module');
+const path = require('path');
+
+// borrowed from babel-eslint
+/** @type {(filename: string) => Module} */
+function createModule(filename) {
+```
+
+### Object: 1404ea02993ed51a92a87c8037ea123a624a3d42
+```
+define(['./_toPath', './_deepGet', './isUndefined'], function (_toPath, _deepGet, isUndefined) {
+
+  // Get the value of the (deep) property on `path` from `object`.
+  // If any property in `path` does not exist or if the value is
+  // `undefined`, return `defaultValue` instead.
+  // The `path` is normalized through `_.toPath`.
+  function get(object, path, defaultValue) {
+    var value = _deepGet(object, _toPath(path));
+    return isUndefined(value) ? defaultValue : value;
+  }
+```
+
+### Object: 1502b2d0798a5ddf3a6a133c9ce0106358ec034a
+```
+// type checks for all known types
+//
+// note that:
+//
+// - check by duck-typing on a property like `isUnit`, instead of checking instanceof.
+//   instanceof cannot be used because that would not allow to pass data from
+//   one instance of math.js to another since each has it's own instance of Unit.
+// - check the `isUnit` property via the constructor, so there will be no
+//   matches for "fake" instances like plain objects with a property `isUnit`.
+//   That is important for security reasons.
+```
+
+### Object: 1702462bb6a818d827b22e67c82451c3a039d8fa
+```
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ip_1 = require("./ip");
+const net_1 = __importDefault(require("net"));
+/**
+ * Returns the IP address of the host that the Navigator is running on, as
+ * a string in the dot-separated integer format.
+```
+
+### Object: 1900c466d9976153f17f51f9b02a8eb9b83c191c
+```
+/**
+ * Match result. Single element of array, returned by {@link LinkifyIt#match}.
+ */
+declare class Match {
+    constructor(self: LinkifyIt, shift: number);
+
+    /**
+     * First position of matched string.
+     */
+    index: number;
+```
+
+### Object: 1a01ceb1bcf4cc6176712142da200d0852819c79
+```
+'use strict';
+
+require('../auto');
+
+var runTests = require('./tests');
+
+var test = require('tape');
+var defineProperties = require('define-properties');
+var callBind = require('call-bind');
+var isEnumerable = Object.prototype.propertyIsEnumerable;
+```
+
+### Object: 1a028864b68508d02f51dbe655b05ec9e0c48520
+```
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.parse = exports.parseToExistingElement = exports.Absent = void 0;
+/**
+ * Copyright (C) 2016-2020 Michael Kourlas
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+```
+
+### Object: 1b026603469f17d48d251d9aaffffd09f96e625b
+```
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import fs from 'fs';
+import { rename, unlink, mkdtemp } from 'fs/promises';
+import os from 'os';
+import path from 'path';
+import { Browser as SupportedBrowsers, createProfile } from '@puppeteer/browsers';
+```
+
+### Object: 1c02e25020c96556edc8b8c4036474f7c3363e33
+```
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+```
+
+### Object: 1c02ecbb762f4ba3378b09f1546b7fa5295d1565
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.setDistinctDocs = void 0;
+var setDistinctDocs = exports.setDistinctDocs = {
+  name: 'setDistinct',
+  category: 'Set',
+  syntax: ['setDistinct(set)'],
+```
+
+### Object: 1c04e4e58b3f1ece836449ecdfd46d48f580b60e
+```
+{"version":3,"file":"WebWorker.js","sourceRoot":"","sources":["../../../../src/cdp/WebWorker.ts"],"names":[],"mappings":"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"}```
+
+### Object: 26028c9ca95d5726d34ec93e0d3cfc1584b81d94
+```
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var _getLength = require('./_getLength.js');
+var isFunction = require('./isFunction.js');
+var allKeys = require('./allKeys.js');
+
+// Since the regular `Object.prototype.toString` type tests don't work for
+// some types in IE 11, we use a fingerprinting heuristic instead, based
+// on the methods. It's not great, but it's the best we got.
+// The fingerprint method lists are defined below.
+```
+
+### Object: 27005a892d8dd4341db2ff590b8f01429b565598
+```
+/**
+ * Determines the type of the given collection, or returns false.
+ *
+ * @param {unknown} value The potential collection
+ * @returns {'Map' | 'Set' | 'WeakMap' | 'WeakSet' | false} 'Map' | 'Set' | 'WeakMap' | 'WeakSet' | false
+ */
+declare function whichCollection<K, V>(value: Map<K, V>): 'Map';
+declare function whichCollection<T>(value: Set<T>): 'Set';
+declare function whichCollection<K extends WeakKey, V>(value: WeakMap<K, V>): 'WeakMap';
+declare function whichCollection<T extends WeakKey>(value: WeakSet<T>): 'WeakSet';
+```
+
+### Object: 270272d3bd325e8be17b9784fc9a2b7d84acf096
+```
+/**
+ * DON'T EDIT THIS FILE.
+ * This file was generated by "scripts/update-lib-flat-configs.js" script.
+ */
+"use strict"
+
+module.exports = {
+    plugins: {
+        get "es-x"() {
+            return require("../../index.js")
+```
+
+### Object: 2b01d684b2b59c485434c3bb78adda94bb2e07ef
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.zetaDependencies = void 0;
+var _dependenciesAddGenerated = require("./dependenciesAdd.generated.js");
+var _dependenciesDivideGenerated = require("./dependenciesDivide.generated.js");
+var _dependenciesEqualGenerated = require("./dependenciesEqual.generated.js");
+var _dependenciesFactorialGenerated = require("./dependenciesFactorial.generated.js");
+```
+
+### Object: 2d0376542a7c2479ea3ecac47be959b64ff632bf
+```
+var convert = require('./convert'),
+    func = convert('difference', require('../difference'));
+
+func.placeholder = require('./placeholder');
+module.exports = func;
+```
+
+### Object: 2e0160533972438cecdb1c958ff383260bb02447
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.squareDependencies = void 0;
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+var _factoriesAny = require("../../factoriesAny.js");
+/**
+ * THIS FILE IS AUTO-GENERATED
+```
+
+### Object: 310374df6c89012050b18a7a66cd8ec61a4c77a4
+```
+"use strict";
+/**
+ * @license
+ * Copyright 2024 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createIncrementalIdGenerator = createIncrementalIdGenerator;
+/**
+ * @internal
+```
+
+### Object: 3200a6437fe970a78fb2f95ddc4e82b6091f5955
+```
+'use strict';
+
+var callBind = require('call-bind');
+var forEach = require('for-each');
+var gOPD = require('gopd');
+var hasProto = require('has-proto')();
+var isTypedArray = require('is-typed-array');
+
+var typedArrays = require('available-typed-arrays')();
+
+```
+
+### Object: 3300a079691488138b4443d8a8b72677ddccd253
+```
+/** Used to detect hot functions by number of calls within a span of milliseconds. */
+var HOT_COUNT = 800,
+    HOT_SPAN = 16;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeNow = Date.now;
+
+/**
+ * Creates a function that'll short out and invoke `identity` instead
+ * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+```
+
+### Object: 3b005c11450f068b131b79ca972b17e5fb44dc57
+```
+/**
+ * License for programmatically and manually incorporated
+ * documentation aka. `JSDoc` from https://github.com/nodejs/node/tree/master/doc
+ *
+ * Copyright Node.js contributors. All rights reserved.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+```
+
+### Object: 4303dc76185976300b6741ae57c7a5475d91c85c
+```
+{"version":3,"file":"cryptoNode.d.ts","sourceRoot":"","sources":["src/cryptoNode.ts"],"names":[],"mappings":"AASA,eAAO,MAAM,MAAM,EAAE,GAKJ,CAAC"}```
+
+### Object: 48016cca43799e97aa86fec5264b6854fe9f252c
+```
+import createAssigner from './_createAssigner.js';
+import allKeys from './allKeys.js';
+
+// Fill in a given object with default properties.
+export default createAssigner(allKeys, true);
+```
+
+### Object: 4d00d865062012093ba5c745f6ebb3208e1e4227
+```
+{"version":3,"file":"NetworkManager.d.ts","sourceRoot":"","sources":["../../../../src/cdp/NetworkManager.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,OAAO,KAAK,EAAC,QAAQ,EAAC,MAAM,mBAAmB,CAAC;AAEhD,OAAO,EAAkB,KAAK,UAAU,EAAC,MAAM,sBAAsB,CAAC;AACtE,OAAO,KAAK,EAAC,KAAK,EAAC,MAAM,iBAAiB,CAAC;AAC3C,OAAO,KAAK,EAAC,WAAW,EAAC,MAAM,gBAAgB,CAAC;AAChD,OAAO,EAAC,YAAY,EAAC,MAAM,2BAA2B,CAAC;AACvD,OAAO,EAEL,KAAK,oBAAoB,EAC1B,MAAM,mCAAmC,CAAC;AAY3C;;GAEG;AACH,MAAM,WAAW,iBAAiB;IAChC;;OAEG;IACH,QAAQ,EAAE,MAAM,CAAC;IACjB;;OAEG;IACH,MAAM,EAAE,MAAM,CAAC;IACf;;OAEG;IACH,OAAO,EAAE,MAAM,CAAC;CACjB;AAED;;GAEG;AACH,MAAM,WAAW,yBAA0B,SAAQ,iBAAiB;IAClE,OAAO,EAAE,OAAO,CAAC;CAClB;AAED;;GAEG;AACH,MAAM,WAAW,aAAa;IAC5B,KAAK,CAAC,EAAE,EAAE,MAAM,GAAG,KAAK,GAAG,IAAI,CAAC;CACjC;AAED;;GAEG;AACH,qBAAa,cAAe,SAAQ,YAAY,CAAC,oBAAoB,CAAC;;gBA2BxD,YAAY,EAAE,aAAa;IAKjC,SAAS,CAAC,MAAM,EAAE,UAAU,GAAG,OAAO,CAAC,IAAI,CAAC;IA6B5C,YAAY,CAAC,WAAW,EAAE,WAAW,GAAG,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;IAY5D,mBAAmB,CAAC,OAAO,EAAE,MAAM,CAAC,MAAM,EAAE,MAAM,CAAC,GAAG,OAAO,CAAC,IAAI,CAAC;IAuBzE,gBAAgB,IAAI,MAAM,CAAC,MAAM,EAAE,MAAM,CAAC;IAI1C,qBAAqB,IAAI,MAAM;IAIzB,cAAc,CAAC,KAAK,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;IAa7C,wBAAwB,CAC5B,iBAAiB,EAAE,iBAAiB,GAAG,IAAI,GAC1C,OAAO,CAAC,IAAI,CAAC;IA0CV,YAAY,CAChB,SAAS,EAAE,MAAM,EACjB,iBAAiB,CAAC,EAAE,QAAQ,CAAC,SAAS,CAAC,iBAAiB,GACvD,OAAO,CAAC,IAAI,CAAC;IAgBV,eAAe,CAAC,OAAO,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;IAKhD,sBAAsB,CAAC,KAAK,EAAE,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC;CAye5D"}```
+
+### Object: 4d024ac5a0ead447c079dd5963fd441a903e9b2c
+```
+{"version":3,"file":"DownloadBehavior.js","sourceRoot":"","sources":["../../../../src/common/DownloadBehavior.ts"],"names":[],"mappings":"AAAA;;;;GAIG"}```
+
+### Object: 4e01fc4b39ae8b599e5dbee9a5816fac5748d663
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createSign = void 0;
+var _factory = require("../../utils/factory.js");
+var _collection = require("../../utils/collection.js");
+var _index = require("../../plain/number/index.js");
+var name = 'sign';
+```
+
+### Object: 5400325c1abef2071d2c2e092f520f523f65fad1
+```
+var __addDisposableResource = (this && this.__addDisposableResource) || function (env, value, async) {
+    if (value !== null && value !== void 0) {
+        if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
+        var dispose, inner;
+        if (async) {
+            if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
+            dispose = value[Symbol.asyncDispose];
+        }
+        if (dispose === void 0) {
+            if (!Symbol.dispose) throw new TypeError("Symbol.dispose is not defined.");
+```
+
+### Object: 5402465a19b5b697128197df09d014c791542c51
+```
+'use strict';
+
+require('./isArguments');
+
+require('./shim');
+```
+
+### Object: 5b0332073f8b10e49cd84d24b5240b5a9812835e
+```
+/**
+ * http.js: Transport for outputting to a json-rpcserver.
+ *
+ * (C) 2010 Charlie Robbins
+ * MIT LICENCE
+ */
+
+'use strict';
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+```
+
+### Object: 5e034ee4574b8da02157f3aa6abc92e399fd7ed4
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { absDependencies } from './dependenciesAbs.generated.js';
+import { addScalarDependencies } from './dependenciesAddScalar.generated.js';
+import { deepEqualDependencies } from './dependenciesDeepEqual.generated.js';
+import { divideScalarDependencies } from './dependenciesDivideScalar.generated.js';
+import { multiplyScalarDependencies } from './dependenciesMultiplyScalar.generated.js';
+import { sqrtDependencies } from './dependenciesSqrt.generated.js';
+```
+
+### Object: 67017a41cd1c522a8b723b02a86149574f867b17
+```
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+```
+
+### Object: 6903faac220ae5753cf55206927bda88ed1d6e73
+```
+define(['./_createAssigner', './allKeys'], function (_createAssigner, allKeys) {
+
+	// Fill in a given object with default properties.
+	var defaults = _createAssigner(allKeys, true);
+
+	return defaults;
+
+});
+```
+
+### Object: 6a0120efd408d058efb63654fa055c918042a58e
+```
+var convert = require('./convert'),
+    func = convert('cond', require('../cond'), require('./_falseOptions'));
+
+func.placeholder = require('./placeholder');
+module.exports = func;
+```
+
+### Object: 6f01e44a346d705686d933b725404a7e24e65758
+```
+var convert = require('./convert'),
+    func = convert('cloneDeepWith', require('../cloneDeepWith'));
+
+func.placeholder = require('./placeholder');
+module.exports = func;
+```
+
+### Object: 7203ee62f7ee656b2cefdde105be24c6d857a4b8
+```
+# Basic FTP
+
+[![npm version](https://img.shields.io/npm/v/basic-ftp.svg)](https://www.npmjs.com/package/basic-ftp)
+[![npm downloads](https://img.shields.io/npm/dw/basic-ftp)](https://www.npmjs.com/package/basic-ftp)
+[![Node.js CI](https://github.com/patrickjuchli/basic-ftp/actions/workflows/nodejs.yml/badge.svg)](https://github.com/patrickjuchli/basic-ftp/actions/workflows/nodejs.yml)
+
+This is an FTP client library for Node.js. It supports FTPS over TLS, Passive Mode over IPv6, has a Promise-based API, and offers methods to operate on whole directories. Active Mode is not supported.
+
+## Advisory
+
+```
+
+### Object: 7401587a5cf54ce86d03095759daa0bdb93f7baf
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.sumTransformDependencies = void 0;
+var _dependenciesAddGenerated = require("./dependenciesAdd.generated.js");
+var _dependenciesNumericGenerated = require("./dependenciesNumeric.generated.js");
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+var _factoriesAny = require("../../factoriesAny.js");
+```
+
+### Object: 74025e8f0e1071fc1d510339c7cb72e31ae59a59
+```
+var baseIteratee = require('./_baseIteratee'),
+    basePullAll = require('./_basePullAll');
+
+/**
+ * This method is like `_.pullAll` except that it accepts `iteratee` which is
+ * invoked for each element of `array` and `values` to generate the criterion
+ * by which they're compared. The iteratee is invoked with one argument: (value).
+ *
+ * **Note:** Unlike `_.differenceBy`, this method mutates `array`.
+ *
+```
+
+### Object: 75004c5634130387521bb17af3ce767053768b44
+```
+{"version":3,"file":"util.js","sourceRoot":"","sources":["../src/util.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,yCAAyC;AAEzC;;GAEG;AACH,SAAgB,OAAO,CAAO,GAAc,EAAE,GAAM,EAAE,EAAW;IAC/D,MAAM,MAAM,GAAG,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC;IAC5B,IAAI,MAAM,KAAK,SAAS,EAAE;QACxB,OAAO,MAAM,CAAC;KACf;IACD,MAAM,MAAM,GAAG,EAAE,EAAE,CAAC;IACpB,GAAG,CAAC,GAAG,CAAC,GAAG,EAAE,MAAM,CAAC,CAAC;IACrB,OAAO,MAAM,CAAC;AAChB,CAAC;AARD,0BAQC;AAED,0EAA0E;AAC1E,4EAA4E;AAC5E,4DAA4D;AAC5D,sEAAsE;AACtE,6BAA6B;AAC7B;;GAEG;AACH,SAAgB,iBAAiB,CAC/B,MAAkC,EAClC,IAA4B;IAE5B,IACE,OAAO,IAAI,KAAK,QAAQ;QACxB,MAAM,CAAC,SAAS,CAAC,cAAc,CAAC,IAAI,CAAC,MAAM,EAAE,IAAI,CAAC,EAClD;QACA,OAAO,MAAM,CAAC,IAAI,CAAC,CAAC;KACrB;IAED,MAAM,UAAU,GAAG,OAAO,IAAI,KAAK,QAAQ,CAAC,CAAC,CAAC,IAAI,CAAC,KAAK,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,IAAI,CAAC;IACrE,8DAA8D;IAC9D,OAAO,UAAU,CAAC,MAAM,CAAC,CAAC,QAAa,EAAE,GAAG,EAAW,EAAE;QACvD,IAAI,QAAQ,KAAK,SAAS,EAAE;YAC1B,OAAO,QAAQ,CAAC;SACjB;QACD,OAAO,QAAQ,CAAC,GAAG,CAAC,CAAC;IACvB,CAAC,EAAE,MAAM,CAAC,CAAC;AACb,CAAC;AAnBD,8CAmBC;AAED,gBAAgB;AAChB,SAAgB,+BAA+B,CAC7C,OAAgC;IAEhC,OAAO,MAAM,CAAC,WAAW,CACvB,MAAM,CAAC,OAAO,CAAC,OAAO,CAAC,CAAC,MAAM,CAAC,CAAC,CAAC,EAAE,KAAK,CAAC,EAAE,EAAE,CAAC,KAAK,KAAK,SAAS,CAAC,CACnE,CAAC;AACJ,CAAC;AAND,0EAMC;AAED,gBAAgB;AAChB,uCAAuC;AAChC,KAAK,UAAU,WAAW,CAAC,IAAY;IAC5C,IAAI;QACF,MAAM,IAAI,GAAG,MAAM,aAAG,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;QAClC,OAAO,IAAI,CAAC,WAAW,EAAE,CAAC;KAC3B;IAAC,OAAO,CAAC,EAAE;QACV,IAAI,CAAC,CAAC,IAAI,KAAK,QAAQ,EAAE;YACvB,OAAO,KAAK,CAAC;SACd;QAED,MAAM,CAAC,CAAC;KACT;AACH,CAAC;AAXD,kCAWC;AAED,gBAAgB;AAChB,uCAAuC;AACvC,SAAgB,eAAe,CAAC,IAAY;IAC1C,IAAI;QACF,MAAM,IAAI,GAAG,YAAE,CAAC,QAAQ,CAAC,IAAI,CAAC,CAAC;QAC/B,OAAO,IAAI,CAAC,WAAW,EAAE,CAAC;KAC3B;IAAC,OAAO,CAAC,EAAE;QACV,IAAI,CAAC,CAAC,IAAI,KAAK,QAAQ,EAAE;YACvB,OAAO,KAAK,CAAC;SACd;QACD,MAAM,CAAC,CAAC;KACT;AACH,CAAC;AAVD,0CAUC"}```
+
+### Object: 77019cf911df57bfca65d797b37867ccaf238205
+```
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+var __addDisposableResource = (this && this.__addDisposableResource) || function (env, value, async) {
+    if (value !== null && value !== void 0) {
+        if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
+        var dispose, inner;
+        if (async) {
+```
+
+### Object: 7b0292f6d40ba1c00d9277224299ca922b3a9276
+```
+# is-array-buffer <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
+
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
+
+[![npm badge][npm-badge-png]][package-url]
+
+Is this value a JS ArrayBuffer? This module works cross-realm/iframe, does not depend on `instanceof` or mutable properties, and despite ES6 Symbol.toStringTag.
+```
+
+### Object: 7b03707e24f8dff102d3a351145f2ae3bed36959
+```
+export = assertMethodExists;
+/**
+ * Throws a TypeError when expected method doesn't exist
+ *
+ * @private
+ * @param {*} value A value to examine
+ * @param {string} method The name of the method to look for
+ * @param {name} name A name to use for the error message
+ * @param {string} methodPath The name of the method to use for error messages
+ * @throws {TypeError} When the method doesn't exist
+```
+
+### Object: 7f0190c09cb8fea1b366c1afe0b49ae929e593df
+```
+/**
+ * The `node:fs` module enables interacting with the file system in a
+ * way modeled on standard POSIX functions.
+ *
+ * To use the promise-based APIs:
+ *
+ * ```js
+ * import * as fs from 'node:fs/promises';
+ * ```
+ *
+```
+
+### Object: 8001ce1ba13516fa820d383d7e11ec7e8ab7718f
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { NodeDependencies } from './dependenciesNode.generated.js';
+import { createConditionalNode } from '../../factoriesAny.js';
+export var ConditionalNodeDependencies = {
+  NodeDependencies,
+  createConditionalNode
+};```
+
+### Object: 8002082b6e222401da7bf0f5cbb204bc48c083b8
+```
+cmake_minimum_required(VERSION 3.25)
+
+find_package(cmake-bare REQUIRED PATHS node_modules/cmake-bare)
+
+project(bare_os C)
+
+add_bare_module(bare_os)
+
+target_sources(
+  ${bare_os}
+```
+
+### Object: 80032c3c4a1179433a3af9a69360ae9aeeedc631
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.maxDependencies = void 0;
+var _dependenciesLargerGenerated = require("./dependenciesLarger.generated.js");
+var _dependenciesNumericGenerated = require("./dependenciesNumeric.generated.js");
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+var _factoriesAny = require("../../factoriesAny.js");
+```
+
+### Object: 830152f5c3d2d23aab84b54bab6695fba20285bb
+```
+{"version":3,"file":"helpers.js","sourceRoot":"","sources":["../../src/common/helpers.ts"],"names":[],"mappings":"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"}```
+
+### Object: 860234209bc51647d26a18266bea094b7aca6953
+```
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.blake3 = exports.BLAKE3 = void 0;
+/**
+ * Blake3 fast hash is Blake2 with reduced security (round count). Can also be used as MAC & KDF.
+ *
+ * It is advertised as "the fastest cryptographic hash". However, it isn't true in JS.
+ * Why is this so slow? While it should be 6x faster than blake2b, perf diff is only 20%:
+ *
+ * * There is only 30% reduction in number of rounds from blake2s
+```
+
+### Object: 8800f42046e3ed9e2843388b2816e304b0ae3668
+```
+module.exports = require('./forEach');
+```
+
+### Object: 8a039c116d7322a2533c5b20bf6bfcf0c0024fd9
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.normDependencies = void 0;
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+var _factoriesNumber = require("../../factoriesNumber.js");
+/**
+ * THIS FILE IS AUTO-GENERATED
+```
+
+### Object: 8e036e47651aca711ec5d3b204d4b163dd3f63ac
+```
+"use strict";
+/**
+ * Copyright 2024 Google LLC.
+ * Copyright (c) Microsoft Corporation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+```
+
+### Object: 900126ad0bf741e2f7fb426c9ea95d1124fe09bb
+```
+'use strict'
+
+const u = require('universalify').fromPromise
+const jsonFile = require('./jsonfile')
+
+jsonFile.outputJson = u(require('./output-json'))
+jsonFile.outputJsonSync = require('./output-json-sync')
+// aliases
+jsonFile.outputJSON = jsonFile.outputJson
+jsonFile.outputJSONSync = jsonFile.outputJsonSync
+```
+
+### Object: 9301c859f938a6ff4b1fae58d76b3f108d256a90
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.absDependencies = void 0;
+var _dependenciesTypedGenerated = require("./dependenciesTyped.generated.js");
+var _factoriesNumber = require("../../factoriesNumber.js");
+/**
+ * THIS FILE IS AUTO-GENERATED
+```
+
+### Object: 95000e508ee9c1d4b755ae96f749e81642f48364
+```
+{"version":3,"file":"merge.d.ts","sourceRoot":"","sources":["../src/merge.ts"],"names":[],"mappings":"AACA,eAAO,MAAM,MAAM,2CAElB,CAAC;AASF,MAAM,WAAW,YAAY;IAC3B,WAAW,EAAE,OAAO,CAAC;CACtB;AAuBD;;GAEG;AACH,wBAAgB,QAAQ,CAEtB,OAAO,EAAE,aAAa,CAAC,GAAG,CAAC,EAC3B,OAAO,EAAE,YAAY,GAEpB,GAAG,CAEL"}```
+
+### Object: 98003e51b06f395ee7b7e0ef0d54415f46b72412
+```
+/**
+ * @author Toru Nagashima <https://github.com/mysticatea>
+ * See LICENSE file in root directory for full license.
+ */
+"use strict"
+
+const { READ, ReferenceTracker } = require("@eslint-community/eslint-utils")
+const { getSourceCode } = require("eslint-compat-utils")
+
+module.exports = {
+```
+
+### Object: 9a02b6935ba008316f74b73376306a834121c9ce
+```
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { Deferred } from '../util/Deferred.js';
+import { rewriteError } from '../util/ErrorLike.js';
+import { createIncrementalIdGenerator } from '../util/incremental-id-generator.js';
+import { ProtocolError, TargetCloseError } from './Errors.js';
+import { debugError } from './util.js';
+```
+
+### Object: 9c035041e31504e9c5684921b21abe041049ec3a
+```
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { isDate, isPlainObject, isRegExp } from '../common/util.js';
+/**
+ * @internal
+ */
+class UnserializableError extends Error {
+```
+
+### Object: 9d014e616e65a8b64e6691fb67b9f1d71a07c847
+```
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import type {
+  Observable,
+  OperatorFunction,
+} from '../../../third_party/rxjs/rxjs.js';
+import {
+```
+
+### Object: 9d030e5b21db7d8c27f4a2f64caabf5b58c21f78
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { typedDependencies } from './dependenciesTyped.generated.js';
+import { createPickRandom } from '../../factoriesNumber.js';
+export var pickRandomDependencies = {
+  typedDependencies,
+  createPickRandom
+};```
+
+### Object: a102eed37029e6e96454b57d50a7511a521f59d4
+```
+import { isInteger } from '../../utils/number.js';
+import { product } from '../../utils/product.js';
+export function combinationsNumber(n, k) {
+  if (!isInteger(n) || n < 0) {
+    throw new TypeError('Positive integer value expected in function combinations');
+  }
+  if (!isInteger(k) || k < 0) {
+    throw new TypeError('Positive integer value expected in function combinations');
+  }
+  if (k > n) {
+```
+
+### Object: a303548671b246e3e8508ffab78b6e368f23d65b
+```
+/**
+ * @author Toru Nagashima <https://github.com/mysticatea>
+ * See LICENSE file in root directory for full license.
+ */
+"use strict"
+
+const { READ, ReferenceTracker } = require("eslint-utils")
+
+module.exports = {
+    meta: {
+```
+
+### Object: a30368675192785c97194c809ce6e605c1e39812
+```
+var arraySampleSize = require('./_arraySampleSize'),
+    baseSampleSize = require('./_baseSampleSize'),
+    isArray = require('./isArray'),
+    isIterateeCall = require('./_isIterateeCall'),
+    toInteger = require('./toInteger');
+
+/**
+ * Gets `n` random elements at unique keys from `collection` up to the
+ * size of `collection`.
+ *
+```
+
+### Object: ab012e5e9cc6c48c047b0354f89acf86ca6c4028
+```
+'use strict';
+
+var test = require('tape');
+var gPO = require('reflect.getprototypeof/polyfill')();
+var gOPD = require('gopd');
+
+var hasProto = require('../');
+
+var getter = require('dunder-proto/get');
+
+```
+
+### Object: af01e2e9bfb5622b8b2b3e74d39983667865a026
+```
+declare function pkgDir(cwd: string): string | null;
+
+export default pkgDir;
+```
+
+### Object: b201aa316090fcb2a6e495b841ab98990131a09a
+```
+import { isMatrix } from '../../utils/is.js';
+import { format } from '../../utils/string.js';
+import { arraySize } from '../../utils/array.js';
+import { factory } from '../../utils/factory.js';
+var name = 'sqrtm';
+var dependencies = ['typed', 'abs', 'add', 'multiply', 'map', 'sqrt', 'subtract', 'inv', 'size', 'max', 'identity'];
+export var createSqrtm = /* #__PURE__ */factory(name, dependencies, _ref => {
+  var {
+    typed,
+    abs,
+```
+
+### Object: b5007cab85a47944eb1393fa7d465a5785a9b1d8
+```
+/**
+ * @license
+ * Copyright 2022 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import type { Protocol } from 'devtools-protocol';
+import type { CDPSession } from '../api/CDPSession.js';
+import type { EventEmitter, EventType } from '../common/EventEmitter.js';
+import type { CdpTarget } from './Target.js';
+/**
+```
+
+### Object: b90098e6da98ca9b161c984b474e6233248ca1ef
+```
+var baseUpdate = require('./_baseUpdate'),
+    castFunction = require('./_castFunction');
+
+/**
+ * This method is like `_.set` except that accepts `updater` to produce the
+ * value to set. Use `_.updateWith` to customize `path` creation. The `updater`
+ * is invoked with one argument: (value).
+ *
+ * **Note:** This method mutates `object`.
+ *
+```
+
+### Object: ba03100b0c73a108d6d872313bc9bfa593ac52cf
+```
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [v1.1.0](https://github.com/inspect-js/get-symbol-description/compare/v1.0.2...v1.1.0) - 2024-12-17
+
+### Commits
+```
+
+### Object: c103cc74e792e7cf9d739d5e5f512e50882865ba
+```
+var root = require('./_root'),
+    stubFalse = require('./stubFalse');
+
+/** Detect free variable `exports`. */
+var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+```
+
+### Object: c500aa1cf1078e4ddea07e712b61a9dd5e4b027d
+```
+{"version":3,"file":"cdp.d.ts","sourceRoot":"","sources":["../../../../src/cdp/cdp.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,cAAc,oBAAoB,CAAC;AACnC,cAAc,uBAAuB,CAAC;AACtC,cAAc,cAAc,CAAC;AAC7B,cAAc,cAAc,CAAC;AAC7B,cAAc,qBAAqB,CAAC;AACpC,cAAc,uBAAuB,CAAC;AACtC,cAAc,iBAAiB,CAAC;AAChC,cAAc,0BAA0B,CAAC;AACzC,cAAc,iBAAiB,CAAC;AAChC,cAAc,eAAe,CAAC;AAC9B,cAAc,uBAAuB,CAAC;AACtC,cAAc,0BAA0B,CAAC;AACzC,cAAc,aAAa,CAAC;AAC5B,cAAc,oBAAoB,CAAC;AACnC,cAAc,uBAAuB,CAAC;AACtC,cAAc,uBAAuB,CAAC;AACtC,cAAc,yBAAyB,CAAC;AACxC,cAAc,2BAA2B,CAAC;AAC1C,cAAc,YAAY,CAAC;AAC3B,cAAc,mBAAmB,CAAC;AAClC,cAAc,yBAAyB,CAAC;AACxC,cAAc,gBAAgB,CAAC;AAC/B,cAAc,kBAAkB,CAAC;AACjC,cAAc,mBAAmB,CAAC;AAClC,cAAc,YAAY,CAAC;AAC3B,cAAc,oBAAoB,CAAC;AACnC,cAAc,qBAAqB,CAAC;AACpC,cAAc,eAAe,CAAC;AAC9B,cAAc,uBAAuB,CAAC;AACtC,cAAc,0BAA0B,CAAC;AACzC,cAAc,qBAAqB,CAAC;AACpC,cAAc,WAAW,CAAC;AAC1B,cAAc,kCAAkC,CAAC;AACjD,cAAc,aAAa,CAAC;AAC5B,cAAc,oBAAoB,CAAC;AACnC,cAAc,cAAc,CAAC;AAC7B,cAAc,YAAY,CAAC;AAC3B,cAAc,gBAAgB,CAAC"}```
+
+### Object: c600267b61522eabbf0a1715177261b7630e63a5
+```
+{
+  "name": "universal-life-protocol-mcp",
+  "version": "1.0.0",
+  "description": "Advanced MCP Integration Server for Universal Life Protocol - Consciousness simulation with AgentRPC, A2A Gateway, and Browser automation capabilities",
+  "main": "ulp-mcp-server.js",
+  "type": "commonjs",
+  "bin": {
+    "ulp-mcp": "./ulp-mcp-server.js"
+  },
+  "scripts": {
+```
+
+### Object: c603a8445c14e4e7f44e56b5c8a3b51e317c66c5
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createLargerNumber = exports.createLarger = void 0;
+var _nearlyEqual = require("../../utils/bignumber/nearlyEqual.js");
+var _number = require("../../utils/number.js");
+var _factory = require("../../utils/factory.js");
+var _matAlgo03xDSf = require("../../type/matrix/utils/matAlgo03xDSf.js");
+```
+
+### Object: cb01c2e8d083c9f6a8f3f199d67f28f2d56f5c44
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { typedDependencies } from './dependenciesTyped.generated.js';
+import { createLog } from '../../factoriesNumber.js';
+export var logDependencies = {
+  typedDependencies,
+  createLog
+};```
+
+### Object: cc0030f77f9802824fe4ef68984a96c442179397
+```
+{"version":3,"file":"QueryHandler.js","sourceRoot":"","sources":["../../../../src/common/QueryHandler.ts"],"names":[],"mappings":"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"}```
+
+### Object: cf001acd85d818f7cfa73143925faa669236fee9
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.lupDependencies = void 0;
+var _dependenciesDenseMatrixClassGenerated = require("./dependenciesDenseMatrixClass.generated.js");
+var _dependenciesSpaClassGenerated = require("./dependenciesSpaClass.generated.js");
+var _dependenciesSparseMatrixClassGenerated = require("./dependenciesSparseMatrixClass.generated.js");
+var _dependenciesAbsGenerated = require("./dependenciesAbs.generated.js");
+```
+
+### Object: d1032cdb151b85e16e3c39779ee8e49f441cf901
+```
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+```
+
+### Object: d602ece052e9dc474776c203b2f7a475e2119676
+```
+import{r as s,j as e,T as F,D as M,M as E,a as B,W as C,b as U,c as z,d as I}from"./assets/defaultSettingsView-CUd-tHFm.js";const A=({className:n,style:o,open:r,width:a,verticalOffset:d,requestClose:u,anchor:h,dataTestId:T,children:y})=>{const w=s.useRef(null),[b,x]=s.useState(0);let S=o;if(h!=null&&h.current){const g=h.current.getBoundingClientRect();S={position:"fixed",margin:0,top:g.bottom+(d??0),left:O(g,a),width:a,zIndex:1,...o}}return s.useEffect(()=>{const g=j=>{!w.current||!(j.target instanceof Node)||w.current.contains(j.target)||u==null||u()},p=j=>{j.key==="Escape"&&(u==null||u())};return r?(document.addEventListener("mousedown",g),document.addEventListener("keydown",p),()=>{document.removeEventListener("mousedown",g),document.removeEventListener("keydown",p)}):()=>{}},[r,u]),s.useEffect(()=>{const g=()=>x(p=>p+1);return window.addEventListener("resize",g),()=>{window.removeEventListener("resize",g)}},[]),r&&e.jsx("dialog",{ref:w,style:S,className:n,"data-testid":T,open:!0,children:y})},O=(n,o)=>{const r=N(n,o,"left");if(r.inBounds)return r.value;const a=N(n,o,"right");return a.inBounds?a.value:r.value},N=(n,o,r)=>{const a=document.documentElement.clientWidth;if(r==="left"){const d=n.left;return{value:d,inBounds:d+o<=a}}else return{value:n.right-o,inBounds:n.right-o>=0}},V=()=>{const n=s.useRef(null),[o,r]=s.useState(!1);return e.jsxs(e.Fragment,{children:[e.jsx(F,{ref:n,icon:"settings-gear",title:"Settings",onClick:()=>r(a=>!a)}),e.jsx(A,{style:{backgroundColor:"var(--vscode-sideBar-background)",padding:"4px 8px"},open:o,width:200,verticalOffset:8,requestClose:()=>r(!1),anchor:n,dataTestId:"settings-toolbar-dialog",children:e.jsx(M,{})})]})},$=()=>{const[n,o]=s.useState(!1),[r,a]=s.useState([]),[d,u]=s.useState([]),[h,T]=s.useState(D),[y,w]=s.useState({done:0,total:0}),[b,x]=s.useState(!1),[S,g]=s.useState(null),[p,j]=s.useState(null),L=s.useCallback(t=>{const c=[],l=[],i=new URL(window.location.href);for(let f=0;f<t.length;f++){const v=t.item(f);if(!v)continue;const R=URL.createObjectURL(v);c.push(R),l.push(v.name),i.searchParams.append("trace",R),i.searchParams.append("traceFileName",v.name)}const m=i.toString();window.history.pushState({},"",m),a(c),u(l),x(!1),g(null)},[]);s.useEffect(()=>{const t=async c=>{var l;if((l=c.clipboardData)!=null&&l.files.length){for(const i of c.clipboardData.files)if(i.type!=="application/zip")return;c.preventDefault(),L(c.clipboardData.files)}};return document.addEventListener("paste",t),()=>document.removeEventListener("paste",t)}),s.useEffect(()=>{const t=c=>{const{method:l,params:i}=c.data;if(l!=="load"||!((i==null?void 0:i.trace)instanceof Blob))return;const m=new File([i.trace],"trace.zip",{type:"application/zip"}),f=new DataTransfer;f.items.add(m),L(f.files)};return window.addEventListener("message",t),()=>window.removeEventListener("message",t)});const P=s.useCallback(t=>{t.preventDefault(),L(t.dataTransfer.files)},[L]),W=s.useCallback(t=>{t.preventDefault(),t.target.files&&L(t.target.files)},[L]);s.useEffect(()=>{const t=new URL(window.location.href).searchParams,c=t.getAll("trace");o(t.has("isServer"));for(const l of c)if(l.startsWith("file:")){j(l||null);return}if(t.has("isServer")){const l=new URLSearchParams(window.location.search).get("ws"),i=new URL(`../${l}`,window.location.toString());i.protocol=window.location.protocol==="https:"?"wss:":"ws:";const m=new B(new C(i));m.onLoadTraceRequested(async f=>{a(f.traceUrl?[f.traceUrl]:[]),x(!1),g(null)}),m.initialize({}).catch(()=>{})}else c.some(l=>l.startsWith("blob:"))||a(c)},[]),s.useEffect(()=>{(async()=>{if(r.length){const t=i=>{i.data.method==="progress"&&w(i.data.params)};navigator.serviceWorker.addEventListener("message",t),w({done:0,total:1});const c=[];for(let i=0;i<r.length;i++){const m=r[i],f=new URLSearchParams;f.set("trace",m),d.length&&f.set("traceFileName",d[i]),f.set("limit",String(r.length));const v=await fetch(`contexts?${f.toString()}`);if(!v.ok){n||a([]),g((await v.json()).error);return}c.push(...await v.json())}navigator.serviceWorker.removeEventListener("message",t);const l=new E(c);w({done:0,total:0}),T(l)}else T(D)})()},[n,r,d]);const k=!!(!n&&!b&&!p&&(!r.length||S));return e.jsxs("div",{className:"vbox workbench-loader",onDragOver:t=>{t.preventDefault(),x(!0)},children:[e.jsxs("div",{className:"hbox header",...k?{inert:"true"}:{},children:[e.jsx("div",{className:"logo",children:e.jsx("img",{src:"playwright-logo.svg",alt:"Playwright logo"})}),e.jsx("div",{className:"product",children:"Playwright"}),h.title&&e.jsx("div",{className:"title",children:h.title}),e.jsx("div",{className:"spacer"}),e.jsx(V,{})]}),e.jsx("div",{className:"progress",children:e.jsx("div",{className:"inner-progress",style:{width:y.total?100*y.done/y.total+"%":0}})}),e.jsx(U,{model:h,inert:k}),p&&e.jsxs("div",{className:"drop-target",children:[e.jsx("div",{children:"Trace Viewer uses Service Workers to show traces. To view trace:"}),e.jsxs("div",{style:{paddingTop:20},children:[e.jsxs("div",{children:["1. Click ",e.jsx("a",{href:p,children:"here"})," to put your trace into the download shelf"]}),e.jsxs("div",{children:["2. Go to ",e.jsx("a",{href:"https://trace.playwright.dev",children:"trace.playwright.dev"})]}),e.jsx("div",{children:"3. Drop the trace from the download shelf into the page"})]})]}),k&&e.jsxs("div",{className:"drop-target",children:[e.jsx("div",{className:"processing-error",role:"alert",children:S}),e.jsx("div",{className:"title",role:"heading","aria-level":1,children:"Drop Playwright Trace to load"}),e.jsx("div",{children:"or"}),e.jsx("button",{onClick:()=>{const t=document.createElement("input");t.type="file",t.multiple=!0,t.click(),t.addEventListener("change",c=>W(c))},type:"button",children:"Select file(s)"}),e.jsx("div",{style:{maxWidth:400},children:"Playwright Trace Viewer is a Progressive Web App, it does not send your trace anywhere, it opens it locally."})]}),n&&!r.length&&e.jsx("div",{className:"drop-target",children:e.jsx("div",{className:"title",children:"Select test to see the trace"})}),b&&e.jsx("div",{className:"drop-target",onDragLeave:()=>{x(!1)},onDrop:t=>P(t),children:e.jsx("div",{className:"title",children:"Release to analyse the Playwright Trace"})})]})},D=new E([]),G=({traceJson:n})=>{const[o,r]=s.useState(void 0),[a,d]=s.useState(0),u=s.useRef(null);return s.useEffect(()=>(u.current&&clearTimeout(u.current),u.current=setTimeout(async()=>{try{const h=await H(n);r(h)}catch{const h=new E([]);r(h)}finally{d(a+1)}},500),()=>{u.current&&clearTimeout(u.current)}),[n,a]),e.jsx(U,{model:o,isLive:!0})};async function H(n){const o=new URLSearchParams;o.set("trace",n),o.set("limit","1");const a=await(await fetch(`contexts?${o.toString()}`)).json();return new E(a)}(async()=>{const n=new URLSearchParams(window.location.search);if(z(),window.location.protocol!=="file:"){if(n.get("isUnderTest")==="true"&&await new Promise(d=>setTimeout(d,1e3)),!navigator.serviceWorker)throw new Error(`Service workers are not supported.
+Make sure to serve the Trace Viewer (${window.location}) via HTTPS or localhost.`);navigator.serviceWorker.register("sw.bundle.js"),navigator.serviceWorker.controller||await new Promise(d=>{navigator.serviceWorker.oncontrollerchange=()=>d()}),setInterval(function(){fetch("ping")},1e4)}const o=n.get("trace"),a=(o==null?void 0:o.endsWith(".json"))?e.jsx(G,{traceJson:o}):e.jsx($,{});I.createRoot(document.querySelector("#root")).render(a)})();
+```
+
+### Object: d6035af1721e3bdaaeb6251faf555760bbedf3e0
+```
+var MapCache = require('./_MapCache');
+
+/** Error message constants. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/**
+ * Creates a function that memoizes the result of `func`. If `resolver` is
+ * provided, it determines the cache key for storing the result based on the
+ * arguments provided to the memoized function. By default, the first argument
+ * provided to the memoized function is used as the map cache key. The `func`
+```
+
+### Object: d702faa0472f68da1227067082205b76ed9caefa
+```
+import { factory } from '../../../utils/factory.js';
+var name = 'matAlgo12xSfs';
+var dependencies = ['typed', 'DenseMatrix'];
+export var createMatAlgo12xSfs = /* #__PURE__ */factory(name, dependencies, _ref => {
+  var {
+    typed,
+    DenseMatrix
+  } = _ref;
+  /**
+   * Iterates over SparseMatrix S nonzero items and invokes the callback function f(Sij, b).
+```
+
+### Object: d90086af8fa643f206596591ff9eb0a090f474ef
+```
+{"version":3,"file":"DeviceRequestPrompt.js","sourceRoot":"","sources":["../../../../src/cdp/DeviceRequestPrompt.ts"],"names":[],"mappings":"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"}```
+
+### Object: db02fed92d61ebee4268e28a695e3c0b87896e40
+```
+'use strict';
+
+var $TypeError = require('es-errors/type');
+var isObject = require('es-object-atoms/isObject');
+var inspect = require('object-inspect');
+
+var Call = require('./Call');
+var Get = require('./Get');
+var GetIterator = require('./GetIterator');
+var IsCallable = require('./IsCallable');
+```
+
+### Object: dd01740af13fe43bd2b136b1a022e210f32b9f72
+```
+'use strict';
+
+var define = require('define-properties');
+var getPolyfill = require('./polyfill');
+
+module.exports = function shimArrayPrototypeIncludes() {
+	var polyfill = getPolyfill();
+	define(
+		Array.prototype,
+		{ includes: polyfill },
+```
+
+### Object: de0220ea044cd6c4baebee14b009d99c1cf07f18
+```
+var _baseCreate = require('./_baseCreate.js');
+var isObject = require('./isObject.js');
+
+// Internal function to execute `sourceFunc` bound to `context` with optional
+// `args`. Determines whether to execute a function as a constructor or as a
+// normal function.
+function executeBound(sourceFunc, boundFunc, context, callingContext, args) {
+  if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+  var self = _baseCreate(sourceFunc.prototype);
+  var result = sourceFunc.apply(self, args);
+```
+
+### Object: e00166c206c610aac78f792ec4afc7cc362b94f5
+```
+module.exports = require('./assignIn');
+```
+
+### Object: e00294f34ec44f3fdf991443bd1b2787bbc824b1
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { typedDependencies } from './dependenciesTyped.generated.js';
+import { createIsInteger } from '../../factoriesNumber.js';
+export var isIntegerDependencies = {
+  typedDependencies,
+  createIsInteger
+};```
+
+### Object: e2032a16069e5d3e985a425242199b4e56d4a993
+```
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;;;;;AAAA,kDAAgC;AAGhC,qBAAqB;AACrB,iCAA8B;AAC9B,iCAA8B;AAC9B,+BAA4B;AAC5B,iCAA8B;AAC9B,mCAAgC;AAEhC,MAAM,KAAK,GAAG,IAAA,eAAW,EAAC,SAAS,CAAC,CAAC;AAOxB,QAAA,SAAS,GAAG;IACxB,IAAI,EAAJ,WAAI;IACJ,IAAI,EAAJ,WAAI;IACJ,GAAG,EAAH,SAAG;IACH,IAAI,EAAJ,WAAI;IACJ,KAAK,EAAL,aAAK;CACL,CAAC;AAcF,MAAM,eAAe,GAAG,IAAI,GAAG,CAAC,MAAM,CAAC,IAAI,CAAC,iBAAS,CAAC,CAAC,CAAC;AAExD,SAAgB,eAAe,CAAC,CAAS;IACxC,OAAO,eAAe,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC;AAFD,0CAEC;AAED;;;;;;;;;;;;;;GAcG;AACI,KAAK,UAAU,MAAM,CAC3B,GAAc,EACd,IAAwB;IAExB,KAAK,CAAC,YAAY,EAAE,GAAG,CAAC,CAAC;IAEzB,IAAI,CAAC,GAAG,EAAE;QACT,MAAM,IAAI,SAAS,CAAC,kCAAkC,CAAC,CAAC;KACxD;IAED,MAAM,GAAG,GAAG,OAAO,GAAG,KAAK,QAAQ,CAAC,CAAC,CAAC,IAAI,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC;IAEzD,qBAAqB;IACrB,MAAM,QAAQ,GAAG,GAAG,CAAC,QAAQ,CAAC,OAAO,CAAC,IAAI,EAAE,EAAE,CAAC,CAAC;IAChD,IAAI,CAAC,eAAe,CAAC,QAAQ,CAAC,EAAE;QAC/B,MAAM,IAAI,SAAS,CAClB,yBAAyB,QAAQ,wBAAwB,GAAG,GAAG,CAC/D,CAAC;KACF;IAED,MAAM,MAAM,GAAG,iBAAS,CAAC,QAAQ,CAAC,CAAC;IACnC,OAAO,MAAM,CAAC,GAAG,EAAE,IAAa,CAAC,CAAC;AACnC,CAAC;AAtBD,wBAsBC"}```
+
+### Object: e50230cb280990f25e0e92b9c3d80375d59fc480
+```
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for seedrandom/lib/xorshift7.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+```
+
+### Object: f00310bc916842639ad5671b090994da46b7673c
+```
+(The BSD License)
+
+Copyright (c) 2010-2012, Christian Johansen, christian@cjohansen.no and
+August Lilleaas, august.lilleaas@gmail.com. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+```
+
+### Object: f300f41c15463d04e8d52cfcf3b511bc97db6d8f
+```
+/**
+ * THIS FILE IS AUTO-GENERATED
+ * DON'T MAKE CHANGES HERE
+ */
+import { typedDependencies } from './dependenciesTyped.generated.js';
+import { createForEachTransform } from '../../factoriesNumber.js';
+export var forEachTransformDependencies = {
+  typedDependencies,
+  createForEachTransform
+};```
+
+### Object: fb009abaed247561dac416ce3e84805ff98a3b43
+```
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"rules": {
+		"eqeqeq": [2, "allow-null"],
+		"id-length": 0,
+		"no-invalid-this": "off",
+	},
+```
+
+### Object: fc02a88e84698ffb5e5854028a819810fa15ae2f
+```
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = exports.default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/i;```
+

@@ -1,0 +1,20 @@
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import { isDate, isPlainObject, isRegExp } from '../common/util.js';
+/**
+ * @internal
+ */
+class UnserializableError extends Error {
+}
+/**
+ * @internal
+ */
+export class BidiSerializer {
+    static serialize(arg) {
+        switch (typeof arg) {
+            case 'symbol':
+            case 'function':
+                throw new UnserializableError(`Unable to serializable ${typeof arg}`);

@@ -1,0 +1,20 @@
+# is-array-buffer <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
+
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
+
+[![npm badge][npm-badge-png]][package-url]
+
+Is this value a JS ArrayBuffer? This module works cross-realm/iframe, does not depend on `instanceof` or mutable properties, and despite ES6 Symbol.toStringTag.
+
+## Example
+
+```js
+var assert = require('assert');
+var isArrayBuffer = require('is-array-buffer');
+
+assert(!isArrayBuffer(function () {}));
+assert(!isArrayBuffer(null));
+assert(!isArrayBuffer(function* () { yield 42; return Infinity; });

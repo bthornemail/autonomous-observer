@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred Geometry QR Codes - Instant Access</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at center, #001122 0%, #000000 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #FFD700;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .qr-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .qr-card h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        .qr-canvas {
+            background: white;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .description {
+            color: #CCCCCC;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .url-display {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 1rem 0;
+            color: #FFD700;
+        }
+        .download-btn {
+            background: linear-gradient(45deg, #FFD700, #FF8C00);
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 1.5rem;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        .usage-examples {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .example-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌸 Sacred Geometry QR Codes - Instant Access</h1>
+        <p style="font-size: 1.2rem; color: #CCCCCC; margin-bottom: 3rem;">
+            Generate QR codes for instant access to Sacred Geometry Harmony tools. 
+            Anyone can scan and start calculating their harmony in seconds.
+        </p>
+
+        <div class="qr-grid">
+            <!-- Main App QR Code -->
+            <div class="qr-card">
+                <h3>🌟 Main App Access</h3>
+                <canvas id="mainAppQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Scan to access the complete Sacred Geometry Harmony application with all three tools:
+                    harmony calculator, 3D visualizer, and meditation companion.
+                </div>
+                <div class="url-display" id="mainAppURL">https://sacred-geometry.app</div>
+                <button class="download-btn" onclick="downloadQR('mainAppQR', 'Sacred-Geometry-App')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('mainAppURL')">📋 Copy URL</button>
+            </div>
+
+            <!-- Direct Harmony Calculator -->
+            <div class="qr-card">
+                <h3>📐 Harmony Calculator</h3>
+                <canvas id="harmonyQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Direct access to the Personal Harmony Calculator. Scan to immediately calculate 
+                    your harmony score using sacred mathematics.
+                </div>
+                <div class="url-display" id="harmonyURL">https://sacred-geometry.app?tool=harmony</div>
+                <button class="download-btn" onclick="downloadQR('harmonyQR', 'Harmony-Calculator')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('harmonyURL')">📋 Copy URL</button>
+            </div>
+
+            <!-- Direct Meditation -->
+            <div class="qr-card">
+                <h3>🧘 Instant Meditation</h3>
+                <canvas id="meditationQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Skip to guided meditation with phi breathing and sacred patterns. 
+                    Perfect for wellness events and meditation groups.
+                </div>
+                <div class="url-display" id="meditationURL">https://sacred-geometry.app?tool=meditation</div>
+                <button class="download-btn" onclick="downloadQR('meditationQR', 'Sacred-Meditation')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('meditationURL')">📋 Copy URL</button>
+            </div>
+
+            <!-- Educational Demo -->
+            <div class="qr-card">
+                <h3>📚 Educational Demo</h3>
+                <canvas id="demoQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Perfect for presentations, conferences, and teaching. Shows golden ratio 
+                    examples in nature with interactive 3D sacred geometry.
+                </div>
+                <div class="url-display" id="demoURL">https://sacred-geometry.app?mode=demo&autoplay=true</div>
+                <button class="download-btn" onclick="downloadQR('demoQR', 'Sacred-Geometry-Demo')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('demoURL')">📋 Copy URL</button>
+            </div>
+
+            <!-- Social Media Share -->
+            <div class="qr-card">
+                <h3>📲 Social Share</h3>
+                <canvas id="shareQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Optimized for social media sharing. Includes pre-filled sharing text 
+                    about sacred geometry and personal harmony.
+                </div>
+                <div class="url-display" id="shareURL">https://sacred-geometry.app?share=true&utm_source=qr&utm_campaign=social</div>
+                <button class="download-btn" onclick="downloadQR('shareQR', 'Social-Share')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('shareURL')">📋 Copy URL</button>
+            </div>
+
+            <!-- Claude MCP Integration -->
+            <div class="qr-card">
+                <h3>🤖 AI Assistant</h3>
+                <canvas id="mcpQR" class="qr-canvas"></canvas>
+                <div class="description">
+                    Instructions for using Sacred Geometry with Claude AI assistant. 
+                    Natural language harmony calculations and meditation guidance.
+                </div>
+                <div class="url-display" id="mcpURL">https://sacred-geometry.app/claude-integration</div>
+                <button class="download-btn" onclick="downloadQR('mcpQR', 'Claude-Integration')">📥 Download PNG</button>
+                <button class="download-btn" onclick="copyURL('mcpURL')">📋 Copy URL</button>
+            </div>
+        </div>
+
+        <div class="usage-examples">
+            <h2 style="color: #FFD700;">🎯 Usage Examples</h2>
+            
+            <div class="example-item">
+                <h4>📄 Business Cards & Marketing</h4>
+                <p>Print the main app QR code on business cards, flyers, and promotional materials. 
+                People can instantly access your sacred geometry tools without typing URLs.</p>
+            </div>
+
+            <div class="example-item">
+                <h4>🎤 Conference Presentations</h4>
+                <p>Display the educational demo QR code on presentation slides. Audience members 
+                can follow along with interactive 3D sacred geometry examples on their phones.</p>
+            </div>
+
+            <div class="example-item">
+                <h4>🧘 Wellness Events</h4>
+                <p>Use the meditation QR code at yoga studios, wellness centers, and spiritual 
+                gatherings. Participants can access guided meditation immediately.</p>
+            </div>
+
+            <div class="example-item">
+                <h4>📱 Social Media Posts</h4>
+                <p>Include QR codes in Instagram stories, Facebook posts, and Twitter content. 
+                Followers can scan to calculate their harmony and share results.</p>
+            </div>
+
+            <div class="example-item">
+                <h4>📧 Email Signatures</h4>
+                <p>Add a small QR code to email signatures linking to the harmony calculator. 
+                Professional yet personal way to share sacred geometry tools.</p>
+            </div>
+
+            <div class="example-item">
+                <h4>🤖 AI Integration</h4>
+                <p>Share the Claude integration QR code with AI enthusiasts. They can learn 
+                how to use sacred geometry through natural conversation with Claude.</p>
+            </div>
+        </div>
+
+        <div style="margin: 3rem 0; padding: 2rem; background: rgba(0, 255, 255, 0.1); border-radius: 15px;">
+            <h3>✨ Zero-Friction User Experience</h3>
+            <p>These QR codes enable the ultimate seamless access:</p>
+            <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+                <li><strong>See QR Code</strong> → On business card, flyer, social media, etc.</li>
+                <li><strong>Scan with Phone</strong> → Any smartphone camera app</li>
+                <li><strong>Tap Link</strong> → Opens web app instantly</li>
+                <li><strong>Calculate Harmony</strong> → Enter name, get results in 30 seconds</li>
+                <li><strong>Share Results</strong> → One-tap social media sharing</li>
+                <li><strong>Install App</strong> → "Add to Home Screen" for future use</li>
+            </ol>
+            <p style="margin-top: 1rem; font-style: italic; color: #FFD700;">
+                No downloads, no accounts, no technical knowledge required. Just scan and discover your harmony!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Generate QR codes for different access points
+        const qrConfigs = [
+            {
+                canvasId: 'mainAppQR',
+                url: 'https://sacred-geometry.app',
+                size: 200
+            },
+            {
+                canvasId: 'harmonyQR', 
+                url: 'https://sacred-geometry.app?tool=harmony',
+                size: 200
+            },
+            {
+                canvasId: 'meditationQR',
+                url: 'https://sacred-geometry.app?tool=meditation', 
+                size: 200
+            },
+            {
+                canvasId: 'demoQR',
+                url: 'https://sacred-geometry.app?mode=demo&autoplay=true',
+                size: 200
+            },
+            {
+                canvasId: 'shareQR',
+                url: 'https://sacred-geometry.app?share=true&utm_source=qr&utm_campaign=social',
+                size: 200
+            },
+            {
+                canvasId: 'mcpQR',
+                url: 'https://sacred-geometry.app/claude-integration',
+                size: 200
+            }
+        ]
+
+        // Generate all QR codes
+        window.addEventListener('load', function() {
+            qrConfigs.forEach(config => {
+                const canvas = document.getElementById(config.canvasId)
+                if (canvas) {
+                    QRCode.toCanvas(canvas, config.url, {
+                        width: config.size,
+                        height: config.size,
+                        colorDark: '#000000',
+                        colorLight: '#FFFFFF',
+                        margin: 2,
+                        correctLevel: QRCode.CorrectLevel.M
+                    }, function(error) {
+                        if (error) console.error(`Error generating QR for ${config.canvasId}:`, error)
+                    })
+                }
+            })
+        })
+
+        // Download QR code as PNG
+        function downloadQR(canvasId, filename) {
+            const canvas = document.getElementById(canvasId)
+            const link = document.createElement('a')
+            link.download = `${filename}-QR-Code.png`
+            link.href = canvas.toDataURL('image/png')
+            link.click()
+        }
+
+        // Copy URL to clipboard
+        function copyURL(urlElementId) {
+            const urlElement = document.getElementById(urlElementId)
+            const url = urlElement.textContent
+            
+            navigator.clipboard.writeText(url).then(function() {
+                // Visual feedback
+                const originalText = urlElement.textContent
+                urlElement.textContent = '✅ Copied to clipboard!'
+                urlElement.style.color = '#00ff00'
+                
+                setTimeout(function() {
+                    urlElement.textContent = originalText
+                    urlElement.style.color = '#FFD700'
+                }, 2000)
+            }).catch(function(error) {
+                console.error('Could not copy URL: ', error)
+                // Fallback: select text for manual copy
+                const range = document.createRange()
+                range.selectNodeContents(urlElement)
+                const selection = window.getSelection()
+                selection.removeAllRanges()
+                selection.addRange(range)
+            })
+        }
+    </script>
+</body>
+</html>

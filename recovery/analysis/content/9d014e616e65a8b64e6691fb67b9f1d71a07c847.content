@@ -1,0 +1,20 @@
+/**
+ * @license
+ * Copyright 2023 Google Inc.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import type {
+  Observable,
+  OperatorFunction,
+} from '../../../third_party/rxjs/rxjs.js';
+import {
+  EMPTY,
+  catchError,
+  defaultIfEmpty,
+  defer,
+  filter,
+  first,
+  firstValueFrom,
+  from,
+  identity,
+  ignoreElements,

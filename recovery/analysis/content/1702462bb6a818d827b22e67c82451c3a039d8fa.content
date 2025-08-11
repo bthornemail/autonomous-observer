@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ip_1 = require("./ip");
+const net_1 = __importDefault(require("net"));
+/**
+ * Returns the IP address of the host that the Navigator is running on, as
+ * a string in the dot-separated integer format.
+ *
+ * Example:
+ *
+ * ``` js
+ * myIpAddress()
+ *   // would return the string "198.95.249.79" if you were running the
+ *   // Navigator on that host.
+ * ```
+ *
+ * @return {String} external IP address

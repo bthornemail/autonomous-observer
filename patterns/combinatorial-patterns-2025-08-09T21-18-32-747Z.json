@@ -1,0 +1,106 @@
+{
+  "type": "combinatorial",
+  "count": 28576,
+  "samplePatterns": [
+    {
+      "source": "combinatorial_generation",
+      "category": "cross_domain_synthesis",
+      "type": "generated_pattern",
+      "subject": "number",
+      "predicate": "synthesizes_with_concrete_to_create",
+      "object": "hardware",
+      "confidence": 0.65,
+      "metadata": {
+        "generation_batch": 0,
+        "synthesis_type": "cross_domain",
+        "concept_count": 3
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.4854101966249684
+    },
+    {
+      "source": "combinatorial_generation",
+      "category": "cross_domain_synthesis",
+      "type": "generated_pattern",
+      "subject": "equation",
+      "predicate": "synthesizes_with_temporal_to_create",
+      "object": "network",
+      "confidence": 0.65,
+      "metadata": {
+        "generation_batch": 0,
+        "synthesis_type": "cross_domain",
+        "concept_count": 3
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.61485291572496
+    },
+    {
+      "source": "combinatorial_generation",
+      "category": "cross_domain_synthesis",
+      "type": "generated_pattern",
+      "subject": "function",
+      "predicate": "synthesizes_with_spatial_to_create",
+      "object": "database",
+      "confidence": 0.65,
+      "metadata": {
+        "generation_batch": 0,
+        "synthesis_type": "cross_domain",
+        "concept_count": 3
+      },
+      "guidingStarPrinciples": [
+        "reciprocity"
+      ],
+      "sacredGeometryAlignment": 0.7442956348249516
+    },
+    {
+      "source": "combinatorial_generation",
+      "category": "cross_domain_synthesis",
+      "type": "generated_pattern",
+      "subject": "variable",
+      "predicate": "synthesizes_with_causal_to_create",
+      "object": "security",
+      "confidence": 0.65,
+      "metadata": {
+        "generation_batch": 0,
+        "synthesis_type": "cross_domain",
+        "concept_count": 3
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.8737383539249433
+    },
+    {
+      "source": "combinatorial_generation",
+      "category": "cross_domain_synthesis",
+      "type": "generated_pattern",
+      "subject": "constant",
+      "predicate": "synthesizes_with_logical_to_create",
+      "object": "ai",
+      "confidence": 0.65,
+      "metadata": {
+        "generation_batch": 0,
+        "synthesis_type": "cross_domain",
+        "concept_count": 3
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 1.0031810730249349
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.6499999999999451,
+    "averageSacredAlignment": 0.7442865752842259,
+    "principleDistribution": {
+      "freedom": 7144,
+      "autonomy": 7144,
+      "reciprocity": 7144,
+      "sovereignty": 7144
+    }
+  }
+}

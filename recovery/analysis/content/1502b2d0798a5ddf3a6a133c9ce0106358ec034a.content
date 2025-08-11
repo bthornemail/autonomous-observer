@@ -1,0 +1,20 @@
+// type checks for all known types
+//
+// note that:
+//
+// - check by duck-typing on a property like `isUnit`, instead of checking instanceof.
+//   instanceof cannot be used because that would not allow to pass data from
+//   one instance of math.js to another since each has it's own instance of Unit.
+// - check the `isUnit` property via the constructor, so there will be no
+//   matches for "fake" instances like plain objects with a property `isUnit`.
+//   That is important for security reasons.
+// - It must not be possible to override the type checks used internally,
+//   for security reasons, so these functions are not exposed in the expression
+//   parser.
+
+export function isNumber(x) {
+  return typeof x === 'number';
+}
+export function isBigNumber(x) {
+  if (!x || typeof x !== 'object' || typeof x.constructor !== 'function') {
+    return false;

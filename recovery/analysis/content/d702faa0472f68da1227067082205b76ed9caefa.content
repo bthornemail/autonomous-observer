@@ -1,0 +1,20 @@
+import { factory } from '../../../utils/factory.js';
+var name = 'matAlgo12xSfs';
+var dependencies = ['typed', 'DenseMatrix'];
+export var createMatAlgo12xSfs = /* #__PURE__ */factory(name, dependencies, _ref => {
+  var {
+    typed,
+    DenseMatrix
+  } = _ref;
+  /**
+   * Iterates over SparseMatrix S nonzero items and invokes the callback function f(Sij, b).
+   * Callback function invoked MxN times.
+   *
+   *
+   *          ┌  f(Sij, b)  ; S(i,j) !== 0
+   * C(i,j) = ┤
+   *          └  f(0, b)    ; otherwise
+   *
+   *
+   * @param {Matrix}   s                 The SparseMatrix instance (S)
+   * @param {Scalar}   b                 The Scalar value

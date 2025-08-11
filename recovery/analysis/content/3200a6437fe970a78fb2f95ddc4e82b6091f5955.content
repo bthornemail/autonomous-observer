@@ -1,0 +1,20 @@
+'use strict';
+
+var callBind = require('call-bind');
+var forEach = require('for-each');
+var gOPD = require('gopd');
+var hasProto = require('has-proto')();
+var isTypedArray = require('is-typed-array');
+
+var typedArrays = require('available-typed-arrays')();
+
+/** @typedef {import('possible-typed-array-names')[number]} TypedArrayName */
+/** @typedef {(value: import('.').TypedArray) => number} Getter */
+
+/** @type {Partial<Record<TypedArrayName, Getter> & { __proto__: null }>} */
+var getters = {
+	__proto__: null
+};
+
+var oDP = Object.defineProperty;
+if (gOPD) {

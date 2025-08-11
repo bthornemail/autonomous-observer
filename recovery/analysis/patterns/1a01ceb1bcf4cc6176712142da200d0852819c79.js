@@ -1,0 +1,1 @@
+var runTests = require('./tests');
