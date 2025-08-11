@@ -1,0 +1,1 @@
+// CooperativeEconomicsEngine component implementation

@@ -1,0 +1,141 @@
+{
+  "name": "Sacred Geometry Harmony",
+  "short_name": "SGH",
+  "description": "Transform your wellbeing through ancient mathematics, golden ratio calculations, and guided meditation",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FFD700",
+  "background_color": "#001122",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/harmony-calculator.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Calculate your personal harmony score using sacred mathematics"
+    },
+    {
+      "src": "/screenshots/sacred-geometry.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Explore interactive 3D sacred geometry patterns"
+    },
+    {
+      "src": "/screenshots/meditation.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Guided meditation with phi breathing and sacred patterns"
+    }
+  ],
+  "categories": [
+    "lifestyle",
+    "health",
+    "education",
+    "meditation",
+    "wellness"
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Calculate Harmony",
+      "short_name": "Harmony",
+      "description": "Calculate your personal harmony score",
+      "url": "/?shortcut=harmony",
+      "icons": [
+        {
+          "src": "/icons/harmony-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Sacred Geometry",
+      "short_name": "Geometry",
+      "description": "Explore interactive sacred patterns",
+      "url": "/?shortcut=geometry",
+      "icons": [
+        {
+          "src": "/icons/geometry-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Start Meditation",
+      "short_name": "Meditate",
+      "description": "Begin guided meditation session",
+      "url": "/?shortcut=meditation",
+      "icons": [
+        {
+          "src": "/icons/meditation-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share-harmony",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

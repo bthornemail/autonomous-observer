@@ -1,0 +1,28 @@
+{
+  "name": "news-syndicator-free",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Free-only RSS syndication and knowledge-trie analyzer (no paid services)",
+  "bin": {
+    "news-syndicator": "src/cli.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+  "start": "node src/cli.js --mock",
+  "analyze": "node src/cli.js",
+  "build:site": "node site/build.js",
+  "serve:site": "node site/serve.js"
+  },
+  "keywords": [
+    "rss",
+    "syndication",
+    "knowledge",
+    "trie",
+    "cue-clarion",
+    "mdu",
+    "free"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ulp-mcp-integration",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP integrations and demos for Universal Life Protocol",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "browsermcp": "npx @browsermcp/mcp",
+    "browsermcp:demo": "node browser-mcp-demo.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

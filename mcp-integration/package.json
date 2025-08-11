@@ -1,0 +1,29 @@
+{
+  "name": "ulp-mcp-integration",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP integrations and demos for Universal Life Protocol",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+  "zod": "^3.23.8",
+  "express": "^4.19.2",
+  "ws": "^8.18.0"
+  },
+  "scripts": {
+  "browsermcp": "npx @browsermcp/mcp",
+  "browsermcp:demo": "node browser-mcp-demo.js",
+  "server": "node ulp-dynamic-mcp-server.js",
+  "hub": "node agent-hub.js",
+  "hub:dev": "node agent-hub.js",
+    "check:remote": "node scripts/check-remote-mcp.js",
+    "hub:ping": "node scripts/ping-claude-hub.js",
+  "hub:copilot": "node scripts/copilot-universe.js",
+  "harmonic:send": "node scripts/send-harmonic-http.js",
+  "bridge:ubhp": "node adapters/ubhp-cue-bridge.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

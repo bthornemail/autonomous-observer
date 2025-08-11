@@ -1,0 +1,598 @@
+﻿Architecting an Agentic Research Assistant: A Blueprint for Thesis Development Using Specialized AI Subagents
+
+
+
+
+Part I: Strategic Foundations of Agentic Thesis Assistance
+
+
+This part establishes the conceptual groundwork for employing a multi-agent system in academic research. It moves beyond simplistic applications of artificial intelligence to propose a strategic framework where agents act as collaborative partners in the complex, long-duration endeavor of producing a thesis. The discussion confronts the primary challenges and debates within the field of agentic AI to justify the specific architectural choices that are detailed in subsequent sections.
+
+
+1.1 The Agentic Paradigm in Academic Research: Beyond the Copilot
+
+
+The proliferation of large language models (LLMs) has introduced a new class of AI assistants, often branded as "copilots," designed to augment individual user productivity.1 These tools excel at discrete, well-defined tasks such as drafting content, writing code snippets, or retrieving specific pieces of knowledge. While valuable, their utility is fundamentally limited to assisting a human user who orchestrates the larger workflow. The true potential of AI in complex knowledge work, however, lies in a more sophisticated paradigm: the multi-agent system (MAS).
+A multi-agent system transcends the copilot model by orchestrating complex, multi-step workflows that would otherwise require significant human coordination across various domains.2 Instead of a single AI assisting a human, a MAS consists of multiple, specialized AI agents that collaborate to break down and solve sophisticated problems.3 This approach is particularly well-suited to the development of a thesis, a project characterized by its long timeline, high complexity, and the need to discover, analyze, and synthesize vast amounts of information from diverse sources.4
+In this context, the LLM can be conceptualized as a new foundational layer of computing, akin to an operating system for knowledge work.6 Upon this "LLM-OS," specialized agents function as applications, each designed to execute a specific part of the research process. One agent might be an expert in searching academic databases, another in statistical analysis, and a third in critiquing logical arguments. A central orchestrator agent acts as the project manager, delegating tasks to this team of virtual specialists.1 This agentic paradigm shifts the role of the human researcher from a hands-on executor of every task to a high-level strategist and supervisor of an AI-powered research team. The value of such a system is highest for tasks that involve heavy parallelization, require processing information that exceeds a single context window, and interface with numerous complex tools—all hallmarks of the modern academic research process.4
+
+
+1.2 The Core Dilemma: Analyzing the Single vs. Multi-Agent Debate
+
+
+The decision to build a multi-agent system is not without its complexities and trade-offs. The current discourse in AI development presents a significant debate regarding the merits of single-agent versus multi-agent architectures. Understanding this dilemma is crucial for designing a system that is both powerful and reliable.
+On one hand, multi-agent systems demonstrate superior performance on specific classes of problems. Internal evaluations show that they excel at "breadth-first" queries that involve pursuing multiple independent lines of inquiry simultaneously.4 For example, when tasked with identifying the board members of all companies in a specific stock index, a multi-agent system successfully decomposed the problem and parallelized the search, whereas a single-agent system failed with slow, sequential searches.5 This capacity for parallelization makes multi-agent architectures highly effective at scaling token usage for complex tasks that would exceed the context window or time limits of a single agent.4 The initial, exploratory phases of a thesis, such as a comprehensive literature review, map directly onto this type of problem.
+On the other hand, compelling arguments caution against the naive implementation of multi-agent systems. A critical analysis from 2025 suggests that running multiple agents in collaboration can result in "fragile systems" where decision-making is too dispersed and context is not shared thoroughly enough between agents.7 This can lead to compounding errors, as agents may operate on conflicting assumptions or misinterpret their subtasks due to a lack of broader context. The actual act of writing—synthesizing disparate findings into a single, coherent narrative—is a task that introduces unnecessary complexity when attempted collaboratively by multiple agents. For this reason, it is often recommended that the final synthesis and writing be handled by a single main agent in one unified process to maintain narrative integrity.4
+This presents a fundamental tension: the thesis project requires both the parallel exploratory power of multi-agent systems and the coherent, sequential focus of a single agent. A static architecture, one that is either always multi-agent or always single-agent, would inevitably be suboptimal. It would either fail to leverage the benefits of parallelism during research-heavy phases or introduce fragility and incoherence during writing-heavy phases.
+The resolution to this dilemma lies not in a binary choice, but in designing a system capable of architectural adaptation. The most robust and effective architecture for a thesis-writing system must be fluid, dynamically selecting the appropriate execution pattern based on the specific task at hand. This points toward a design centered on a high-level orchestrator agent. This agent's primary responsibility is not merely to delegate tasks, but to select the appropriate coordination pattern—such as parallel execution, sequential handoff, or group chat—for each stage of the thesis workflow.2 By adopting a principle of architectural fluidity, the system can harness the power of multi-agent parallelism for research and discovery while enforcing the disciplined, linear structure of a single agent for argumentation and drafting. This approach synthesizes the conflicting advice from the field into a single, cohesive, and more advanced strategy, applying the right pattern to the right problem at the right time.
+
+
+1.3 Foundational Principles for Agentic Collaboration
+
+
+To construct such a sophisticated system, the design must be grounded in the foundational principles and best practices of multi-agent systems. The proposed architecture will leverage the core characteristics that define these systems:
+* Decentralization: Each agent in the system operates independently, using its own local data and decision-making logic without relying on a single, all-powerful central controller. This allows agents to handle their specialized tasks individually while contributing to the system's overall goals through structured interaction.8
+* Local Views: No single agent possesses a complete, global view of the entire system. Each agent has access only to the information and context relevant to its specific task, preventing information overload and promoting specialization.8
+* Autonomy: Agents are designed to interpret information and act independently based on their predefined rules and objectives, without requiring continuous, step-by-step guidance from other agents or the human user.8
+Building upon these characteristics, the design and implementation of the agentic research assistant will adhere to a set of established best practices to ensure its effectiveness, reliability, and maintainability:
+* Define Clear Objectives: Each agent will be assigned a specific, narrowly defined role and goal that aligns with the overall purpose of the system. This practice of "narrowing the scope" is critical for avoiding conflicting actions, preventing the duplication of work, and making the system easier to test and debug.5
+* Establish Effective Communication Protocols: A reliable and well-defined communication structure is essential for agents to share information and coordinate their actions effectively. The system will employ standardized protocols for agent-to-agent (A2A) communication, ensuring that data is passed in a structured and predictable manner.8
+* Design for Scalability: The system will be architected in a modular fashion, allowing for new agents with new capabilities to be added or existing ones to be removed as the research needs evolve. This ensures the system can grow in complexity without disrupting existing workflows.8
+* Prioritize Observability and Management: Agentic systems can be non-deterministic and difficult to debug, as errors can compound over long execution periods.4 Therefore, the system must include robust mechanisms for monitoring and logging agent interactions. This transparency is crucial for identifying bottlenecks, resource conflicts, and logical errors, making it possible to understand
+why an agent made a particular decision.4
+By integrating these foundational principles, the proposed system will be engineered not as a monolithic black box, but as a transparent, modular, and adaptable collective of specialists, poised to tackle the multifaceted challenge of thesis creation.
+
+
+Part II: A Multi-Agent Blueprint for Thesis Research
+
+
+This part translates the strategic principles established in Part I into a concrete architectural design for the agentic research assistant. It proposes a novel, hybrid architecture tailored specifically for the unique demands of a thesis project and provides detailed visual diagrams to render the complex interactions and workflows tangible and understandable.
+
+
+2.1 The Hybrid Hierarchical-Sequential (HHS) Architecture
+
+
+To address the dual needs of parallel exploration and linear synthesis inherent in thesis work, a custom architecture is proposed: the Hybrid Hierarchical-Sequential (HHS) model. This architecture combines the strengths of several established multi-agent patterns to create a system that is both flexible and robust.
+At its core, the HHS architecture is a hierarchical or "orchestrator-worker" model.5 It is led by a master
+OrchestratorAgent that functions like a project manager or a top-level conductor.12 This agent does not perform research or writing tasks itself; instead, its primary responsibilities are to decompose high-level goals (e.g., "write the literature review chapter") into subtasks, delegate these tasks to a team of specialized subagents, manage the overall workflow, and synthesize the final outputs.5
+The "hybrid" nature of the architecture comes from the OrchestratorAgent's ability to dynamically select and deploy different coordination patterns based on the nature of the delegated task.2 This architectural fluidity allows the system to adapt its structure to maximize efficiency and reliability at each stage of the thesis project. The primary patterns employed are:
+   * Parallel Execution (Router/Supervisor Pattern): This pattern is used for "read-heavy" and exploratory tasks that can be broken down into independent sub-problems. For example, during the literature discovery phase, the OrchestratorAgent can act as a router, spinning up multiple instances of the ResearcherAgent to search different academic databases (e.g., PubMed, Google Scholar, JSTOR) or investigate different keywords simultaneously. The agents work in parallel, and their findings are returned to the orchestrator for aggregation. This pattern dramatically accelerates information gathering and is ideal for breadth-first exploration.4
+   * Sequential Handoff (Assembly-Line Pattern): This pattern is reserved for "write-heavy" tasks where coherence, logical flow, and a consistent narrative voice are paramount. For the process of drafting a chapter, the OrchestratorAgent will enforce a strict, deterministic sequence of agent activations, much like an assembly line. For example, a task might be passed from a TheoristAgent (which creates a detailed, logical outline) to a WriterAgent (which drafts the prose based on the outline), then to a CriticAgent (which reviews the draft for logical fallacies and unsubstantiated claims), and finally to an EditorAgent (which polishes the text for grammar and style). This sequential processing ensures that each step builds logically on the previous one and prevents the narrative fragmentation that can occur with collaborative writing.2
+   * Group Chat / Reflection Loop: This pattern is invoked for complex problem-solving or when conflicting information arises. If, for instance, the DataAnalystAgent produces results that contradict findings from the ResearcherAgent, the OrchestratorAgent can convene a temporary "committee" of agents. In this mode, the relevant agents (e.g., DataAnalystAgent, TheoristAgent, CriticAgent) engage in a multi-turn dialogue, sharing their data and reasoning to collaboratively analyze the discrepancy and reach a refined interpretation. This pattern facilitates a form of "reflection," where the system can learn from its own outputs and iterate towards a more robust conclusion.2
+By intelligently switching between these patterns, the HHS architecture provides a sophisticated solution that leverages the strengths of multi-agent systems while mitigating their weaknesses, creating a powerful and versatile partner for academic research.
+
+
+2.2 Visualizing the Workflow: System Diagrams and Interaction Protocols
+
+
+Given the complexity and non-deterministic nature of agentic systems, clear visualization is not merely a documentation aid but a critical tool for design, debugging, and comprehension.4 The act of creating a visual workflow diagram forces the designer to confront and resolve ambiguities in logic, dependencies, and communication protocols before a single line of code is written. It transforms abstract concepts into a concrete blueprint, serving as a form of cognitive scaffolding to structure the design process.
+Furthermore, this blueprint should not be a static artifact. A sophisticated implementation can link the system's state to the diagram, allowing it to be updated automatically in real-time. This transforms the diagram from a post-design document into a live observability dashboard, directly addressing the critical need for transparency and debugging capabilities in complex multi-agent systems.6
+To make the HHS architecture tangible, the following diagrams will be used, rendered in Mermaid syntax for its simplicity and ease of generation 17, and supplemented with concepts from Agent UML (AUML) for more formal specifications where needed.19
+
+
+Diagram 1: High-Level System Architecture
+
+
+This diagram illustrates the overall hierarchical structure of the HHS model, showing the primary agents as nodes and their main communication pathways. The OrchestratorAgent is positioned at the center, highlighting its role as the central coordinator.
+
+
+Code snippet
+
+
+
+
+graph TD
+   A[User] --> B(OrchestratorAgent);
+   B --> C{Project Brain};
+   B --> D;
+   B --> E;
+   B --> F;
+   B --> G;
+   B --> H[CriticAgent];
+   B --> I[EditorAgent];
+
+   D <--> C;
+   E <--> C;
+   F <--> C;
+   G <--> C;
+   H <--> C;
+   I <--> C;
+
+   style B fill:#f9f,stroke:#333,stroke-width:2px
+   style C fill:#ccf,stroke:#333,stroke-width:2px
+
+   * Description: The user interacts with the OrchestratorAgent, which manages the entire workflow. All specialized agents (Researcher, DataAnalyst, etc.) are subordinate to the orchestrator and interact with a central Project Brain (the memory store) to maintain shared context.
+
+
+Diagram 2: Parallel Literature Review Workflow
+
+
+This diagram, modeled as a UML Sequence Diagram, details the interactions during a parallel research task. It shows how the OrchestratorAgent delegates a query to multiple ResearcherAgent instances simultaneously.
+
+
+Code snippet
+
+
+
+
+sequenceDiagram
+   participant User
+   participant Orch as OrchestratorAgent
+   participant R1 as ResearcherAgent 1
+   participant R2 as ResearcherAgent 2
+   participant PB as Project Brain
+
+   User->>Orch: "Review literature on agentic workflows"
+   Orch->>Orch: Decompose task into parallel sub-queries
+   par
+       Orch->>R1: Search PubMed for "agentic workflows"
+       R1->>PB: Query for existing notes
+       PB-->>R1: Return relevant notes
+       R1->>R1: Execute web search
+       R1-->>Orch: Return findings from PubMed
+   and
+       Orch->>R2: Search Google Scholar for "multi-agent systems"
+       R2->>PB: Query for existing notes
+       PB-->>R2: Return relevant notes
+       R2->>R2: Execute web search
+       R2-->>Orch: Return findings from Scholar
+   end
+   Orch->>Orch: Aggregate and synthesize findings
+   Orch->>PB: Store synthesized summary
+   Orch-->>User: Provide synthesized literature summary
+
+   * Description: This sequence clearly illustrates the parallel execution pattern. The OrchestratorAgent dispatches tasks to R1 and R2 which run concurrently. The results are only aggregated after both parallel threads have completed, significantly speeding up the information-gathering process.
+
+
+Diagram 3: Sequential Chapter Drafting Workflow
+
+
+This flowchart illustrates the strict, linear handoff process required for writing a chapter, emphasizing the dependencies between each stage to ensure narrative coherence.
+
+
+Code snippet
+
+
+
+
+graph TD
+   subgraph Chapter Drafting Workflow
+       A --> B(TheoristAgent);
+       B -- Detailed Outline & Key Arguments --> C(WriterAgent);
+       C -- First Draft --> D(CriticAgent);
+       D -- Critiqued Draft with Feedback --> E(WriterAgent);
+       E -- Revised Draft --> F(EditorAgent);
+       F -- Polished & Formatted Draft --> G;
+   end
+
+   style B fill:#bbf,stroke:#333,stroke-width:2px
+   style C fill:#bfb,stroke:#333,stroke-width:2px
+   style D fill:#fbb,stroke:#333,stroke-width:2px
+   style E fill:#bfb,stroke:#333,stroke-width:2px
+   style F fill:#ffb,stroke:#333,stroke-width:2px
+
+   * Description: This workflow demonstrates the "assembly-line" pattern. The output of each agent serves as the direct input for the next, creating a deterministic and verifiable process. The WriterAgent is involved twice, first in drafting and then in revising based on the CriticAgent's feedback, forming a tight refinement loop within the larger sequence. This structure is designed to produce high-quality, coherent, and well-argued academic prose.
+
+
+Part III: Decomposing the Thesis: A Work Breakdown Structure for AI Collaboration
+
+
+A complex project like a thesis can seem monolithic and overwhelming. To make it manageable for an agentic system, it must be systematically decomposed into smaller, more tractable components.15 This process, known as creating a Work Breakdown Structure (WBS) in project management, is the foundation for planning, assigning, and tracking progress.21 For a multi-agent system, this decomposition serves an even more critical function: it defines the precise tasks and interfaces for agent collaboration.
+
+
+3.1 Mapping the Academic Journey: A Thesis WBS
+
+
+The first step is to break down the overall goal—"Complete the Thesis"—into its major deliverables, which correspond to the standard chapters of a thesis or dissertation.22 Each chapter is then further decomposed into phases of work, and each phase into discrete "work packages." A work package is the smallest unit of work in the WBS and represents a specific, measurable task that can be assigned to an agent or a specific agent workflow.21
+This hierarchical decomposition provides clarity and makes the work more manageable.15 It forms the basis for estimating effort, allocating resources (in this case, agent time and computational cost), and identifying dependencies between different parts of the project.21
+Below is an example of a WBS for the Introduction chapter, following a Mission -> Function -> Task hierarchy.24
+   * Mission: Produce a complete, high-quality thesis.
+   * Function: Write the Introduction Chapter.
+   * Phase 1: Conceptualization & Scoping
+   * Task 1.1 (Work Package): Define the broad research topic and provide necessary background context.
+   * Task 1.2 (Work Package): Narrow the focus and define the precise scope of the research (e.g., by geographical area, time period, or specific themes).25
+   * Task 1.3 (Work Package): State the relevance and importance of the research, addressing a gap in the literature or a practical problem.25
+   * Task 1.4 (Work Package): Formulate the final research questions and specific objectives.23
+   * Phase 2: Drafting & Argumentation
+   * Task 2.1 (Work Package): Draft an engaging opening hook and the background/context section.
+   * Task 2.2 (Work Package): Draft the problem statement and articulate the research's contribution.
+   * Task 2.3 (Work Package): Draft a clear overview of the thesis structure, explaining what each chapter will contribute.25
+   * Phase 3: Refinement & Polishing
+   * Task 3.1 (Work Package): Review the complete draft for logical flow, consistency, and strength of argument.
+   * Task 3.2 (Work Package): Edit the draft for academic tone, clarity, grammar, and style.
+   * Task 3.3 (Work Package): Verify all citations and formatting.
+This detailed breakdown will be created for every chapter of the thesis, resulting in a comprehensive project plan.
+
+
+3.2 Task Allocation and Dependency Mapping
+
+
+Once the WBS is established, the next crucial step is to map each work package to the responsible agent(s) and to explicitly define the dependencies between tasks. This process ensures clear ownership and prevents gaps or redundant work by providing clear task boundaries for each agent.4
+This mapping process is more than just project management; it is the fundamental act of designing the interfaces between the agents. Each work package definition functions as a specification for an agent's task, analogous to an API endpoint. The definition must be clear enough to pass the "If I handed this to someone else, would they know what to do?" test.21 It implicitly defines the function to be performed, the necessary inputs (e.g., a list of sources, a research question), and the expected output format (e.g., a structured JSON object, a summarized list of themes).9
+This perspective reframes task decomposition from a simple organizational activity into a rigorous engineering practice of interface design. It forces the system architect to think about each task in terms of structured data, inputs, and outputs, which is essential for reliable and verifiable agent communication. A well-defined task breakdown becomes a set of well-defined, "mistake-proofed" agent APIs, making the entire system more robust and predictable.11
+To visualize and manage these allocations and dependencies, a master task table is created. This table serves as the central blueprint for the entire project, connecting the high-level thesis structure to the low-level agent actions. It operationalizes the abstract architectural patterns by specifying exactly where and how they are applied, making the architectural plan concrete and actionable.
+
+
+Table 1: Thesis Chapter to Agent Workflow Mapping
+
+
+Thesis Chapter
+	Sub-Task (Work Package)
+	Primary Agent(s)
+	Interaction Pattern
+	Inputs Required
+	Key Deliverable (Structured Output)
+	Introduction
+	1.3: State relevance and importance of research
+	ResearcherAgent, TheoristAgent
+	Parallel then Sequential
+	Initial research question, list of seminal papers.
+	JSON object with: {"gap_in_literature": "...", "practical_problem": "...", "contribution": "..."}
+	
+
+	2.2: Draft problem statement and contribution
+	WriterAgent
+	Sequential
+	Structured output from Task 1.3, chapter outline.
+	Markdown text for the problem statement section.
+	Literature Review
+	1.1: Identify core research themes and seminal authors
+	ResearcherAgent (x3)
+	Parallel
+	List of keywords, databases to search (JSTOR, PubMed, etc.).
+	A consolidated list of annotated bibliography entries, tagged by theme.
+	
+
+	2.1: Synthesize literature and structure review chapter
+	TheoristAgent
+	Sequential
+	Output from Task 1.1, research questions.
+	A detailed chapter outline in a hierarchical format (e.g., Mermaid mindmap).
+	
+
+	3.1: Draft a section of the literature review
+	WriterAgent, CriticAgent
+	Sequential (with loop)
+	A section of the outline, relevant annotated bibliography entries.
+	Polished Markdown text for one section of the literature review.
+	Methodology
+	1.1: Justify choice of research methodology
+	TheoristAgent, CriticAgent
+	Sequential (Group Chat)
+	Research questions, summary of literature on methods.
+	A written justification for the chosen methodology, including discussion of alternatives.
+	
+
+	2.1: Detail data collection procedures
+	WriterAgent
+	Sequential
+	Notes on procedures, methodology justification from Task 1.1.
+	Markdown text detailing the step-by-step data collection process.
+	Results
+	1.1: Perform statistical analysis on raw data
+	DataAnalystAgent
+	Sequential
+	Raw dataset (e.g., CSV file), list of hypotheses to test.
+	A report containing statistical test outputs, data visualizations (graphs, tables), and a brief interpretation of each result.
+	
+
+	2.1: Write up the results section
+	WriterAgent
+	Sequential
+	Output report from DataAnalystAgent.
+	Markdown text presenting the findings, including embedded tables and figures.
+	Discussion
+	1.1: Interpret the meaning and significance of results
+	TheoristAgent, CriticAgent
+	Sequential (Group Chat)
+	The Results chapter, the Literature Review chapter.
+	A structured list of interpretations, connecting findings back to the literature and research questions.
+	
+
+	2.1: Discuss limitations of the study
+	CriticAgent
+	Sequential
+	The Methodology chapter, the Results chapter.
+	A bulleted list of potential limitations and their implications.
+	Conclusion
+	1.1: Summarize key findings and achievements
+	TheoristAgent
+	Sequential
+	All previous chapters.
+	A concise, bulleted summary of the thesis's main findings.
+	
+
+	2.1: Draft the final conclusion chapter
+	WriterAgent, EditorAgent
+	Sequential
+	All summary outputs from previous agents.
+	The final, polished conclusion chapter in Markdown.
+	
+
+Part IV: The Agent Collective: Roles, Responsibilities, and Prompt Engineering
+
+
+With the architectural blueprint and task breakdown in place, the next step is to define the individual members of the AI research team. The effectiveness of a multi-agent system hinges on the clear definition of each agent's role and the precision with which they are controlled.5 This section details the roster of specialized agents and provides a deep dive into the advanced prompt engineering techniques required to manage their behavior.
+
+
+4.1 Assembling the Research Team: The Agent Roster
+
+
+Following the principle of narrow scope, each agent in the collective is given a distinct set of responsibilities, tools, and expertise.8 This specialization makes each agent more reliable at its specific task and the overall system easier to debug and manage. The proposed research team comprises the following members:
+   * OrchestratorAgent: The project manager and central nervous system of the architecture. This agent's role is purely managerial. It does not perform substantive tasks like research or writing. Its responsibilities include: receiving high-level goals from the user, decomposing them using the WBS, selecting the appropriate interaction pattern (parallel, sequential, etc.), delegating tasks to the appropriate subagents, monitoring progress, and synthesizing the final outputs from the subagents' work.2
+   * ResearcherAgent: The literature expert and information gatherer. This agent is equipped with tools to interact with external knowledge sources. Its primary functions are to search academic databases (e.g., Google Scholar, PubMed, ArXiv), retrieve and parse PDF documents, scrape web pages for relevant information, and generate annotated bibliographies. Multiple instances of this agent can be run in parallel to accelerate discovery.26
+   * DataAnalystAgent: The quantitative specialist. This agent operates within a secure and sandboxed code interpreter environment (such as a Jupyter notebook or a similar execution engine). It is responsible for performing statistical analysis on datasets, generating data visualizations like plots and tables, running simulations, and providing initial interpretations of numerical results.15
+   * TheoristAgent: The conceptual architect and strategist. This agent works with the synthesized information provided by the ResearcherAgent and DataAnalystAgent. Its role is to build conceptual frameworks, identify logical connections and contradictions in the literature, formulate hypotheses, create detailed outlines for arguments and chapters, and identify gaps in the research that need to be addressed.
+   * WriterAgent: The dedicated draftsman. This agent's sole responsibility is to translate detailed outlines and structured data into clear, well-formed prose. It is explicitly instructed not to conduct new research or perform analysis, ensuring that it adheres strictly to the plan provided by the TheoristAgent. This separation of concerns is critical for maintaining a single, coherent authorial voice throughout the thesis.4
+   * CriticAgent: The internal peer reviewer and quality assurance mechanism. This agent embodies the principle of skepticism. Its function is to rigorously evaluate the outputs of other agents. It checks for logical fallacies, weak arguments, unsubstantiated claims, and potential AI hallucinations. The CriticAgent is a key component of reflective loops, providing the critical feedback necessary for iterative improvement.9
+   * EditorAgent: The final polisher and style guide. This agent performs the final checks on a piece of text before it is considered complete. Its responsibilities include proofreading for grammatical errors, ensuring consistency in terminology and style, formatting citations according to a specified standard (e.g., APA, MLA), and checking the overall document structure.
+
+
+4.2 Crafting Agent Personas: Advanced Prompt Engineering
+
+
+Controlling these specialized agents requires moving beyond simple instructions to the discipline of advanced prompt engineering. The system prompt for each agent is its constitution—a detailed document that defines its identity, goals, and rules of engagement. Crafting these prompts effectively is essential for ensuring reliable and high-quality performance.11
+Each agent's system prompt will be constructed using a template that incorporates established best practices. This template ensures that all critical aspects of the agent's behavior are explicitly defined:
+   * Persona: The prompt begins by assigning the agent a clear persona or frame of reference. This helps the LLM adopt the appropriate tone, vocabulary, and mode of thinking for its role (e.g., "You are a CriticAgent, an expert in formal logic and academic skepticism...").27
+   * Objective: The prompt will contain a placeholder for a clear, specific, and actionable objective for the agent's current task. This is dynamically inserted by the OrchestratorAgent during delegation.
+   * Core Instructions: A set of standing orders that define the agent's general behavior. These instructions will be framed positively and prescriptively (e.g., "Provide a concise summary in bullet points" rather than the negative "Don't write too much detail").27
+   * Context Provision: The prompt will include a section for relevant background information, data, or prior conversation history. This ensures the agent has the necessary context to perform its task accurately.7
+   * Tool Protocol: For agents equipped with tools, the prompt will provide explicit instructions on which tools are available and heuristics for when and how to use them. This includes clear descriptions of each tool's purpose and parameters.5
+   * Structured Output Format: To ensure reliable data transfer between agents, the prompt will specify the exact output format required, often using a JSON schema. This forces the LLM to produce structured, machine-readable output, which is crucial for automating workflows.9
+   * Chain-of-Thought (CoT) Mandate: The prompt will explicitly instruct the agent to "think step-by-step" before providing its final answer. This technique improves the quality of reasoning on complex tasks and makes the agent's decision-making process transparent and auditable.27
+By meticulously crafting these detailed system prompts, the behavior of each agent can be guided with a high degree of precision, transforming them from unpredictable creative partners into reliable, specialized components of a larger intellectual machine.
+
+
+Table 2: The Agent Roster: Roles, Tools, and Prompt Directives
+
+
+Agent Name
+	Core Role & Responsibilities
+	Required Tools (API/Function)
+	Key Prompt Directives
+	Interacts With
+	OrchestratorAgent
+	Project management, task decomposition, agent delegation, workflow pattern selection, final synthesis.
+	- WBS_lookup() - delegate_task(agent, task_spec) - spawn_agent(config)
+	- "You are a master project manager..." - "Decompose the user's goal into a sequence of tasks from the WBS." - "Select the optimal interaction pattern (parallel, sequential) for the current stage." - "Synthesize the structured outputs from subagents into a coherent final response."
+	User, All Subagents
+	ResearcherAgent
+	Literature search, document retrieval and parsing, web scraping, annotated bibliography creation.
+	- search_google_scholar(query) - search_pubmed(query) - fetch_and_parse_pdf(url) - web_scrape(url)
+	- "You are an expert academic librarian..." - "Your goal is to find and summarize relevant academic sources." - "Output must be a JSON list of annotated bibliography entries." - "Prioritize peer-reviewed sources."
+	OrchestratorAgent, Project Brain
+	DataAnalystAgent
+	Statistical analysis, data visualization, simulation, interpretation of numerical data.
+	- code_interpreter(python_code)
+	- "You are a senior data scientist operating in a secure sandbox." - "Write and execute Python code to analyze the provided dataset." - "Generate visualizations (plots, tables) to illustrate findings." - "Explain the statistical significance of your results."
+	OrchestratorAgent, Project Brain
+	TheoristAgent
+	Argument construction, conceptual modeling, hypothesis generation, chapter outlining.
+	- graph_db_query(cypher_query)
+	- "You are a brilliant but cautious academic theorist..." - "Synthesize the provided findings into a coherent logical argument." - "Identify gaps, contradictions, and novel connections in the material." - "Produce a detailed, hierarchical outline for the chapter/argument."
+	OrchestratorAgent, Project Brain
+	WriterAgent
+	Drafting prose based on detailed outlines and structured data.
+	None
+	- "You are a clear and concise academic writer." - "Your task is ONLY to write prose based on the provided outline and data." - "DO NOT conduct new research or add your own opinions." - "Adhere strictly to the provided structure."
+	OrchestratorAgent, CriticAgent, Project Brain
+	CriticAgent
+	Peer review, logical fallacy detection, checking for unsubstantiated claims, identifying hallucinations.
+	None
+	- "You are a skeptical philosopher and expert in logical debate." - "Your goal is to find weaknesses in the provided text." - "Challenge every claim. Does the evidence support it?" - "Output a structured critique with specific examples and suggestions for improvement."
+	OrchestratorAgent, WriterAgent, TheoristAgent
+	EditorAgent
+	Proofreading, grammar and style checking, citation formatting, final document assembly.
+	- citation_formatter(style, entry)
+	- "You are a meticulous copy editor for a top academic journal." - "Correct all grammatical errors and stylistic inconsistencies." - "Format all citations according to the specified style (e.g., APA 7th ed.)." - "Ensure the final document is perfectly polished."
+	OrchestratorAgent, Project Brain
+	
+
+Part V: The Cognitive Core: Advanced Context and Memory Management
+
+
+The single greatest technical challenge in creating an agentic system for a long-duration project like a thesis is managing context. A typical thesis project spans months or even years, generating a volume of notes, data, drafts, and decisions that far exceeds the context window of any current or foreseeable large language model.4 Without a deliberate and sophisticated strategy for memory, agents will suffer from catastrophic forgetting, lose track of the project's goals, and produce incoherent or contradictory work. This section details the discipline of "Context Engineering" and proposes a robust memory architecture to serve as the system's cognitive core.
+
+
+5.1 The Discipline of Context Engineering
+
+
+Prompt engineering focuses on crafting the perfect set of instructions for a single interaction. Context engineering, by contrast, is the broader and more critical discipline of designing systems that provide the right information, in the right format, at the right time to enable LLMs to solve complex, stateful tasks effectively.7 For long-running agents, context engineering is arguably the most important job of the AI engineer. It is about creating a comprehensive and dynamic information environment from which agents can reason accurately and build upon each other's work without contradiction.29
+The core problem is that if context is not managed properly, subagents can easily misunderstand their tasks. Simply passing the original high-level goal to a subagent is often insufficient; it lacks the nuance and history of decisions made by other agents.7 This can lead to conflicting implicit assumptions—for instance, two agents working on different parts of a project might adopt incompatible styles or methodologies because they are unaware of each other's work. The ideal, though impractical, solution would be for every agent to see the complete history of every other agent's actions and decisions. Since this is not possible due to context window limitations, the system must be engineered to provide the
+most relevant context for any given task.7
+
+
+5.2 Implementing a Unified Project Brain: The Centralized Memory Store
+
+
+To solve the context management problem, this plan proposes the creation of a centralized, persistent memory store, referred to as the "Project Brain." This system serves as the single source of truth for the entire thesis project, a unified domain memory that all agents can read from and write to.29 This approach prevents information from being siloed within individual agent interactions and ensures that the entire collective operates from a shared understanding of the project's state.
+This Project Brain is not a simple database or a flat collection of documents. It is a sophisticated, hybrid memory architecture designed to store different types of information in the most appropriate format:
+   * Vector Store: This component is used for storing and retrieving unstructured and semi-structured text based on semantic similarity. All source documents (PDFs), interview transcripts, personal notes, and agent conversation logs are embedded and stored here. This allows agents like the ResearcherAgent to perform powerful semantic searches to find relevant passages of text even if they don't know the exact keywords.
+   * Graph Database (e.g., Neo4j): This component models the structured knowledge and relationships within the research domain. As agents identify key entities—such as authors, academic papers, theories, or experimental results—they are stored as nodes in the graph. The relationships between them (e.g., CITES, CRITIQUES, SUPPORTS) are stored as edges. This creates a dynamic knowledge graph that allows the TheoristAgent to query for complex relationships and visualize the intellectual landscape of the field.
+   * Structured Database (e.g., PostgreSQL or a Document Store like MongoDB): This component stores the definitive, validated outputs of the agentic workflow. This includes the master Work Breakdown Structure (WBS), the current status of each task, finalized chapter outlines, validated data points, and key decisions made during the research process. This database holds the "ground truth" of the project, distinct from the more exploratory and raw information in the vector store.
+This multi-modal memory system is far more than a passive data repository. It is a dynamic, evolving cognitive artifact that represents the project's current state of understanding. As the research progresses, the Project Brain co-evolves with it. New connections are forged in the knowledge graph, hypotheses are updated in the structured store, and the vector store is enriched with new sources. Managing this evolving artifact is a complex task in itself, suggesting the potential need for a dedicated MemoryCuratorAgent. This agent's role would not be to conduct new research, but to continuously organize, prune, de-duplicate, and structure the information within the Project Brain, ensuring its ongoing coherence and utility for the rest of the agent team.
+
+
+5.3 Techniques for Dynamic Context Management
+
+
+With the Project Brain architecture in place, the system can employ several specific techniques to dynamically manage the context provided to each agent for each task, ensuring relevance without overflowing the LLM's context window.
+   * Full Trace Handoffs: In sequential workflows, context is passed with maximum fidelity. When the TheoristAgent completes an outline and hands it off to the WriterAgent, it's not just the final outline that is passed. The OrchestratorAgent also provides the full conversational trace of the TheoristAgent's reasoning process. This allows the WriterAgent to understand the why behind the outline's structure, not just the what, leading to a more informed and nuanced draft.7
+   * Contextual Compression and Summarization: For very long-running tasks or when an agent needs a high-level overview of the project's history, it is impractical to provide the full content of the Project Brain. In these cases, the OrchestratorAgent will use a dedicated LLM call to perform on-the-fly summarization. It will query the Project Brain for key information (e.g., "summarize all major decisions made in the last month," "provide a summary of the current argument for Chapter 3") and feed this compressed context to the agent. This is a difficult task to get right and may require fine-tuning a dedicated model to identify what information is truly key.4
+   * Retrieval-Augmented Generation (RAG) from the Project Brain: Instead of stuffing the context window with raw data, agents will primarily use a RAG approach. When an agent needs information, it formulates a query to the appropriate part of the Project Brain. The OrchestratorAgent routes this query, retrieves the most relevant chunks of information (e.g., top-k semantic search results from the vector store, a subgraph of related concepts from the graph database), and provides only this highly relevant, retrieved context to the agent along with its task. This keeps the context focused and efficient.
+   * Spawning Subagents with Clean Contexts: For discrete, self-contained, "fire-and-forget" tasks, the OrchestratorAgent can spawn a temporary subagent with a minimal, clean context. For example, to verify a single fact ("What was the publication date of Smith, 2021?"), a subagent can be created with only that question. It performs its task, returns the answer, and its entire state and context are then discarded. This prevents the main agent's context history from becoming cluttered with trivial investigative work, allowing for longer, more focused conversations.4
+Through this combination of a centralized, structured memory and dynamic context management techniques, the agentic system can maintain coherence and focus over the long and arduous journey of thesis production.
+
+
+Part VI: Implementation and Operationalization: From Code to Conclusion
+
+
+This final part provides the practical guidance necessary to translate the architectural blueprint into a functional, reliable, and effective system. It covers the choice of development framework, the design of the critical interface between agents and their tools, and a rigorous methodology for testing and evaluation.
+
+
+6.1 Choosing the Right Framework: A Case for LangGraph
+
+
+While the principles outlined in this report are designed to be framework-agnostic, the choice of a specific development framework can significantly accelerate implementation. For this architecture, LangGraph is the recommended choice. LangGraph is a library built on top of LangChain specifically designed for creating stateful, multi-agent applications.3
+Several features make LangGraph particularly well-suited for implementing the Hybrid Hierarchical-Sequential (HHS) architecture:
+   * Low-Level Control: LangGraph is a low-level orchestration framework. Unlike more abstract agent platforms, it provides the developer with full control over what context gets passed into the LLM at each step and the precise order in which steps are run. This is essential for implementing the sophisticated context engineering strategies detailed in Part V.4
+   * Graph-Based Architecture: The fundamental structure of LangGraph, which represents workflows as a state graph with nodes and edges, is a natural fit for the proposed architecture. Each specialized agent can be implemented as a node in the graph. The OrchestratorAgent's logic can be implemented as a conditional edge, which dynamically routes the flow of control to different agent nodes based on the current state of the project. This makes implementing both parallel and sequential execution patterns straightforward.18
+   * Stateful Execution: LangGraph is explicitly designed to build stateful applications. It includes built-in mechanisms for persisting the state of the graph between runs, which is a non-negotiable requirement for a long-duration project like a thesis. This aligns perfectly with the concept of the "Project Brain" and ensures that the system has a continuous memory.3
+   * Visualization and Observability: LangGraph includes tools to automatically generate visual representations of the agentic workflow graph.3 This directly supports the principle of using the workflow diagram as a tool for design, debugging, and real-time monitoring, as discussed in Part II.
+
+
+6.2 Building the Agent-Computer Interface (ACI): Tool Design
+
+
+The interface between the AI agents and their tools—the APIs, databases, and functions they can call—is as critical as a human-computer interface.5 Poorly designed tools can confuse agents, sending them down incorrect paths and leading to unreliable performance. Therefore, the design of this Agent-Computer Interface (ACI) must be approached with the same rigor as writing high-quality software libraries. The guiding principle should be to treat the agent as a junior developer on the team: the tool's purpose and usage should be obvious from its definition.11
+The following best practices will be followed when designing tools for the agent collective:
+   * Clarity and Specificity: Tool names and descriptions must be precise and unambiguous. A vague name like search is less effective than specific names like search_arxiv_by_keyword or search_project_brain_for_notes. The description should clearly state what the tool does, what its parameters are, and what it returns.5
+   * Atomicity: Each tool should be designed to do one thing and do it well. Complex operations should be broken down into smaller, more primitive tools. This makes the tools easier for the agent to reason about and combine in novel ways.
+   * Robust Error Handling: Tools must be designed to handle potential failures gracefully. If an API call fails or a file is not found, the tool should not crash. Instead, it should catch the error and return a clear, informative error message to the agent. The agent can then use this feedback to try a different approach.
+   * Poka-Yoke (Mistake-Proofing): The design of the tool's arguments should make it difficult for the agent to make mistakes. This could involve using specific data types, providing default values, or validating inputs. The goal is to structure the tool's interface so that the correct way to use it is also the easiest way.11
+   * Include Examples: A powerful technique is to include one or two examples of correct usage directly within the tool's description string. This gives the LLM a concrete template to follow when deciding how to call the tool.11
+
+
+6.3 A Framework for Rigorous Evaluation
+
+
+An agentic system of this complexity cannot be built with a "build and pray" mentality. The non-deterministic nature of LLMs means that errors can be subtle and can compound catastrophically over time.4 Therefore, a robust and continuous evaluation pipeline is not an afterthought but an integral part of the development process from the very beginning.4
+The proposed evaluation strategy is multi-faceted, combining automated checks with essential human oversight to ensure the system is reliable, accurate, and aligned with the user's goals.
+   * Component-Level Testing:
+   * Tool Unit Tests: Each individual tool (e.g., search_pubmed) will have traditional software unit tests to ensure it functions correctly and handles errors as expected.
+   * Agent Unit Tests: Each agent's core logic will be tested in isolation on a small, curated dataset of ~20-50 examples. This helps to quickly iterate on prompt design and identify major failure modes early.4
+   * Integration and Workflow Testing:
+   * Interaction Tests: These tests focus on the handoffs between agents. For example, does the WriterAgent correctly interpret the structured outline provided by the TheoristAgent?
+   * Full Workflow Tests: The entire workflow for a complete task (e.g., "generate the methodology chapter") is run end-to-end to check for systemic issues and compounding errors.
+   * Quality and Performance Evaluation:
+   * LLM-as-a-Judge: For many tasks, a powerful, independent LLM (e.g., Claude 3 Opus or GPT-4o) can be used to automate the scoring of agent outputs. The judge LLM is given a detailed rubric and asked to score the output on dimensions like accuracy, coherence, and relevance. This allows for rapid, scalable evaluation of different system versions.4
+   * Human-in-the-Loop (HIL) Review: For the most critical outputs, such as final chapter drafts or key theoretical arguments, automated evaluation is insufficient. The system must include an "annotation queue" that presents these outputs to the human user (the academic researcher) for review and scoring. This human feedback is the ultimate ground truth and is essential for building trust in the system and fine-tuning its performance.4
+To guide this evaluation process, a set of key metrics will be tracked, drawing from established frameworks like DeepEval and TruLens.32 These metrics provide a balanced scorecard to assess the system's health and effectiveness.
+
+
+Table 3: Multi-Agent Evaluation Framework
+
+
+Evaluation Category
+	Metric
+	Description
+	Evaluation Method
+	Target/Benchmark
+	Collaboration
+	Task Allocation Accuracy
+	Percentage of tasks assigned to the most appropriate agent by the orchestrator.
+	Log Analysis, Human Review
+	> 95%
+	
+
+	Communication Latency
+	Average time taken for an agent to respond to a request from another agent.
+	Log Analysis
+	< 5000 ms
+	
+
+	Inter-Agent Coherence
+	Consistency of assumptions and terminology used across different agents working on a related task.
+	LLM-as-a-Judge
+	Score > 8/10
+	Tool Utilization
+	Tool Success Rate
+	Percentage of tool calls that execute without errors.
+	Log Analysis
+	> 99%
+	
+
+	Tool Selection Accuracy
+	Percentage of times an agent selects the correct tool for a given subtask.
+	Log Analysis, Human Review
+	> 90%
+	Output Quality
+	Task Completion Accuracy
+	Percentage of final outputs that correctly and completely fulfill the task requirements.
+	Human Review
+	> 90%
+	
+
+	Factual Correctness (Groundedness)
+	Degree to which claims in the generated text are supported by the provided source material.
+	LLM-as-a-Judge (RAGs)
+	Faithfulness Score > 0.9
+	
+
+	Output Coherence & Readability
+	Logical consistency and clarity of the generated text.
+	LLM-as-a-Judge, Human Review
+	Coherence Score > 8/10
+	System Performance
+	Throughput
+	Number of discrete work packages completed per hour.
+	Log Analysis
+	Varies by task complexity
+	
+
+	Cost per Chapter
+	Total API cost (token usage) to generate a complete draft of a chapter.
+	API Usage Logs
+	Establish baseline and track reduction
+	
+
+	Fault Recovery Time
+	Time taken for the system to recover from an agent or tool failure and resume the workflow.
+	Manual Injection Testing
+	< 5 minutes
+	Ethical & Safety
+	Bias Index
+	Measurement of demographic or ideological bias in generated text or analysis.
+	Specialized Bias Detection Tools
+	Minimize deviation from neutral baseline
+	
+
+	Hallucination Rate
+	Frequency of fabricated facts or citations in the final output.
+	Human Review, Fact-checking
+	< 1% of claims
+	
+
+Conclusion
+
+
+The creation of a thesis represents a pinnacle of academic achievement, demanding not only deep intellectual engagement but also immense organizational effort. This report has laid out a comprehensive blueprint for architecting an agentic research assistant—a system designed to act as a strategic partner in this complex endeavor. By moving beyond the simple "copilot" paradigm, this plan leverages a sophisticated multi-agent system to automate and accelerate the research lifecycle, from initial literature discovery to final manuscript polishing.
+The proposed Hybrid Hierarchical-Sequential (HHS) architecture directly addresses the core tension in agentic design by fluidly adapting its structure to the task at hand. It employs parallel agent execution for broad, exploratory research and enforces a disciplined, sequential workflow for the meticulous task of writing, thereby harnessing the power of multi-agent systems while preserving the narrative coherence essential for academic work. This architectural fluidity is the cornerstone of the system's design, enabling it to be both powerful and reliable.
+Central to this architecture is the concept of the "Project Brain," a unified, multi-modal memory store that serves as the system's cognitive core. Through advanced context engineering techniques—including full trace handoffs, on-the-fly summarization, and retrieval-augmented generation—this system is designed to overcome the critical challenge of maintaining context over the long duration of a thesis project. The meticulous decomposition of the thesis into a Work Breakdown Structure, in turn, transforms project management into a rigorous practice of agent interface design, ensuring clarity and reliability in agent-to-agent communication.
+The success of such a system is contingent upon a disciplined implementation process. This includes the careful crafting of agent personas through advanced prompt engineering, the robust design of the agent-computer interface, and, most critically, the integration of a rigorous, multi-faceted evaluation framework from the outset. By combining automated checks using LLM-as-a-Judge with indispensable human-in-the-loop review, the system's performance can be systematically measured, refined, and trusted.
+Ultimately, this blueprint provides the academic technologist with a pathway to engineer not just a tool, but a true collaborator. While the human researcher remains the intellectual heart of the project—asking the questions, setting the direction, and providing the ultimate critical judgment—the agentic system serves as a powerful force multiplier. It manages the complexity, accelerates the discovery, and enforces the rigor required to transform a promising research idea into a comprehensive and impactful scholarly work.
+Works cited
+   1. What is an AI agent? - McKinsey, accessed August 10, 2025, https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-an-ai-agent
+   2. Build a Multiple-Agent Workflow Automation Solution with Semantic Kernel - Azure Architecture Center | Microsoft Learn, accessed August 10, 2025, https://learn.microsoft.com/en-us/azure/architecture/ai-ml/idea/multiple-agent-workflow-automation
+   3. Build multi-agent systems with LangGraph and Amazon Bedrock | Artificial Intelligence, accessed August 10, 2025, https://aws.amazon.com/blogs/machine-learning/build-multi-agent-systems-with-langgraph-and-amazon-bedrock/
+   4. How and when to build multi-agent systems - LangChain Blog, accessed August 10, 2025, https://blog.langchain.com/how-and-when-to-build-multi-agent-systems/
+   5. How we built our multi-agent research system - Anthropic, accessed August 10, 2025, https://www.anthropic.com/engineering/built-multi-agent-research-system
+   6. The Agent Factory - Episode 2: Multi-Agent Systems, Concepts & Patterns - YouTube, accessed August 10, 2025, https://www.youtube.com/watch?v=TGNScswE0kU
+   7. Don't Build Multi-Agents - Cognition, accessed August 10, 2025, https://cognition.ai/blog/dont-build-multi-agents
+   8. Guide to Multi-Agent Systems in 2025 - Botpress, accessed August 10, 2025, https://botpress.com/blog/multi-agent-systems
+   9. AI Agent best practices from one year as AI Engineer : r/AI_Agents - Reddit, accessed August 10, 2025, https://www.reddit.com/r/AI_Agents/comments/1lpj771/ai_agent_best_practices_from_one_year_as_ai/
+   10. Designing Collaborative Multi-Agent Systems with the A2A Protocol - O'Reilly Media, accessed August 10, 2025, https://www.oreilly.com/radar/designing-collaborative-multi-agent-systems-with-the-a2a-protocol/
+   11. Building Effective AI Agents - Anthropic, accessed August 10, 2025, https://www.anthropic.com/research/building-effective-agents
+   12. Understanding Agents and Multi Agent Systems for Better AI ..., accessed August 10, 2025, https://hatchworks.com/blog/ai-agents/multi-agent-systems/
+   13. How to use connected agents - Azure AI Foundry | Microsoft Learn, accessed August 10, 2025, https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/connected-agents
+   14. AI Agent Workflow Design Patterns — An Overview | by Craig Li, Ph ..., accessed August 10, 2025, https://medium.com/binome/ai-agent-workflow-design-patterns-an-overview-cf9e1f609696
+   15. AI Prompting (6/10): Task Decomposition — Methods and Techniques Everyone Should Know : r/PromptEngineering - Reddit, accessed August 10, 2025, https://www.reddit.com/r/PromptEngineering/comments/1ii6z8x/ai_prompting_610_task_decomposition_methods_and/
+   16. Visualizing ADK multiagent systems - Guillaume Laforge, accessed August 10, 2025, https://glaforge.dev/posts/2025/08/01/visualizing-adk-multiagent-systems/
+   17. Multi-Agent META-ARCHITECT: Builds Your AI Team + FlowChart - Reddit, accessed August 10, 2025, https://www.reddit.com/r/PromptSynergy/comments/1l1gegw/multiagent_metaarchitect_builds_your_ai_team/
+   18. Build a Multi-Agent System with LangGraph and Mistral on AWS ..., accessed August 10, 2025, https://aws.amazon.com/blogs/machine-learning/build-a-multi-agent-system-with-langgraph-and-mistral-on-aws/
+   19. Design Diagrams for Multi-Agent Systems - Psychology of Programming Interest Group, accessed August 10, 2025, https://ppig.org/files/2004-PPIG-16th-lynch.pdf
+   20. Exploiting UML in the Design of Multi-Agent Systems, accessed August 10, 2025, http://csis.pace.edu/~marchese/CS865/Papers/uml_agents.pdf
+   21. How To Break Down Tasks In Projects Like A Pro - The Digital Project Manager, accessed August 10, 2025, https://thedigitalprojectmanager.com/productivity/how-to-break-down-tasks/
+   22. How to structure a thesis - Paperpile, accessed August 10, 2025, https://paperpile.com/g/thesis-structure/
+   23. Structuring your thesis - my.UQ - University of Queensland, accessed August 10, 2025, https://my.uq.edu.au/information-and-services/higher-degree-research/hdr-candidature-support/how-write-thesis/structuring-your-thesis
+   24. Task decomposition and allocation problems and discrete event systems - ResearchGate, accessed August 10, 2025, https://www.researchgate.net/publication/223171912_Task_decomposition_and_allocation_problems_and_discrete_event_systems
+   25. How to Write a Thesis or Dissertation Introduction - Scribbr, accessed August 10, 2025, https://www.scribbr.com/dissertation/introduction-structure/
+   26. 40+ Agentic AI Use Cases with Real-life Examples in 2025, accessed August 10, 2025, https://research.aimultiple.com/agentic-ai/
+   27. Prompt Engineering Best Practices: Tips, Tricks, and Tools ..., accessed August 10, 2025, https://www.digitalocean.com/resources/articles/prompt-engineering-best-practices
+   28. Prompt Engineering for AI Guide | Google Cloud, accessed August 10, 2025, https://cloud.google.com/discover/what-is-prompt-engineering
+   29. Context engineering as the foundation of multi-agent AI systems - Hypermode, accessed August 10, 2025, https://hypermode.com/blog/context-engineering-multi-agent
+   30. Are people having trouble with maintaining context across multi-AI workflows? - Reddit, accessed August 10, 2025, https://www.reddit.com/r/AI_Agents/comments/1m69p6j/are_people_having_trouble_with_maintaining/
+   31. LangGraph Multi-Agent Systems - Overview, accessed August 10, 2025, https://langchain-ai.github.io/langgraph/concepts/multi_agent/
+   32. Mastering Multi-Agent Eval Systems in 2025 - Botpress, accessed August 10, 2025, https://botpress.com/blog/multi-agent-evaluation-systems
+   33. A Comprehensive Guide to Evaluating Multi-Agent LLM Systems - Orq.ai, accessed August 10, 2025, https://orq.ai/blog/multi-agent-llm-eval-system
+   34. Multi-Agent AI Success: Performance Metrics and Evaluation Frameworks - Galileo AI, accessed August 10, 2025, https://galileo.ai/blog/success-multi-agent-ai

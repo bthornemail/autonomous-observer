@@ -1,0 +1,11 @@
+{
+  "model": "universal-format-knowledge-report.json",
+  "generatedAt": "2025-08-10T19:46:57.647Z",
+  "metrics": {
+    "triples": 13648,
+    "files": 1,
+    "formats": 3,
+    "validationNetworks": 0,
+    "progressionChains": 0
+  }
+}
