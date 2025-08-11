@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tetrahedron UI</title>
+  <style>body{font-family:sans-serif;margin:2rem} .ok{color:green}</style>
+</head>
+<body>
+  <h1>Unified Tetrahedron Dashboard</h1>
+  <p id="status">Connecting to centroid...</p>
+  <script>
+    const ws = new WebSocket('ws://localhost:8000?name=tetrahedron-ui');
+    ws.onopen = () => document.getElementById('status').innerHTML = '<span class="ok">Connected to centroid</span>';
+    ws.onmessage = (e) => console.log('Centroid event', e.data);
+    ws.onerror = (e) => console.warn('WS error', e);
+  </script>
+</body>
+</html>
