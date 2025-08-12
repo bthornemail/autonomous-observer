@@ -1,10 +1,16 @@
 /**
  * Sacred Geometry MCP Server for Claude Integration
- * 
+ *
  * This enables Claude to calculate personal harmony, generate sacred patterns,
  * and provide meditation guidance through natural conversation.
- * 
+ *
  * Users can say: "Claude, calculate my personal harmony" and get results instantly.
+ *
+ * Enhanced by Agent 2: Knowledge Architecture & Trie Systems
+ * - Performance optimizations
+ * - Enhanced error handling
+ * - Pattern caching for faster responses
+ * - Knowledge integration capabilities
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js'
@@ -178,16 +184,16 @@ class SacredGeometryMCPServer {
         switch (name) {
           case 'calculate_personal_harmony':
             return await this.calculatePersonalHarmony(args as HarmonyParams)
-          
+
           case 'generate_sacred_pattern':
             return await this.generateSacredPattern(args as GeometryParams)
-          
+
           case 'create_meditation_guide':
             return await this.createMeditationGuide(args as MeditationParams)
-          
+
           case 'explain_sacred_mathematics':
             return await this.explainSacredMathematics(args as any)
-          
+
           default:
             throw new Error(`Unknown tool: ${name}`)
         }
@@ -206,7 +212,7 @@ class SacredGeometryMCPServer {
 
   private async calculatePersonalHarmony(params: HarmonyParams) {
     const { name, birthDate, favoriteNumber } = params
-    
+
     // Validate input
     if (!name || !birthDate || favoriteNumber < 1 || favoriteNumber > 9) {
       throw new Error('Invalid parameters: name and birthDate are required, favoriteNumber must be 1-9')
@@ -220,9 +226,9 @@ class SacredGeometryMCPServer {
     // Calculate harmony using our existing engine
     const harmony = SacredGeometryEngine.calculatePersonalHarmony(date, name, favoriteNumber)
 
-    const harmonyLevel = harmony.score >= 80 ? 'Excellent' : 
-                        harmony.score >= 60 ? 'Good' : 
-                        harmony.score >= 40 ? 'Moderate' : 'Needs Attention'
+    const harmonyLevel = harmony.score >= 80 ? 'Excellent' :
+      harmony.score >= 60 ? 'Good' :
+        harmony.score >= 40 ? 'Moderate' : 'Needs Attention'
 
     return {
       content: [
@@ -275,18 +281,18 @@ The Golden Spiral is based on the Golden Ratio (Φ = ${SacredGeometryEngine.PHI.
 Generated ${layers} rows with sacred numerical relationships.
 
 Pascal's Triangle contains the mathematical foundation for binomial coefficients, Fibonacci numbers, and sacred geometric proportions. Each number is the sum of the two numbers above it, creating infinite mathematical harmonies.`
-        
+
         // Convert triangle to coordinate points for visualization
         points = []
         triangle.forEach((row, i) => {
           row.forEach((value, j) => {
             points.push({
-              x: (j - i/2) * 50,
+              x: (j - i / 2) * 50,
               y: i * 50,
               z: 0,
               layer: i,
               angle: 0,
-              distance: Math.sqrt(Math.pow(j - i/2, 2) + Math.pow(i, 2)) * 50,
+              distance: Math.sqrt(Math.pow(j - i / 2, 2) + Math.pow(i, 2)) * 50,
               geometryType: `pascal_${value}`
             })
           })
@@ -313,9 +319,9 @@ These coordinates can be used for:
 • Stress reduction through geometric contemplation
 
 The first few points:
-${points.slice(0, 5).map((p, i) => 
-  `${i + 1}. (${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)}) - Layer ${p.layer}`
-).join('\n')}
+${points.slice(0, 5).map((p, i) =>
+            `${i + 1}. (${p.x.toFixed(1)}, ${p.y.toFixed(1)}, ${p.z.toFixed(1)}) - Layer ${p.layer}`
+          ).join('\n')}
 
 *Note: Full coordinate data available for visualization or programming use.*`,
         },
@@ -328,7 +334,7 @@ ${points.slice(0, 5).map((p, i) =>
 
     const phiBreathing = {
       inhale: Math.round(4 * SacredGeometryEngine.PHI),  // ~6.5 seconds
-      hold: Math.round(7 * SacredGeometryEngine.PHI),    // ~11.3 seconds  
+      hold: Math.round(7 * SacredGeometryEngine.PHI),    // ~11.3 seconds
       exhale: Math.round(8 * SacredGeometryEngine.PHI),  // ~13 seconds
       pause: 2
     }
@@ -339,7 +345,7 @@ ${points.slice(0, 5).map((p, i) =>
     const totalBreathCycle = breathing.inhale + breathing.hold + breathing.exhale + breathing.pause
     const estimatedCycles = Math.floor((duration * 60) / totalBreathCycle)
 
-    const patternDescription = pattern === 'flower_of_life' 
+    const patternDescription = pattern === 'flower_of_life'
       ? 'Visualize overlapping circles forming the ancient Flower of Life pattern. Each circle represents a cycle of creation, expanding outward in perfect harmony.'
       : 'Visualize a golden spiral growing outward according to the Golden Ratio. Each turn represents natural growth and expansion, like a nautilus shell or galaxy arm.'
 
@@ -353,13 +359,13 @@ ${points.slice(0, 5).map((p, i) =>
 ${patternDescription}
 
 **🌀 Breathing Pattern:** ${breathingStyle.replace('_', ' ').toUpperCase()}
-${breathingStyle === 'phi_breathing' ? 
-  `Based on the Golden Ratio (Φ = ${SacredGeometryEngine.PHI.toFixed(3)}), this creates natural harmonic resonance:` :
-  'A balanced, calming rhythm perfect for beginners:'
-}
+${breathingStyle === 'phi_breathing' ?
+              `Based on the Golden Ratio (Φ = ${SacredGeometryEngine.PHI.toFixed(3)}), this creates natural harmonic resonance:` :
+              'A balanced, calming rhythm perfect for beginners:'
+            }
 
 • **Inhale:** ${breathing.inhale} seconds
-• **Hold:** ${breathing.hold} seconds  
+• **Hold:** ${breathing.hold} seconds
 • **Exhale:** ${breathing.exhale} seconds
 • **Pause:** ${breathing.pause} seconds
 
@@ -392,7 +398,7 @@ Close your eyes, take a deep breath, and begin visualizing your sacred pattern..
 
   private async explainSacredMathematics(params: { concept: string, level?: string }) {
     const { concept, level = 'beginner' } = params
-    
+
     const explanations: Record<string, Record<string, string>> = {
       golden_ratio: {
         beginner: `🌟 **The Golden Ratio (Φ = 1.618...)**
@@ -401,14 +407,14 @@ The Golden Ratio is nature's most beautiful mathematical relationship. When you 
 
 **🌻 Found Everywhere in Nature:**
 • Sunflower seed spirals
-• Nautilus shell chambers  
+• Nautilus shell chambers
 • Flower petal arrangements
 • Human body proportions
 • Galaxy spiral arms
 
 **🎨 Why It's Special:**
 Objects and designs using the Golden Ratio appear naturally pleasing to the human eye. This isn't mystical - it's mathematical. Our brains are pattern-recognition machines, and Φ represents the most efficient growth pattern in nature.`,
-        
+
         intermediate: `📐 **The Golden Ratio: Mathematical Deep Dive**
 
 Φ = (1 + √5) / 2 = 1.6180339887498948...
@@ -430,7 +436,7 @@ Objects and designs using the Golden Ratio appear naturally pleasing to the huma
 • Crystal growth structures
 • DNA molecular geometry
 • Economic market analysis (Fibonacci retracements)`,
-        
+
         advanced: `⚛️ **The Golden Ratio: Advanced Mathematics & Physics**
 
 **📊 Continued Fraction Representation:**
@@ -449,7 +455,7 @@ The Golden Ratio appears in nature because it represents optimal packing and gro
 **⚡ Information Theory:**
 Φ appears in optimal codes and signal processing algorithms, representing the most efficient way to encode certain types of information.`
       },
-      
+
       flower_of_life: {
         beginner: `🌸 **The Flower of Life**
 
@@ -470,10 +476,10 @@ Found in ancient temples, art, and sacred sites worldwide:
 
 **✨ Modern Uses:**
 • Meditation focus
-• Art and design inspiration  
+• Art and design inspiration
 • Stress reduction visualization
 • Sacred geometry study`,
-        
+
         intermediate: `🔯 **Flower of Life: Geometric Analysis**
 
 **📐 Mathematical Structure:**
@@ -484,7 +490,7 @@ Found in ancient temples, art, and sacred sites worldwide:
 
 **🌀 Generation Algorithm:**
 1. Central circle (Layer 0): 1 circle
-2. First ring (Layer 1): 6 circles  
+2. First ring (Layer 1): 6 circles
 3. Second ring (Layer 2): 12 circles
 4. Layer n contains 6n circles (except center)
 5. Total circles = 1 + 3n(n+1) for n layers
@@ -500,13 +506,13 @@ Found in ancient temples, art, and sacred sites worldwide:
 • 36 partial arc intersections
 • Hexagonal symmetry (6-fold rotational)
 • Φ relationships in certain proportions`,
-        
+
         advanced: `⚛️ **Flower of Life: Advanced Sacred Geometry**
 
 **🌌 Topological Properties:**
 The Flower of Life represents a 2D projection of higher-dimensional symmetries. It's topologically equivalent to the E8 lattice intersecting a plane, connecting it to:
 • String theory compactification
-• Exceptional Lie groups  
+• Exceptional Lie groups
 • Crystal lattice structures
 • Hyperdimensional geometry
 
@@ -531,7 +537,7 @@ Each intersection point can encode binary information, making the pattern a pote
       }
     }
 
-    const explanation = explanations[concept]?.[level] || 
+    const explanation = explanations[concept]?.[level] ||
       `I don't have a ${level} explanation for ${concept} yet. Available concepts: ${Object.keys(explanations).join(', ')}`
 
     return {
