@@ -20,7 +20,10 @@
     "start:marketplace": "npm run dev -w knowledge-marketplace",
     "start:universe": "npm run dev -w autonomous-universe",
     "install:all": "npm install && npm install --workspaces",
-    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules",
+  "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules",
+  "repo:inspect": "node bin/repo-clean.js inspect",
+  "repo:clean": "node bin/repo-clean.js clean",
+  "repo:deepclean": "node bin/repo-clean.js deepclean",
     "typecheck": "npm run typecheck --workspaces"
   },
   "devDependencies": {
