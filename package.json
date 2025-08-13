@@ -17,6 +17,7 @@
   "test:jest": "jest",
   "test:setup": "npm i -D jest babel-jest @babel/core @babel/preset-env",
   "harmonic:demo": "npx --workspace @ulp/harmonic-template-engine harmonic-template --dim=256 --seed=demo --base=5 --harmonics=1,2,3 --gain=0.25 --placeholders=k:5:0.9,range:20..40:0.3 --out ./dist/harmonic-demo.json",
+  "portal:serve": "node scripts/serve-portal.js",
   "harmonic:vsa": "node scripts/harmonic-vsa-demo.js",
     "start:tetrahedron": "./start-tetrahedron.sh",
     "start:bridge": "npm run start:bridge -w @ulp/web2-web3-bridge",

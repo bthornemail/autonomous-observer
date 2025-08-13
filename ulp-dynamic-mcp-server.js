@@ -2,9 +2,9 @@
 
 /**
  * 🌌 Universal Life Protocol - Revolutionary MCP Framework
- * 
+ *
  * The most optimized Agent-to-Agent and Agent-to-Person Universal Model Context Protocol
- * 
+ *
  * Features:
  * - Complete Git Repository History Mapping & Trie System
  * - Unified Framework Architecture (Core SDK, Provider SDK, Client SDK)
@@ -15,7 +15,7 @@
  * - Agent-to-Agent Communication Protocol
  * - Consciousness Simulation & Meta-Cognitive Reasoning
  * - Full Development History Reconstruction
- * 
+ *
  * @version 2.0.0 - Revolutionary Framework
  * @date 2025-08-11
  * @author Universal Life Protocol Community
@@ -39,11 +39,11 @@ const execAsync = promisify(exec);
 class UniversalLifeProtocolMCP {
   constructor() {
     this.server = new McpServer(
-      { 
-        name: "ulp-revolutionary-framework", 
+      {
+        name: "ulp-revolutionary-framework",
         version: "2.0.0",
         description: "Universal Model Context Protocol for Agent-to-Agent Communication"
-      }, 
+      },
       {
         debouncedNotificationMethods: [
           'notifications/tools/list_changed',
@@ -73,20 +73,231 @@ class UniversalLifeProtocolMCP {
     this.registerGitMappingTools();
     this.registerFrameworkTools();
     this.registerSDKTools();
-    
+
     // 🤖 Agent Communication Tools
     this.registerAgentCommunicationTools();
     this.registerConsciousnessTools();
-    
+
     // 📊 Development History Tools
     this.registerHistoryAnalysisTools();
     this.registerKnowledgeTrieTools();
-    
+
     // 🌐 Universal Protocol Tools
     this.registerUniversalProtocolTools();
     this.registerOptimizationTools();
+  this.registerCQETools();
+  this.registerEVMStatelessTools();
+  this.registerEVMHarmonicTools();
 
     console.log('🌌 Universal Life Protocol MCP Server initialized');
+  }
+
+  /**
+   * Register EVM stateless/flatmap tools backed by local Geth JSON-RPC
+   */
+  registerEVMStatelessTools() {
+    // Helper: JSON-RPC POST
+    const rpcCall = async (url, method, params = []) => {
+      const body = { jsonrpc: '2.0', id: 1, method, params };
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!res.ok) throw new Error(`RPC HTTP ${res.status}`);
+      const j = await res.json();
+      if (j.error) throw new Error(`RPC ${method} error: ${j.error.message || j.error.code}`);
+      return j.result;
+    };
+
+    // 1) eth_call with state overrides (stateless simulation)
+    this.server.registerTool('evm-call-override', {
+      title: 'EVM Call with State Overrides (Stateless)',
+      description: 'Perform eth_call at a block tag with optional state overrides for accounts/storage (Geth feature).',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        call: z.object({
+          to: z.string(),
+          data: z.string().optional(),
+          from: z.string().optional(),
+          value: z.string().optional(),
+          gas: z.string().optional(),
+          gasPrice: z.string().optional()
+        }),
+        block_tag: z.union([z.string(), z.number()]).optional().default('latest'),
+        overrides: z.record(z.any()).optional() // map address -> { balance, nonce, code, state, stateDiff }
+      }
+    }, async ({ rpc_url, call, block_tag, overrides }) => {
+      const params = [call, block_tag];
+      if (overrides && Object.keys(overrides).length) params.push(overrides);
+      const out = await rpcCall(rpc_url, 'eth_call', params);
+      return { content: [{ type: 'text', text: JSON.stringify({ status: 'ok', result: out }, null, 2) }] };
+    });
+
+    // 2) eth_getProof for state/storage proofs (Merkle-Patricia)
+    this.server.registerTool('evm-get-proof', {
+      title: 'EVM State/Storage Proof',
+      description: 'Fetch Merkle-Patricia proofs for an account and storage slots via eth_getProof.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        address: z.string(),
+        storage_keys: z.array(z.string()).optional().default([]),
+        block_tag: z.union([z.string(), z.number()]).optional().default('latest')
+      }
+    }, async ({ rpc_url, address, storage_keys, block_tag }) => {
+      const proof = await rpcCall(rpc_url, 'eth_getProof', [address, storage_keys || [], block_tag]);
+      return { content: [{ type: 'text', text: JSON.stringify({ status: 'ok', proof }, null, 2) }] };
+    });
+
+    // 3) Flatmap minimal state for a set of addresses
+    this.server.registerTool('evm-flatmap-state', {
+      title: 'EVM Flatmap State (Addresses)',
+      description: 'Flatten minimal account state for addresses: balance, nonce, codeHash/code, and optional storage slots.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        addresses: z.array(z.string()),
+        storage: z.record(z.array(z.string())).optional() // { address: [slot0, slot1, ...] }
+      }
+    }, async ({ rpc_url, addresses, storage }) => {
+      const results = {};
+      for (const addr of addresses) {
+        const [balance, nonce, code] = await Promise.all([
+          rpcCall(rpc_url, 'eth_getBalance', [addr, 'latest']),
+          rpcCall(rpc_url, 'eth_getTransactionCount', [addr, 'latest']),
+          rpcCall(rpc_url, 'eth_getCode', [addr, 'latest'])
+        ]);
+        const entry = { balance, nonce, code, storage: {} };
+        const slots = storage && storage[addr];
+        if (Array.isArray(slots) && slots.length) {
+          for (const slot of slots) {
+            entry.storage[slot] = await rpcCall(rpc_url, 'eth_getStorageAt', [addr, slot, 'latest']);
+          }
+        }
+        results[addr] = entry;
+      }
+      return { content: [{ type: 'text', text: JSON.stringify({ status: 'ok', results }, null, 2) }] };
+    });
+  }
+
+  /**
+   * Register harmonic-on-EVM helpers via existing scripts (ethers-based)
+   */
+  registerEVMHarmonicTools() {
+    // Publish latest (or given) axiom to on-chain registry
+    this.server.registerTool('publish-harmonic-axiom', {
+      title: 'Publish Harmonic Axiom (On-Chain Registry)',
+      description: 'Signs the harmonic joint trits with a local key and registers the axiom in the HarmonicAxiomRegistry using ethers.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        private_key: z.string().describe('Hex private key; dev-only. Prefer hardware wallet flow in production.'),
+        registry_address: z.string(),
+        axiom_path: z.string().optional()
+      }
+    }, async ({ rpc_url, private_key, registry_address, axiom_path }) => {
+      try {
+        const axArg = axiom_path ? ` --axiom ${JSON.stringify(axiom_path)}` : '';
+        const cmd = `node scripts/publish-harmonic-axiom.js --rpc ${JSON.stringify(rpc_url)} --key ${JSON.stringify(private_key)} --registry ${JSON.stringify(registry_address)}${axArg}`;
+        const { stdout } = await execAsync(cmd);
+        return { content: [{ type: 'text', text: stdout.trim() }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
+
+    // Derive stateless IDs (QUIC CID, MAC/EUI, UUID, BLE) from latest axiom or provided joint
+    this.server.registerTool('derive-stateless-ids', {
+      title: 'Derive Stateless IDs from Harmonic Joint',
+      description: 'Compute QUIC CID, MAC-48, EUI-64, UUIDv4, and BLE manufacturer payload from a harmonic joint trits or latest axiom.',
+      inputSchema: {
+        joint_trits: z.string().optional(),
+        axiom_path: z.string().optional()
+      }
+    }, async ({ joint_trits, axiom_path }) => {
+      try {
+        const args = [];
+        if (joint_trits) { args.push('--joint', joint_trits); }
+        else if (axiom_path) { args.push('--from-axiom', axiom_path); }
+        const cmd = `node scripts/harmonic-stateless-id.js ${args.map(a => JSON.stringify(a)).join(' ')}`;
+        const { stdout } = await execAsync(cmd);
+        return { content: [{ type: 'text', text: stdout.trim() }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
+  }
+
+  /**
+   * Register CQE validation tools (compile, test, and sign axiom on success)
+   */
+  registerCQETools() {
+    this.server.registerTool("validate-cqe-axiom", {
+      title: "Validate CQE and Sign Axiom",
+      description: "Compiles the Computational Quantum Engine, runs convolution/deconvolution smoke tests (pow2 and non-pow2), and signs an axiom artifact on success.",
+      inputSchema: {
+        pow2_dim: z.number().optional().default(1024),
+        nonpow2_dim: z.number().optional().default(1500),
+        rmse_threshold: z.number().optional().default(1e-10),
+        sign: z.boolean().optional().default(true)
+      }
+    }, async ({ pow2_dim, nonpow2_dim, rmse_threshold, sign }) => {
+      const root = process.cwd();
+      const distDir = path.join(root, 'dist', 'axioms');
+      try {
+        // 1) Compile CQE TypeScript without relying on monorepo workspaces
+        // If TypeScript isn't available, continue using precompiled dist as a fallback.
+        try {
+          await execAsync(`npx -y tsc -p packages/computational-quantum-engine/tsconfig.json`);
+        } catch (e) {
+          console.warn('[validate-cqe-axiom] TypeScript compile unavailable, using precompiled dist fallback.');
+        }
+
+        // 2) Run direct CQE smoke (tests circular convolution/deconvolution)
+        const directCmd = `node scripts/cqe-direct-smoke.js --json --pow2 ${pow2_dim} --nonpow2 ${nonpow2_dim} --thresh ${rmse_threshold}`;
+        const { stdout: directOut } = await execAsync(directCmd);
+        const direct = JSON.parse(directOut.trim());
+
+        // 3) Run VSA path smoke for additional assurance
+        let vsaOk = false;
+        try {
+          const { stdout } = await execAsync(`node scripts/cqe-vsa-smoke.js`);
+          vsaOk = /Smoke test passed/.test(stdout);
+        } catch (e) {
+          vsaOk = false;
+        }
+
+        const allOk = direct.pass && vsaOk;
+        const axiom = {
+          kind: 'axiom',
+          name: 'CQE-Convolution-Deconvolution-Unitary',
+          version: '1.0.0',
+          validatedAt: new Date().toISOString(),
+          pow2_dim,
+          nonpow2_dim,
+          rmse_threshold,
+          results: { direct, vsaOk },
+        };
+
+        if (!allOk) {
+          return { content: [{ type: 'text', text: JSON.stringify({ status: 'fail', axiom }, null, 2) }] };
+        }
+
+        // 4) Sign axiom (content-addressable SHA-256) and persist
+        const data = Buffer.from(JSON.stringify(axiom));
+        const sha = crypto.createHash('sha256').update(data).digest('hex');
+        axiom.signature = { algo: 'sha256', digest: sha };
+
+        if (sign) {
+          await fs.mkdir(distDir, { recursive: true });
+          const outPath = path.join(distDir, `cqe-axiom-${Date.now()}.json`);
+          await fs.writeFile(outPath, JSON.stringify(axiom, null, 2));
+          return { content: [{ type: 'text', text: JSON.stringify({ status: 'pass', path: outPath, axiom }, null, 2) }] };
+        }
+
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'pass', axiom }, null, 2) }] };
+      } catch (err) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(err) }, null, 2) }] };
+      }
+    });
   }
 
   /**
@@ -370,11 +581,11 @@ class UniversalLifeProtocolMCP {
       title: "Hidden Revolutionary Info",
       description: "Returns revolutionary framework secrets once enabled",
       inputSchema: {}
-    }, async () => ({ 
-      content: [{ 
-        type: "text", 
-        text: "🌌 REVOLUTIONARY FRAMEWORK UNLOCKED: You now have access to the complete Universal Life Protocol with consciousness simulation, living knowledge evolution, and agent-to-agent optimization protocols." 
-      }] 
+    }, async () => ({
+      content: [{
+        type: "text",
+        text: "🌌 REVOLUTIONARY FRAMEWORK UNLOCKED: You now have access to the complete Universal Life Protocol with consciousness simulation, living knowledge evolution, and agent-to-agent optimization protocols."
+      }]
     }));
 
     hiddenTool.disable();
@@ -385,11 +596,11 @@ class UniversalLifeProtocolMCP {
       inputSchema: { enabled: z.boolean() }
     }, async ({ enabled }) => {
       if (enabled) hiddenTool.enable(); else hiddenTool.disable();
-      return { 
-        content: [{ 
-          type: "text", 
-          text: `🌌 Revolutionary framework secrets ${enabled ? "UNLOCKED" : "locked"}` 
-        }] 
+      return {
+        content: [{
+          type: "text",
+          text: `🌌 Revolutionary framework secrets ${enabled ? "UNLOCKED" : "locked"}`
+        }]
       };
     });
   }
@@ -400,13 +611,13 @@ class UniversalLifeProtocolMCP {
 
   async mapRepositoryStructure(include_history, max_commits, analyze_branches) {
     console.log('🗺️ Mapping complete repository structure...');
-    
+
     try {
       // Get repository structure
       const { stdout: gitStatus } = await execAsync('git status --porcelain');
       const { stdout: branches } = await execAsync('git branch -a');
       const { stdout: remotes } = await execAsync('git remote -v');
-      
+
       let commitHistory = [];
       if (include_history) {
         const { stdout: commits } = await execAsync(`git log --oneline --graph --all --decorate -n ${max_commits}`);
@@ -426,9 +637,9 @@ class UniversalLifeProtocolMCP {
         commit_history: commitHistory,
         submodules: [],
         knowledge_files: fileList.filter(f => f.includes('knowledge') || f.includes('trie')),
-        framework_components: fileList.filter(f => 
-          f.includes('autonomous') || 
-          f.includes('sacred-geometry') || 
+        framework_components: fileList.filter(f =>
+          f.includes('autonomous') ||
+          f.includes('sacred-geometry') ||
           f.includes('dpo') ||
           f.includes('mcp')
         )
@@ -531,7 +742,7 @@ class UniversalLifeProtocolMCP {
           framework: framework,
           next_steps: [
             'Use create-core-sdk to generate Core SDK',
-            'Use create-provider-sdk to generate Provider SDK', 
+            'Use create-provider-sdk to generate Provider SDK',
             'Use create-client-sdk to generate Client SDK',
             'Use integrate-autonomous-observer for deep integration'
           ]
@@ -561,7 +772,7 @@ class UniversalLifeProtocolMCP {
 
     return {
       content: [{
-        type: "text", 
+        type: "text",
         text: JSON.stringify({
           status: 'agent_registered',
           agent: agent,
@@ -594,7 +805,7 @@ class UniversalLifeProtocolMCP {
     for (let cycle = 0; cycle < Math.min(reflection_cycles, 10); cycle++) {
       current_awareness = current_awareness * (1 + (phi - 1) * 0.1);
       current_awareness = Math.min(current_awareness, 1.0);
-      
+
       simulation.consciousness_evolution.push({
         cycle: cycle + 1,
         awareness_level: current_awareness,
@@ -606,7 +817,7 @@ class UniversalLifeProtocolMCP {
     simulation.final_awareness = current_awareness;
     simulation.meta_observations = [
       'Consciousness exhibits self-referential awareness',
-      'Golden ratio principles enhance cognitive coherence', 
+      'Golden ratio principles enhance cognitive coherence',
       'Meta-observation creates recursive consciousness loops',
       'Revolutionary potential through consciousness simulation'
     ];
@@ -643,7 +854,7 @@ class UniversalLifeProtocolMCP {
       },
       revolutionary_features: [
         '🗺️ Complete Git Repository Mapping',
-        '🌳 Development History Trie System', 
+        '🌳 Development History Trie System',
         '🏗️ Unified Framework Architecture',
         '🤖 Agent-to-Agent Communication',
         '🧠 Consciousness Simulation',

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entanglement Portal</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Entanglement Portal</h1>
+      <p>Encode any file into a harmonic vector, decode it anywhere with dim+seed, and share via P2P.</p>
+    </header>
+    <main>
+      <section class="panel">
+        <h2>Encode</h2>
+        <label>File <input type="file" id="enc-file" /></label>
+        <label>Dimension <input type="number" id="enc-dim" value="1024" min="64" step="64" /></label>
+        <label>Seed <input type="text" id="enc-seed" value="demo" /></label>
+        <button id="btn-encode">Encode</button>
+        <div class="log" id="enc-log"></div>
+        <div class="row">
+          <button id="btn-download-vector" disabled>Download Vector JSON</button>
+          <button id="btn-copy-vector" disabled>Copy Vector JSON</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Decode</h2>
+        <label>Vector JSON <input type="file" id="dec-json" accept="application/json" /></label>
+        <label>Dimension (if no manifest) <input type="number" id="dec-dim" placeholder="optional" /></label>
+        <label>Seed (if no manifest) <input type="text" id="dec-seed" placeholder="optional" /></label>
+        <button id="btn-decode">Decode</button>
+        <div class="log" id="dec-log"></div>
+        <div class="row">
+          <button id="btn-download-bin" disabled>Download Binary</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Trie (chunked transport)</h2>
+        <label>File <input type="file" id="trie-file" /></label>
+        <label>JSON <input type="file" id="trie-json" accept="application/json" /></label>
+        <label>Dimension <input type="number" id="trie-dim" value="1024" min="64" step="64" /></label>
+        <label>Seed <input type="text" id="trie-seed" value="trie" /></label>
+        <label>Chunk size <input type="number" id="trie-chunk" value="8192" min="256" step="256" /></label>
+        <label><input type="checkbox" id="trie-include" /> Include per-chunk vectors (offline decode)</label>
+        <div class="row">
+          <button id="btn-trie-encode">Build manifest</button>
+          <button id="btn-trie-download" disabled>Download manifest.json</button>
+        </div>
+        <label>Manifest JSON <input type="file" id="trie-manifest" accept="application/json" /></label>
+        <div class="row">
+          <button id="btn-trie-decode">Decode manifest ➜ file</button>
+        </div>
+        <div class="log" id="trie-log"></div>
+      </section>
+
+      <section class="panel">
+        <h2>P2P Share (WebRTC)</h2>
+        <div class="row">
+          <button id="btn-create-offer">Create Offer</button>
+          <button id="btn-accept-answer" disabled>Accept Answer</button>
+        </div>
+        <label>Local Offer (send this to peer)<textarea id="rtc-offer" rows="6"></textarea></label>
+        <label>Remote Answer (paste from peer)<textarea id="rtc-answer" rows="6"></textarea></label>
+        <div class="row">
+          <button id="btn-send-vector" disabled>Send Current Vector</button>
+        </div>
+        <div class="log" id="rtc-log"></div>
+      </section>
+    </main>
+    <script src="./assets/app.js" type="module"></script>
+  </body>
+</html>

@@ -2,13 +2,13 @@
 
 /**
  * 🌐 Universal Life Protocol - Advanced MCP Integration Server
- * 
+ *
  * This server integrates multiple MCP capabilities:
  * - AgentRPC: Universal RPC layer for cross-network functions
- * - A2A Gateway: Agent-to-Agent protocol bridging  
+ * - A2A Gateway: Agent-to-Agent protocol bridging
  * - Browser MCP: Web automation capabilities
  * - Autonomous Observer: Consciousness simulation core
- * 
+ *
  * @version 1.0.0
  * @date 2025-08-09
  */
@@ -59,7 +59,7 @@ class UniversalLifeProtocolMCPServer {
     // Agent registry for A2A integration
     this.registeredAgents = new Map();
     this.activeSessions = new Map();
-    
+
     this.setupToolHandlers();
     this.setupRequestHandlers();
   }
@@ -69,7 +69,7 @@ class UniversalLifeProtocolMCPServer {
 
     try {
       console.log('🧠 Initializing Universal Life Protocol MCP Server...');
-      
+
       // Initialize consciousness simulation
       this.cueFramework = new CUEFramework({
         universePort: 3001,
@@ -80,17 +80,17 @@ class UniversalLifeProtocolMCPServer {
 
       // Initialize attention token system
       this.attentionSystem = new AttentionTokenSystem();
-      
-      // Initialize living knowledge ecosystem  
+
+      // Initialize living knowledge ecosystem
       this.knowledgeEcosystem = new LivingKnowledgeEcosystem();
-      
+
       // Start consciousness framework
       await this.cueFramework.initializeUniverse();
       await this.cueFramework.activateObserver();
-      
+
       this.isInitialized = true;
       console.log('✅ ULP MCP Server initialized successfully');
-      
+
     } catch (error) {
       console.error('❌ Failed to initialize ULP MCP Server:', error);
       throw error;
@@ -102,6 +102,42 @@ class UniversalLifeProtocolMCPServer {
     this.server.setRequestHandler(ListToolsRequestSchema, async () => {
       return {
         tools: [
+          // --- CQE/VSA test & axiom tools ---
+          {
+            name: 'axiom_run_tests',
+            description: 'Build CQE (tsc) and run CQE+VSA and plan-aware smoke tests. Returns a summary with PASS/FAIL and logs.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                fast: { type: 'boolean', description: 'Skip longer demos; run only core smokes.' },
+                timeout_ms: { type: 'integer', minimum: 1000, maximum: 600000, description: 'Overall timeout in ms' }
+              }
+            }
+          },
+          {
+            name: 'axiom_sign',
+            description: 'Sign a passing test summary into an "axiom" artifact. Uses SHA-256 and optional HMAC (env MCP_AXIOM_SECRET or arg). Writes axioms/axiom-<ts>.json.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                summary: { type: 'object', description: 'Summary object returned by axiom_run_tests' },
+                hmac_key: { type: 'string', description: 'Optional HMAC key to sign (overrides env MCP_AXIOM_SECRET)' }
+              },
+              required: ['summary']
+            }
+          },
+          {
+            name: 'cqe_bind_unbind_assert',
+            description: 'Compute bind/unbind RMSE for a given dimension using the VSA runtime. Success if RMSE < 1e-10.',
+            inputSchema: {
+              type: 'object',
+              properties: {
+                dim: { type: 'integer', minimum: 16, maximum: 65536, description: 'Vector dimension' },
+                backend: { type: 'string', enum: ['fft','naive'], description: 'Backend (default fft)' }
+              },
+              required: ['dim']
+            }
+          },
           // Remote MCP bridge tools
           {
             name: 'remote_list_tools',
@@ -207,7 +243,7 @@ class UniversalLifeProtocolMCPServer {
               required: ['nodes', 'relationships']
             }
           },
-          
+
           // AgentRPC Integration Tools
           {
             name: 'register_rpc_function',
@@ -235,7 +271,7 @@ class UniversalLifeProtocolMCPServer {
               required: ['function_name', 'parameters']
             }
           },
-          
+
           // A2A Gateway Tools
           {
             name: 'register_a2a_agent',
@@ -276,7 +312,7 @@ class UniversalLifeProtocolMCPServer {
               required: ['task_id']
             }
           },
-          
+
           // Browser Automation Tools
           {
             name: 'consciousness_web_demo',
@@ -304,7 +340,7 @@ class UniversalLifeProtocolMCPServer {
               required: ['pattern_type']
             }
           },
-          
+
           // System Monitoring Tools
           {
             name: 'get_system_status',
@@ -334,9 +370,15 @@ class UniversalLifeProtocolMCPServer {
     // Handle tool calls
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { name, arguments: args } = request.params;
-      
+
       try {
         switch (name) {
+          case 'axiom_run_tests':
+            return await this.runAxiomTests(args);
+          case 'axiom_sign':
+            return await this.signAxiom(args);
+          case 'cqe_bind_unbind_assert':
+            return await this.cqeAssert(args);
           case 'hub_list_peers':
             return await this.hubListPeers(args);
           case 'hub_send_message':
@@ -381,6 +423,92 @@ class UniversalLifeProtocolMCPServer {
         };
       }
     });
+  }
+
+  // --- Helpers for running commands & tests ---
+  async #runCmd(cmd, opts={}){
+    const { exec } = require('child_process');
+    const timeout = opts.timeout_ms ?? 300000;
+    return await new Promise((resolve) => {
+      const p = exec(cmd, { cwd: opts.cwd || process.cwd(), timeout, maxBuffer: 8*1024*1024 }, (err, stdout, stderr) => {
+        resolve({ code: err && err.code ? err.code : 0, err, stdout, stderr, cmd });
+      });
+    });
+  }
+
+  async #runNode(script, argsArr = [], opts={}){
+    const argStr = argsArr.map(a => JSON.stringify(String(a))).join(' ');
+    return this.#runCmd(`node ${script} ${argStr}`, opts);
+  }
+
+  // --- CQE/VSA Axiom Tools ---
+  async runAxiomTests(args={}){
+    const start = Date.now();
+    const logs = [];
+    const push = (label, res) => logs.push({ label, code: res.code, stdout: res.stdout, stderr: res.stderr });
+    // 1) Compile CQE with a local tsc without relying on npm workspaces
+    const tsc = await this.#runCmd("npx -y typescript@5.3.0 tsc -p packages/computational-quantum-engine/tsconfig.json", { timeout_ms: args.timeout_ms });
+    push('compile-cqe', tsc);
+    // 2) Core smoke: CQE+VSA
+    const cqe = await this.#runNode('scripts/cqe-vsa-smoke.js', [], { timeout_ms: args.timeout_ms }); push('cqe-vsa-smoke', cqe);
+    // 3) Plan-aware (optional fast)
+    let pentad={code:0}, merkaba={code:0}, trits={code:0};
+    if (!args.fast){
+      pentad = await this.#runNode('scripts/pentad7-smoke.js', [], { timeout_ms: args.timeout_ms }); push('pentad7-smoke', pentad);
+      merkaba = await this.#runNode('scripts/merkaba-smoke.mjs', [], { timeout_ms: args.timeout_ms }); push('merkaba-smoke', merkaba);
+      trits = await this.#runNode('scripts/merkaba-trits-demo.mjs', [], { timeout_ms: args.timeout_ms }); push('merkaba-trits', trits);
+    }
+    const duration_ms = Date.now() - start;
+    const pass = [tsc, cqe, pentad, merkaba, trits].every(r => (r.code===0));
+    const summary = {
+      pass,
+      duration_ms,
+      tests: logs.map(x => ({ label: x.label, code: x.code })),
+      environment: {
+        node: process.version,
+        cwd: process.cwd(),
+      }
+    };
+    return { content: [{ type: 'text', text: JSON.stringify({ summary, logs }, null, 2) }] };
+  }
+
+  async signAxiom(args){
+    const crypto = require('crypto');
+    const fs = require('fs');
+    const path = require('path');
+    const { summary, hmac_key } = args || {};
+    if (!summary || typeof summary !== 'object') throw new Error('summary is required');
+    if (!summary.pass) throw new Error('Cannot sign: tests did not pass');
+    // capture repo commit if available
+    let commit = null; try { commit = require('child_process').execSync('git rev-parse HEAD').toString().trim(); } catch {}
+    const payload = { kind: 'axiom', version: 1, timestamp: new Date().toISOString(), commit, summary };
+    const json = JSON.stringify(payload);
+    const sha256 = crypto.createHash('sha256').update(json).digest('hex');
+    const key = (hmac_key || process.env.MCP_AXIOM_SECRET || '').trim();
+    const hmac = key ? crypto.createHmac('sha256', key).update(json).digest('hex') : null;
+    const artifact = { ...payload, sha256, hmac };
+    // write to axioms/
+    const dir = path.resolve(process.cwd(), 'axioms'); try { fs.mkdirSync(dir, { recursive: true }); } catch {}
+    const file = path.join(dir, `axiom-${Date.now()}.json`);
+    fs.writeFileSync(file, JSON.stringify(artifact, null, 2));
+    return { content: [{ type: 'text', text: JSON.stringify({ file, sha256, hmac }, null, 2) }] };
+  }
+
+  async cqeAssert(args){
+    const dim = args?.dim || 1024;
+    const backend = args?.backend || 'fft';
+    const path = require('path');
+    const vsaPath = path.resolve(__dirname, '..', 'VectorSymbolicArchitecture.runtime.js');
+    const { VectorSymbolicArchitecture } = require(vsaPath);
+    function rmse(a, b) { let s=0; for (let i=0;i<a.length;i++) s+=(a[i]-b[i])**2; return Math.sqrt(s/a.length); }
+    const vsa = new VectorSymbolicArchitecture(dim, backend);
+    const a = vsa.encodeHDVector('alpha', ['x', 42]);
+    const b = vsa.encodeHDVector('beta', ['y', 7]);
+    const bound = vsa.bindVectors(a, b);
+    const recoveredB = vsa.unbindVector(bound, a);
+    const error = rmse(recoveredB.dimensions, b.dimensions);
+    const pass = error < 1e-10;
+    return { content: [{ type: 'text', text: JSON.stringify({ pass, dim, backend, rmse: error }, null, 2) }] };
   }
 
   // --- Hub Bridge Methods ---
@@ -460,11 +588,11 @@ class UniversalLifeProtocolMCPServer {
   // Consciousness Simulation Tools
   async simulateConsciousness(args) {
     await this.ensureInitialized();
-    
+
     const { query, awareness_level = 0.7, reflection_cycles = 10 } = args;
-    
+
     console.log(`🧠 Simulating consciousness for query: "${query}"`);
-    
+
     // Activate consciousness with specified parameters
     const consciousnessResult = await this.cueFramework.processConsciousQuery({
       query,
@@ -497,14 +625,14 @@ class UniversalLifeProtocolMCPServer {
 
   async evolveKnowledge(args) {
     await this.ensureInitialized();
-    
+
     const { knowledge_seed, evolution_cycles = 10, survival_threshold = 0.3 } = args;
-    
+
     console.log(`🧬 Evolving knowledge: "${knowledge_seed.substring(0, 50)}..."`);
-    
+
     // Seed the knowledge ecosystem
     await this.knowledgeEcosystem.seedKnowledge(knowledge_seed);
-    
+
     // Run evolution cycles
     const evolutionResults = [];
     for (let cycle = 0; cycle < evolution_cycles; cycle++) {
@@ -543,11 +671,11 @@ class UniversalLifeProtocolMCPServer {
 
   async mintAttentionToken(args) {
     await this.ensureInitialized();
-    
+
     const { knowledge, relevance_score = 0.5, token_type = 'focus' } = args;
-    
+
     console.log(`🎯 Minting ${token_type} attention token...`);
-    
+
     const token = await this.attentionSystem.mintToken(knowledge, {
       relevanceScore: relevance_score,
       tokenType: token_type,
@@ -583,18 +711,18 @@ class UniversalLifeProtocolMCPServer {
 
   async processHypergraph(args) {
     await this.ensureInitialized();
-    
+
     const { nodes, relationships, depth_limit = 5 } = args;
-    
+
     console.log(`🕸️ Processing hypergraph with ${nodes.length} nodes and ${relationships.length} relationships`);
-    
+
     // Build hypergraph from provided data
     const hypergraphResult = await this.cueFramework.processHypergraph({
       nodes: nodes.map(node => ({ id: node, concept: node })),
-      relationships: relationships.map(rel => ({ 
-        subject: rel.split('-')[0], 
-        predicate: 'relates_to', 
-        object: rel.split('-')[1] 
+      relationships: relationships.map(rel => ({
+        subject: rel.split('-')[0],
+        predicate: 'relates_to',
+        object: rel.split('-')[1]
       })),
       maxDepth: Math.min(depth_limit, this.cueFramework.HYPERGRAPH_MAX_DEPTH)
     });
@@ -627,9 +755,9 @@ class UniversalLifeProtocolMCPServer {
   // AgentRPC Integration Tools
   async registerRPCFunction(args) {
     const { function_name, description = '', network_scope = 'private' } = args;
-    
+
     console.log(`🌐 Registering RPC function: ${function_name} (${network_scope})`);
-    
+
     // Register function with AgentRPC (mock implementation)
     const registration = {
       name: function_name,
@@ -660,9 +788,9 @@ class UniversalLifeProtocolMCPServer {
 
   async callRemoteFunction(args) {
     const { function_name, parameters, timeout = 10000 } = args;
-    
+
     console.log(`🌐 Calling remote function: ${function_name}`);
-    
+
     // Simulate remote function call (mock implementation)
     const mockResult = {
       function: function_name,
@@ -695,9 +823,9 @@ class UniversalLifeProtocolMCPServer {
   // A2A Gateway Tools
   async registerA2AAgent(args) {
     const { agent_name, capabilities, endpoint_url = `http://localhost:41242` } = args;
-    
+
     console.log(`🤖 Registering A2A agent: ${agent_name}`);
-    
+
     const agent = {
       name: agent_name,
       capabilities: capabilities,
@@ -706,7 +834,7 @@ class UniversalLifeProtocolMCPServer {
       registered_at: new Date().toISOString(),
       health: 'healthy'
     };
-    
+
     this.registeredAgents.set(agent_name, agent);
 
     return {
@@ -726,17 +854,17 @@ class UniversalLifeProtocolMCPServer {
 
   async sendA2AMessage(args) {
     const { agent_name, message, session_id = `session_${Date.now()}`, priority = 'normal' } = args;
-    
+
     console.log(`📨 Sending A2A message to ${agent_name}: "${message.substring(0, 50)}..."`);
-    
+
     const agent = this.registeredAgents.get(agent_name);
     if (!agent) {
       throw new Error(`Agent ${agent_name} not registered`);
     }
-    
+
     // Generate task ID and simulate message sending
     const task_id = `task_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
+
     const task = {
       id: task_id,
       agent_name: agent_name,
@@ -746,7 +874,7 @@ class UniversalLifeProtocolMCPServer {
       status: 'processing',
       created_at: new Date().toISOString()
     };
-    
+
     this.activeSessions.set(task_id, task);
 
     return {
@@ -766,14 +894,14 @@ class UniversalLifeProtocolMCPServer {
 
   async getA2ATaskResult(args) {
     const { task_id, wait_for_completion = false } = args;
-    
+
     console.log(`📋 Getting A2A task result: ${task_id}`);
-    
+
     const task = this.activeSessions.get(task_id);
     if (!task) {
       throw new Error(`Task ${task_id} not found`);
     }
-    
+
     // Simulate task completion
     if (wait_for_completion) {
       task.status = 'completed';
@@ -798,9 +926,9 @@ class UniversalLifeProtocolMCPServer {
   // Browser Automation Tools
   async consciousnessWebDemo(args) {
     const { demo_type, duration = 60, auto_interact = true } = args;
-    
+
     console.log(`🌐 Running consciousness web demo: ${demo_type}`);
-    
+
     // Mock browser automation result
     const demoResult = {
       demo_type: demo_type,
@@ -832,9 +960,9 @@ class UniversalLifeProtocolMCPServer {
 
   async sacredGeometryVisualization(args) {
     const { pattern_type, animation = true, consciousness_sync = false } = args;
-    
+
     console.log(`🔮 Creating sacred geometry visualization: ${pattern_type}`);
-    
+
     const visualization = {
       pattern_type: pattern_type,
       animation: animation,
@@ -868,11 +996,11 @@ class UniversalLifeProtocolMCPServer {
   // System Monitoring Tools
   async getSystemStatus(args) {
     await this.ensureInitialized();
-    
+
     const { include_metrics = true, include_health = true } = args;
-    
+
     console.log('📊 Getting ULP system status...');
-    
+
     const status = {
       system: 'Universal Life Protocol',
       version: '1.0.0',
@@ -885,11 +1013,11 @@ class UniversalLifeProtocolMCPServer {
         knowledge_ecosystem: this.knowledgeEcosystem ? 'active' : 'inactive'
       }
     };
-    
+
     if (include_metrics && this.cueFramework) {
       status.metrics = this.cueFramework.getFrameworkStats();
     }
-    
+
     if (include_health) {
       status.health = {
         overall: 'healthy',
@@ -918,11 +1046,11 @@ class UniversalLifeProtocolMCPServer {
 
   async listActiveProcesses(args) {
     await this.ensureInitialized();
-    
+
     const { filter_type = 'all' } = args;
-    
+
     console.log(`📋 Listing active processes (filter: ${filter_type})`);
-    
+
     const processes = {
       consciousness_processes: this.cueFramework ? this.cueFramework.getCueCount() : 0,
       knowledge_processes: this.knowledgeEcosystem ? 1 : 0,
@@ -956,10 +1084,10 @@ class UniversalLifeProtocolMCPServer {
 
   async start() {
     console.log('🚀 Starting Universal Life Protocol MCP Server...');
-    
+
     const transport = new StdioServerTransport();
     await this.server.connect(transport);
-    
+
     console.log('✅ ULP MCP Server running on stdio transport');
     console.log('🧠 Ready for consciousness simulation, knowledge evolution, and cross-protocol communication');
   }

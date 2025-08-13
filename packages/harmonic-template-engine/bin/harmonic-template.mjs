@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { generateTemplate, applyPlaceholdersToData, encodeBinaryToVector, decodeVectorToBinary } from '../index.mjs';
+import { generateTemplate, applyPlaceholdersToData, encodeBinaryToVector, decodeVectorToBinary, encodeBufferToTrie, encodeJsonToTrie } from '../index.mjs';
 
 function parseArgs(argv) {
   const args = {};
@@ -44,9 +44,14 @@ Binary:
   Encode: harmonic-template encode --in file.bin --dim=1024 --seed=payload --out payload-vector.json
   Decode: harmonic-template decode --in payload-vector.json --out file.bin
 
+Trie:
+  From binary: harmonic-template trie --in file.bin --dim=1024 --seed=trie --chunkSize=8192 --out manifest.json [--includeVectors]
+  From JSON:   harmonic-template trie --json file.json --dim=1024 --seed=trie --chunkSize=8192 --out manifest.json [--includeVectors]
+
 Options:
   --dim            Vector length (required)
   --seed           Seed for deterministic spectrum
+  --plan           Carrier plan: auto (default), pentad7 (49), pentad7+1 (50, anchor+heptads), merkaba125 (125), merkaba125+3 (128, 3 anchors)
   --base           Base frequency index (default 1)
   --harmonics      Comma list of integer multipliers (default 1,2,3,4,5)
   --gain           Harmonic emphasis gain (default 1.0)
@@ -62,13 +67,14 @@ if (mode === 'encode') {
   const inPath = args.in || args.input;
   const dim = Number(args.dim);
   const seed = args.seed ?? 'payload';
+  const plan = args.plan || 'auto';
   const outPath = args.out || 'payload-vector.json';
   if (!inPath || !Number.isInteger(dim)) {
     console.error('encode requires --in <file> and --dim');
     process.exit(1);
   }
   const buf = fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), inPath));
-  const { vector, spec, manifest } = encodeBinaryToVector(buf, { dim, seed });
+  const { vector, spec, manifest } = encodeBinaryToVector(buf, { dim, seed, plan });
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify({ vector, manifest }, null, 2));
   console.log(`Encoded ${inPath} -> ${outPath} (${buf.length} bytes)`);
@@ -78,6 +84,7 @@ if (mode === 'encode') {
 if (mode === 'decode') {
   const inPath = args.in || args.input;
   const outPath = args.out || 'decoded.bin';
+  const plan = args.plan;
   if (!inPath) {
     console.error('decode requires --in <payload-vector.json>');
     process.exit(1);
@@ -90,13 +97,40 @@ if (mode === 'decode') {
     if ((e && String(e).includes('Invalid or missing manifest')) || (!j.manifest && (args.dim || args.seed))) {
       const dim = args.dim ? Number(args.dim) : undefined;
       const seed = args.seed;
-      payload = decodeVectorToBinary(j.vector, { dim, seed });
+      payload = decodeVectorToBinary(j.vector, { dim, seed, plan });
     } else {
       throw e;
     }
   }
   fs.writeFileSync(outPath, payload);
   console.log(`Decoded ${inPath} -> ${outPath} (${payload.length} bytes)`);
+  process.exit(0);
+}
+
+if (mode === 'trie') {
+  const inPath = args.in || args.input;
+  const jsonPath = args.json;
+  const outPath = args.out || 'manifest.json';
+  const dim = args.dim ? Number(args.dim) : 1024;
+  const seed = args.seed ?? 'trie';
+  const chunkSize = args.chunkSize ? Number(args.chunkSize) : 8192;
+  const includeVectors = !!args.includeVectors;
+  if (!inPath && !jsonPath) {
+    console.error('trie requires either --in <file.bin> or --json <file.json>');
+    process.exit(1);
+  }
+  const opts = { dim, seed, chunkSize, includeVectors };
+  let manifest;
+  if (jsonPath) {
+    const j = JSON.parse(fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), jsonPath), 'utf8'));
+    manifest = encodeJsonToTrie(j, opts);
+  } else {
+    const buf = fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), inPath));
+    manifest = encodeBufferToTrie(buf, opts);
+  }
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, JSON.stringify(manifest, null, 2));
+  console.log(`Wrote ${outPath} (chunks=${manifest.chunkCount})`);
   process.exit(0);
 }
 
