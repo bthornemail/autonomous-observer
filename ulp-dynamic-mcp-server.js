@@ -224,6 +224,146 @@ class UniversalLifeProtocolMCP {
         return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
       }
     });
+
+    // Verify an axiom on-chain using only JSON-RPC (no external libs)
+    this.server.registerTool('evm-verify-axiom', {
+      title: 'Verify Harmonic Axiom On-Chain',
+      description: 'Computes axiom id = keccak256(abi.encodePacked(scheme, keccak256(message))) via web3_sha3 and calls getAxiom(bytes32) using eth_call; decodes and returns the registry record.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        registry_address: z.string(),
+        scheme: z.string(),
+        joint_trits: z.string().optional(),
+        joint_hash: z.string().optional(),
+        block_tag: z.union([z.string(), z.number()]).optional().default('latest')
+      }
+    }, async ({ rpc_url, registry_address, scheme, joint_trits, joint_hash, block_tag }) => {
+      // Helpers
+      const rpcCall = async (method, params = []) => {
+        const body = { jsonrpc: '2.0', id: 1, method, params };
+        const res = await fetch(rpc_url, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+        if (!res.ok) throw new Error(`RPC HTTP ${res.status}`);
+        const j = await res.json();
+        if (j.error) throw new Error(`RPC ${method} error: ${j.error.message || j.error.code}`);
+        return j.result;
+      };
+      const hexFromUtf8 = (s) => '0x' + Buffer.from(s, 'utf8').toString('hex');
+      const concatHex = (a, b) => '0x' + a.slice(2) + b.slice(2);
+      const pad32 = (h) => '0x' + (h.startsWith('0x') ? h.slice(2) : h).padStart(64, '0');
+      const toBigInt = (h) => BigInt(h);
+      const strip0x = (h) => (h && h.startsWith('0x') ? h.slice(2) : h);
+      const sliceHex = (hex, start, length) => '0x' + strip0x(hex).slice(start * 2, (start + length) * 2);
+      const wordAt = (hex, wordIndex) => sliceHex(hex, wordIndex * 32, 32);
+      const decodeStringAt = (hex, offset) => {
+        const base = Number(toBigInt('0x' + strip0x(offset)));
+        const lenHex = sliceHex(hex, base, 32);
+        const len = Number(toBigInt(lenHex));
+        const data = sliceHex(hex, base + 32, len);
+        return Buffer.from(strip0x(data), 'hex').toString('utf8');
+      };
+
+      try {
+        // 1) Compute jointHash = keccak256(utf8(joint_trits)) if needed
+        let jointHash = joint_hash;
+        if (!jointHash) {
+          if (!joint_trits) throw new Error('Provide joint_trits or joint_hash');
+          jointHash = await rpcCall('web3_sha3', [hexFromUtf8(joint_trits)]);
+        }
+        // 2) id = keccak256(abi.encodePacked(scheme, jointHash))
+        const id = await rpcCall('web3_sha3', [concatHex(hexFromUtf8(scheme), jointHash)]);
+        // 3) selector = first 4 bytes of keccak256("getAxiom(bytes32)")
+        const sigHash = await rpcCall('web3_sha3', [hexFromUtf8('getAxiom(bytes32)')]);
+        const selector = '0x' + strip0x(sigHash).slice(0, 8);
+        const data = selector + strip0x(id).padStart(64, '0');
+        // 4) eth_call
+        const call = { to: registry_address, data };
+        const raw = await rpcCall('eth_call', [call, block_tag]);
+        // 5) Decode ABI tuple (address, string, bytes32, string, string, uint64)
+        // Head words [0..5)
+        const ownerWord = wordAt(raw, 0);
+        const owner = '0x' + strip0x(ownerWord).slice(24 * 2);
+        const schemeOff = wordAt(raw, 1);
+        const retJointHash = wordAt(raw, 2);
+        const hdOff = wordAt(raw, 3);
+        const shaOff = wordAt(raw, 4);
+        const tsWord = wordAt(raw, 5);
+        const out = {
+          id,
+          owner,
+          jointHash: retJointHash,
+          scheme: decodeStringAt(raw, schemeOff),
+          hdPath: decodeStringAt(raw, hdOff),
+          sha256hex: decodeStringAt(raw, shaOff),
+          timestamp: Number(toBigInt(tsWord))
+        };
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'ok', ...out }, null, 2) }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
+
+    // Deploy the registry contract (dev/testing)
+    this.server.registerTool('deploy-harmonic-registry', {
+      title: 'Deploy HarmonicAxiomRegistry (Dev)',
+      description: 'Compiles and deploys the HarmonicAxiomRegistry.sol to the configured chain using ethers and solc.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        private_key: z.string().describe('Hex private key; dev-only.')
+      }
+    }, async ({ rpc_url, private_key }) => {
+      try {
+        const cmd = `node scripts/deploy-harmonic-registry.js --rpc ${JSON.stringify(rpc_url)} --key ${JSON.stringify(private_key)}`;
+        const { stdout } = await execAsync(cmd);
+        return { content: [{ type: 'text', text: stdout.trim() }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
+
+    // Create a DID-like sovereign identity from an axiom
+    this.server.registerTool('create-sovereign-id', {
+      title: 'Create Sovereign Identity (DID-like) from Axiom',
+      description: 'Builds a DID document using the harmonic joint trits, optional keccak via JSON-RPC, and embeds stateless routing hints.',
+      inputSchema: {
+        rpc_url: z.string().optional(),
+        axiom_path: z.string().optional()
+      }
+    }, async ({ rpc_url, axiom_path }) => {
+      try {
+        const args = ['--create-from-axiom'];
+        if (axiom_path) { args.push(axiom_path); } else { args.push('dist/axioms'); }
+        if (rpc_url) { args.push('--rpc', rpc_url); }
+        const cmd = `node scripts/sovereign-id.js ${args.map(a=>JSON.stringify(a)).join(' ')}`;
+        const { stdout } = await execAsync(cmd);
+        return { content: [{ type: 'text', text: stdout.trim() }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
+
+    // Resolve a DID-like identity against the on-chain registry
+    this.server.registerTool('resolve-sovereign-id', {
+      title: 'Resolve Sovereign Identity (On-Chain)',
+      description: 'Resolves a harmonic DID against the registry using web3_sha3 and eth_call to get owner, hdPath, and metadata.',
+      inputSchema: {
+        rpc_url: z.string().default('http://127.0.0.1:8545'),
+        registry_address: z.string(),
+        scheme: z.string(),
+        joint_trits: z.string().optional(),
+        joint_hash: z.string().optional()
+      }
+    }, async ({ rpc_url, registry_address, scheme, joint_trits, joint_hash }) => {
+      try {
+        const args = ['--resolve', '--rpc', rpc_url, '--registry', registry_address, '--scheme', scheme];
+        if (joint_hash) { args.push('--joint-hash', joint_hash); }
+        else if (joint_trits) { args.push('--joint', joint_trits); }
+        const cmd = `node scripts/sovereign-id.js ${args.map(a=>JSON.stringify(a)).join(' ')}`;
+        const { stdout } = await execAsync(cmd);
+        return { content: [{ type: 'text', text: stdout.trim() }] };
+      } catch (e) {
+        return { content: [{ type: 'text', text: JSON.stringify({ status: 'error', message: String(e) }, null, 2) }] };
+      }
+    });
   }
 
   /**
