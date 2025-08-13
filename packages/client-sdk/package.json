@@ -2,7 +2,7 @@
   "name": "@ulp/client-sdk",
   "version": "3.0.0",
   "description": "Universal Life Protocol Client SDK - Frontend applications with sacred geometry and Web3 integration",
-  "main": "dist/index.js", 
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,9 +15,9 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "@react-three/fiber": "^8.0.0",
-    "@react-three/drei": "^9.0.0", 
+    "@react-three/drei": "^9.0.0",
     "three": "^0.160.0",
-    "@ulp/devkit": "workspace:*",
+  "@ulp/devkit": "workspace:*",
     "web3": "^4.0.0",
     "wagmi": "^2.0.0",
     "@rainbow-me/rainbowkit": "^2.0.0"
@@ -30,7 +30,7 @@
   },
   "keywords": [
     "universal-life-protocol",
-    "client", 
+    "client",
     "frontend",
     "react",
     "sacred-geometry",

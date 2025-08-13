@@ -1,0 +1,15 @@
+{
+  "name": "@ulp/avatar-gate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Avatar Gate: bridge bio-signal input into harmonic signatures and the Tetrahedron hub",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

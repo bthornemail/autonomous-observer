@@ -1,0 +1,15 @@
+{
+  "name": "@ulp/avatar-console",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WebXR/AR-ready console to view and drive the physical Avatar Gate with signed control claims",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.cjs",
+    "start": "node server.cjs"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "ws": "^8.18.0"
+  }
+}

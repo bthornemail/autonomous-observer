@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ULP Avatar Console</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; display: grid; grid-template-columns: 320px 1fr; height: 100vh; }
+      aside { padding: 12px; border-right: 1px solid #ddd; overflow: auto; }
+      main { padding: 12px; overflow: auto; }
+      .card { border: 1px solid #ddd; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+      pre { white-space: pre-wrap; word-break: break-word; font-size: 12px; }
+      button { padding: 6px 10px; }
+      input, textarea { width: 100%; box-sizing: border-box; }
+      .row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <h3>Avatar Control</h3>
+      <div class="card">
+        <label>Registry Address</label>
+        <input id="registry" placeholder="0x..." />
+        <label>RPC URL</label>
+        <input id="rpc" value="http://127.0.0.1:8545" />
+        <label>Control Message</label>
+        <input id="ctrlMsg" value="ULP-AVATAR-CLAIM" />
+        <div class="row">
+          <button id="claimBtn">Claim Control</button>
+          <span id="claimStatus"></span>
+        </div>
+      </div>
+
+      <h3>Send Command</h3>
+      <div class="card">
+        <label>Command</label>
+        <input id="cmd" value="thrust:0.2,yaw:0.1" />
+        <button id="sendCmd">Send</button>
+      </div>
+
+      <h3>WebXR</h3>
+      <div class="card">
+        <button id="enterXR">Enter WebXR (if supported)</button>
+        <div id="xrStatus"></div>
+      </div>
+    </aside>
+    <main>
+      <h2>ULP Avatar Console</h2>
+      <div class="card"><strong>Events</strong><pre id="events"></pre></div>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

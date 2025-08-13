@@ -1,0 +1,9 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+  - 'apps/avatar-console'
+  - 'mcp-integration'
+  - 'sacred-geometry-harmony'
+  - 'scripts'
+  - 'autonomous-observer'
+  - 'packages/avatar-gate'
