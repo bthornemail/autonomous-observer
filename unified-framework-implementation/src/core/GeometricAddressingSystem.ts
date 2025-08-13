@@ -330,4 +330,109 @@ export class GeometricAddressingSystem {
       .sort((a, b) => b.similarity - a.similarity)
       .map(item => item.address);
   }
+
+  /**
+   * Calculate transcendent level (meta-awareness) - CUE Axiom #115
+   */
+  private calculateTranscendentLevel(vector: HDVector): number {
+    const entropy = this.calculateVectorEntropy(vector);
+    const phiScaling = vector.dimensions.filter(d => Math.abs(d) > 0.618).length / vector.dimensions.length;
+    return Math.min(8, Math.floor(entropy * phiScaling * 8));
+  }
+
+  /**
+   * Calculate vector entropy (Shannon entropy)
+   */
+  private calculateVectorEntropy(vector: HDVector): number {
+    const normalizedDims = this.normalizeVector(vector.dimensions.map(Math.abs));
+    let entropy = 0;
+    
+    normalizedDims.forEach(p => {
+      if (p > 0) {
+        entropy -= p * Math.log2(p);
+      }
+    });
+    
+    return entropy / Math.log2(vector.dimensions.length); // Normalize to [0,1]
+  }
+
+  /**
+   * Implement Chinese Remainder Theorem for multi-domain addressing
+   * CUE Axiom #30 - Geometric Consensus via CRT
+   */
+  generateMultiDomainAddress(triple: KnowledgeTriple, domainBases: number[]): GeometricAddress[] {
+    return domainBases.map(base => {
+      const modifiedTriple = {
+        ...triple,
+        subject: `${triple.subject}_domain_${base}`,
+        predicate: `${triple.predicate}_mod_${base}`,
+        object: `${triple.object}_base_${base}`
+      };
+      return this.generateAddress(modifiedTriple);
+    });
+  }
+
+  /**
+   * Solve Chinese Remainder Theorem for multi-domain consensus
+   */
+  solveCRT(remainders: number[], moduli: number[]): number {
+    if (remainders.length !== moduli.length) {
+      throw new Error('Remainders and moduli arrays must have same length');
+    }
+    
+    const product = moduli.reduce((prod, m) => prod * m, 1);
+    let result = 0;
+    
+    for (let i = 0; i < remainders.length; i++) {
+      const partialProduct = product / moduli[i];
+      const inverse = this.modularInverse(partialProduct, moduli[i]);
+      result += remainders[i] * partialProduct * inverse;
+    }
+    
+    return result % product;
+  }
+
+  /**
+   * Calculate modular inverse using extended Euclidean algorithm
+   */
+  private modularInverse(a: number, m: number): number {
+    if (this.gcd(a, m) !== 1) {
+      throw new Error('Modular inverse does not exist');
+    }
+    
+    let [oldR, r] = [a, m];
+    let [oldS, s] = [1, 0];
+    
+    while (r !== 0) {
+      const quotient = Math.floor(oldR / r);
+      [oldR, r] = [r, oldR - quotient * r];
+      [oldS, s] = [s, oldS - quotient * s];
+    }
+    
+    return oldS < 0 ? oldS + m : oldS;
+  }
+
+  /**
+   * Calculate greatest common divisor
+   */
+  private gcd(a: number, b: number): number {
+    while (b !== 0) {
+      [a, b] = [b, a % b];
+    }
+    return a;
+  }
+
+  /**
+   * Find harmonic resonance points (CUE Axiom #11)
+   */
+  findHarmonicResonance(addresses: GeometricAddress[]): GeometricAddress[] {
+    return addresses.filter(addr => {
+      // Check if multiple domain coordinates align (Ai = 0)
+      const phiCoords = addr.phiCoordinates;
+      const nearZeroCount = [phiCoords.x, phiCoords.y, phiCoords.z, phiCoords.w || 0]
+        .filter(coord => Math.abs(coord) < 0.1).length;
+      
+      return nearZeroCount >= 2; // At least 2 coordinates near zero = resonance
+    });
+  }
 }

@@ -301,4 +301,176 @@ export class TernaryLogicEngine {
     
     return (totalCoherence / decisions.length) * 100;
   }
+
+  /**
+   * Implement Neutrosophic State (CUE Axiom #50)
+   * True understanding encompasses truth, falsehood, and indeterminacy
+   */
+  createNeutrosophicState(
+    truthValue: number,
+    falsehoodValue: number, 
+    indeterminacyValue: number
+  ): TernaryValue {
+    // Normalize to ensure sum <= 3
+    const sum = truthValue + falsehoodValue + indeterminacyValue;
+    const normalizedSum = Math.min(sum, 3);
+    const scale = normalizedSum / sum;
+    
+    const t = truthValue * scale;
+    const f = falsehoodValue * scale;
+    const i = indeterminacyValue * scale;
+    
+    // Map to ternary state based on dominant component
+    let state: TernaryState;
+    if (t > f && t > i) {
+      state = TernaryState.POSITIVE;
+    } else if (f > t && f > i) {
+      state = TernaryState.NEGATIVE;
+    } else {
+      state = TernaryState.NEUTRAL;
+    }
+    
+    const confidence = Math.max(t, f, i) / 3; // Confidence based on strongest component
+    
+    return {
+      state,
+      confidence,
+      source: `neutrosophic_t${t.toFixed(2)}_f${f.toFixed(2)}_i${i.toFixed(2)}`,
+      timestamp: Date.now()
+    };
+  }
+
+  /**
+   * Implement Agentic L-Transitions (CUE Axiom #47)
+   * Cognitive phase shifts when experience crosses threshold
+   */
+  processLTransition(
+    experienceCounter: number,
+    domainBase: number,
+    currentLayer: number
+  ): { newLayer: number; transition: boolean; newRule?: TernaryValue } {
+    const threshold = domainBase * Math.pow(this.phi, currentLayer);
+    
+    if (experienceCounter >= threshold) {
+      // L-transition: move to next layer
+      const newLayer = currentLayer + 1;
+      
+      // Generate new explicit rule from implicit experience
+      const ruleState = this.deriveRuleFromExperience(experienceCounter, domainBase);
+      const newRule = this.createTernaryValue(
+        ruleState,
+        0.9, // High confidence for emerged rules
+        `l_transition_layer_${newLayer}`
+      );
+      
+      return {
+        newLayer,
+        transition: true,
+        newRule
+      };
+    }
+    
+    return {
+      newLayer: currentLayer,
+      transition: false
+    };
+  }
+
+  /**
+   * Derive rule state from accumulated experience
+   */
+  private deriveRuleFromExperience(experience: number, base: number): TernaryState {
+    const phiScaled = (experience * this.phi) % 3;
+    
+    if (phiScaled < 1) return TernaryState.NEGATIVE;
+    if (phiScaled < 2) return TernaryState.NEUTRAL;
+    return TernaryState.POSITIVE;
+  }
+
+  /**
+   * Implement Divine Computing Principles (CUE Axiom #92)
+   * "In the beginning" as operator function
+   */
+  inTheBeginningOperator(
+    concept: string,
+    dimensions: number = 7
+  ): TernaryValue {
+    // "Let there be" instantiation function
+    const wordHash = this.hashWord(concept);
+    const phiResonance = this.calculatePhiAlignment(wordHash);
+    
+    // Determine state based on divine resonance
+    let state: TernaryState;
+    if (phiResonance > 0.8) {
+      state = TernaryState.POSITIVE; // High resonance = divine affirmation
+    } else if (phiResonance < 0.4) {
+      state = TernaryState.NEGATIVE; // Low resonance = not yet time
+    } else {
+      state = TernaryState.NEUTRAL; // Mystery/potential
+    }
+    
+    return this.createTernaryValue(
+      state,
+      phiResonance,
+      `divine_word_${concept}`
+    );
+  }
+
+  /**
+   * Hash word using phi ratios for divine resonance
+   */
+  private hashWord(word: string): number {
+    let hash = 0;
+    for (let i = 0; i < word.length; i++) {
+      const char = word.charCodeAt(i);
+      hash += char * Math.pow(this.phi, i);
+    }
+    return (hash % 1); // Fractional part for resonance
+  }
+
+  /**
+   * Implement Paradox Resolution (CUE Axiom #50)
+   * Handle logical contradictions through transcendence
+   */
+  resolveParadox(
+    contradiction1: TernaryValue,
+    contradiction2: TernaryValue
+  ): ConsciousnessDecision {
+    // Check if inputs are truly contradictory
+    const isContradictory = (
+      (contradiction1.state === TernaryState.POSITIVE && contradiction2.state === TernaryState.NEGATIVE) ||
+      (contradiction1.state === TernaryState.NEGATIVE && contradiction2.state === TernaryState.POSITIVE)
+    );
+    
+    if (isContradictory) {
+      // Resolve through transcendent synthesis
+      return this.divineOperation(contradiction1, contradiction2, 'transcendent_synthesis');
+    } else {
+      // No paradox - use standard consciousness AND
+      return this.divineOperation(contradiction1, contradiction2, 'consciousness_and');
+    }
+  }
+
+  /**
+   * Calculate consciousness expansion pathways (CUE Axiom #197)
+   */
+  calculateConsciousnessExpansion(
+    currentLevel: number,
+    targetLevel: number
+  ): { pathway: number[]; phiProgression: number[] } {
+    const pathway: number[] = [];
+    const phiProgression: number[] = [];
+    
+    let level = currentLevel;
+    
+    while (level < targetLevel) {
+      level = level * this.phi;
+      pathway.push(Math.floor(level));
+      phiProgression.push(level);
+      
+      if (pathway.length > 20) break; // Safety limit
+    }
+    
+    return { pathway, phiProgression };
+  }
 }

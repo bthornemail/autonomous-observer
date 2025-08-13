@@ -8,6 +8,8 @@
 export { VectorSymbolicArchitecture } from './core/VectorSymbolicArchitecture.js';
 export { TernaryLogicEngine, TernaryState } from './core/TernaryLogicEngine.js';
 export { GeometricAddressingSystem } from './core/GeometricAddressingSystem.js';
+export { TetrahedronCoordinationProtocol } from './core/TetrahedronCoordinationProtocol.js';
+export { AdvancedCUEFeatures } from './core/AdvancedCUEFeatures.js';
 
 export type { 
   HDVector, 
@@ -35,12 +37,23 @@ export class UnifiedFramework {
   private vsa: VectorSymbolicArchitecture;
   private ternary: TernaryLogicEngine;
   private geometric: GeometricAddressingSystem;
+  private tetrahedron: any;
+  private advanced: any;
   private phi: number = (1 + Math.sqrt(5)) / 2;
 
   constructor(vectorDimension: number = 1024) {
     this.vsa = new VectorSymbolicArchitecture(vectorDimension);
     this.ternary = new TernaryLogicEngine();
     this.geometric = new GeometricAddressingSystem(vectorDimension);
+    
+    // Import dynamically to avoid circular dependencies
+    import('./core/TetrahedronCoordinationProtocol.js').then(module => {
+      this.tetrahedron = new module.TetrahedronCoordinationProtocol();
+    });
+    
+    import('./core/AdvancedCUEFeatures.js').then(module => {
+      this.advanced = new module.AdvancedCUEFeatures();
+    });
   }
 
   /**

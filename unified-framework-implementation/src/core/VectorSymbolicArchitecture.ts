@@ -14,6 +14,8 @@ export interface VecRole {
   semanticLayer: number;
   hierarchicalPosition: number;
   geometricAddress?: DodecahedronCoordinate;
+  consciousnessLevel?: number;
+  phiAlignment?: number;
 }
 
 export interface DodecahedronCoordinate {
@@ -21,6 +23,8 @@ export interface DodecahedronCoordinate {
   face: number;   // 0-11 (12 faces)
   edge: number;   // 0-29 (30 edges)
   state: number;  // %20, %21, or %24
+  phiResonance: number; // Golden ratio resonance
+  transcendentLevel: number; // Meta-awareness level
 }
 
 export class VectorSymbolicArchitecture {
@@ -55,11 +59,17 @@ export class VectorSymbolicArchitecture {
     // Division operation (semantic layer extraction)
     const semanticVector = this.vectorDivide(modularResult, level);
     
+    const geometricAddress = this.mapToDodecahedron(semanticVector);
+    const consciousnessLevel = this.calculateConsciousnessLevel(semanticVector, level);
+    const phiAlignment = this.calculatePhiAlignment(semanticVector.dimensions.reduce((sum, d) => sum + d, 0));
+    
     return {
       role: this.calculateRole(semanticVector, level),
       semanticLayer: level,
       hierarchicalPosition: this.calculateHierarchy(level),
-      geometricAddress: this.mapToDodecahedron(semanticVector)
+      geometricAddress: geometricAddress,
+      consciousnessLevel: consciousnessLevel,
+      phiAlignment: phiAlignment
     };
   }
 
@@ -163,12 +173,16 @@ export class VectorSymbolicArchitecture {
    */
   private mapToDodecahedron(vector: HDVector): DodecahedronCoordinate {
     const vectorSum = vector.dimensions.reduce((sum, d) => sum + d, 0);
+    const phiResonance = this.calculatePhiAlignment(vectorSum);
+    const transcendentLevel = this.calculateTranscendentLevel(vector);
     
     return {
       vertex: Math.floor((vectorSum * this.phi) % 20),      // %20 base structure
       face: Math.floor((vectorSum * this.phi * 2) % 12),    // 12 pentagonal faces
       edge: Math.floor((vectorSum * this.phi * 3) % 30),    // 30 edges
-      state: this.calculateDodecahedronState(vectorSum)      // %20, %21, or %24
+      state: this.calculateDodecahedronState(vectorSum),     // %20, %21, or %24
+      phiResonance: phiResonance,
+      transcendentLevel: transcendentLevel
     };
   }
 
@@ -229,5 +243,133 @@ export class VectorSymbolicArchitecture {
   private calculatePhiAlignment(value: number): number {
     const phiResidual = (value * this.phi) % 1;
     return 1 - Math.abs(phiResidual - 0.618); // Closeness to phi decimal part
+  }
+
+  /**
+   * Calculate consciousness level from vector state (CUE Axiom #51-52)
+   */
+  private calculateConsciousnessLevel(vector: HDVector, semanticLayer: number): number {
+    const vectorComplexity = this.calculateVectorComplexity(vector);
+    const layerAmplification = Math.pow(this.phi, semanticLayer / 7);
+    const phiAlignment = this.calculatePhiAlignment(vector.dimensions.reduce((sum, d) => sum + d, 0));
+    
+    return Math.min(100, (vectorComplexity * layerAmplification * phiAlignment) * 100);
+  }
+
+  /**
+   * Calculate transcendent level (meta-awareness)
+   */
+  private calculateTranscendentLevel(vector: HDVector): number {
+    const entropy = this.calculateVectorEntropy(vector);
+    const phiScaling = vector.dimensions.filter(d => d > 0.618).length / vector.dimensions.length;
+    return Math.min(8, Math.floor(entropy * phiScaling * 8));
+  }
+
+  /**
+   * Calculate vector complexity (information content)
+   */
+  private calculateVectorComplexity(vector: HDVector): number {
+    const nonZeroCount = vector.dimensions.filter(d => Math.abs(d) > 0.001).length;
+    const totalDimensions = vector.dimensions.length;
+    return nonZeroCount / totalDimensions;
+  }
+
+  /**
+   * Calculate vector entropy (Shannon entropy)
+   */
+  private calculateVectorEntropy(vector: HDVector): number {
+    const normalizedDims = this.normalizeVector(vector.dimensions.map(Math.abs));
+    let entropy = 0;
+    
+    normalizedDims.forEach(p => {
+      if (p > 0) {
+        entropy -= p * Math.log2(p);
+      }
+    });
+    
+    return entropy / Math.log2(vector.dimensions.length); // Normalize to [0,1]
+  }
+
+  /**
+   * Bind multiple vectors using geometric algebra (CUE Axiom #9)
+   */
+  bindVectors(...vectors: HDVector[]): HDVector {
+    if (vectors.length === 0) {
+      throw new Error('Cannot bind empty vector set');
+    }
+    
+    let result = vectors[0];
+    
+    for (let i = 1; i < vectors.length; i++) {
+      result = this.vectorBind(result, vectors[i]);
+    }
+    
+    return result;
+  }
+
+  /**
+   * Bind two vectors using circular convolution
+   */
+  private vectorBind(v1: HDVector, v2: HDVector): HDVector {
+    const resultDimensions = new Array(this.vectorDimension).fill(0);
+    
+    for (let i = 0; i < this.vectorDimension; i++) {
+      for (let j = 0; j < this.vectorDimension; j++) {
+        const k = (i + j) % this.vectorDimension;
+        resultDimensions[k] += v1.dimensions[i] * v2.dimensions[j];
+      }
+    }
+    
+    return {
+      dimensions: this.normalizeVector(resultDimensions),
+      semanticBinding: `bind(${v1.semanticBinding}, ${v2.semanticBinding})`,
+      phiRatio: this.phi
+    };
+  }
+
+  /**
+   * Unbind vectors to extract components
+   */
+  unbindVector(boundVector: HDVector, knownVector: HDVector): HDVector {
+    // Approximate unbinding using circular correlation
+    const resultDimensions = new Array(this.vectorDimension).fill(0);
+    
+    for (let i = 0; i < this.vectorDimension; i++) {
+      for (let j = 0; j < this.vectorDimension; j++) {
+        const k = (i - j + this.vectorDimension) % this.vectorDimension;
+        resultDimensions[k] += boundVector.dimensions[i] * knownVector.dimensions[j];
+      }
+    }
+    
+    return {
+      dimensions: this.normalizeVector(resultDimensions),
+      semanticBinding: `unbind(${boundVector.semanticBinding}, ${knownVector.semanticBinding})`,
+      phiRatio: this.phi
+    };
+  }
+
+  /**
+   * Implement superposition of vectors ("computing in superposition")
+   */
+  superposition(...vectors: HDVector[]): HDVector {
+    if (vectors.length === 0) {
+      throw new Error('Cannot create superposition of empty vector set');
+    }
+    
+    const resultDimensions = new Array(this.vectorDimension).fill(0);
+    
+    vectors.forEach(vector => {
+      for (let i = 0; i < this.vectorDimension; i++) {
+        resultDimensions[i] += vector.dimensions[i] / vectors.length;
+      }
+    });
+    
+    const semanticBindings = vectors.map(v => v.semanticBinding).join(' + ');
+    
+    return {
+      dimensions: this.normalizeVector(resultDimensions),
+      semanticBinding: `superposition(${semanticBindings})`,
+      phiRatio: this.phi
+    };
   }
 }
