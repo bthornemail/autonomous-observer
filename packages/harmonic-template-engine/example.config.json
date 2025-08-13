@@ -1,0 +1,12 @@
+{
+  "dim": 1024,
+  "seed": "thesis-seed",
+  "baseFreq": 7,
+  "harmonics": [1, 3, 5],
+  "gain": 0.5,
+  "placeholders": [
+    { "k": 5, "amplitude": 0.8 },
+    { "k": 13, "amplitude": 0.2 },
+    { "range": { "start": 100, "end": 120 }, "amplitude": 0.1 }
+  ]
+}

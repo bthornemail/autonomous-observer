@@ -1,0 +1,22 @@
+{
+  "name": "@ulp/harmonic-template-engine",
+  "version": "0.1.0",
+  "description": "Generate and apply harmonic frequency templates with tunable placeholders (positions/ranges).",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "harmonic-template": "bin/harmonic-template.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.mjs"
+    }
+  },
+  "files": [
+    "index.mjs",
+    "bin/harmonic-template.mjs",
+    "schema/harmonic-template.schema.json",
+    "README.md",
+    "example.config.json"
+  ]
+}
