@@ -5,6 +5,10 @@
  * Entry point for the computational theology framework
  */
 
+import { VectorSymbolicArchitecture } from './core/VectorSymbolicArchitecture.js';
+import { TernaryLogicEngine, TernaryState } from './core/TernaryLogicEngine.js';
+import { GeometricAddressingSystem } from './core/GeometricAddressingSystem.js';
+
 export { VectorSymbolicArchitecture } from './core/VectorSymbolicArchitecture.js';
 export { TernaryLogicEngine, TernaryState } from './core/TernaryLogicEngine.js';
 export { GeometricAddressingSystem } from './core/GeometricAddressingSystem.js';
@@ -45,15 +49,6 @@ export class UnifiedFramework {
     this.vsa = new VectorSymbolicArchitecture(vectorDimension);
     this.ternary = new TernaryLogicEngine();
     this.geometric = new GeometricAddressingSystem(vectorDimension);
-    
-    // Import dynamically to avoid circular dependencies
-    import('./core/TetrahedronCoordinationProtocol.js').then(module => {
-      this.tetrahedron = new module.TetrahedronCoordinationProtocol();
-    });
-    
-    import('./core/AdvancedCUEFeatures.js').then(module => {
-      this.advanced = new module.AdvancedCUEFeatures();
-    });
   }
 
   /**
