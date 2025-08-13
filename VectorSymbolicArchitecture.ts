@@ -2,6 +2,9 @@
  * Vector Symbolic Architecture Implementation
  * Based on UNIFIED_FRAMEWORK_SYNTHESIS.md Section 1.1
  */
+// TS-safe declaration for require used in lazy-loading the optional FFT backend
+// This avoids needing global @types/node in this context.
+declare const require: any;
 
 export interface HDVector {
   dimensions: number[];
@@ -370,17 +373,25 @@ export class VectorSymbolicArchitecture {
   private cqe() {
     if (!this._cqe) {
       try {
+        // Prefer local TS source in dev/test to avoid requiring a pre-build
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const { ComputationalQuantumEngine } = require('./packages/computational-quantum-engine/dist/index.js');
+        const { ComputationalQuantumEngine } = require('./packages/computational-quantum-engine/src/index.ts');
         this._cqe = new ComputationalQuantumEngine();
       } catch (e) {
         try {
+          // Try built dist path next
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const { ComputationalQuantumEngine } = require('./packages/computational-quantum-engine/dist/index.js');
+          this._cqe = new ComputationalQuantumEngine();
+        } catch (e2) {
+          try {
           // fallback to workspace package name if built and resolvable via Node
           // eslint-disable-next-line @typescript-eslint/no-var-requires
           const { ComputationalQuantumEngine } = require('@ulp/computational-quantum-engine');
           this._cqe = new ComputationalQuantumEngine();
-        } catch (err) {
-          throw new Error('FFT backend selected but CQE module is not available. Build the workspace package @ulp/computational-quantum-engine.');
+          } catch (err) {
+            throw new Error('FFT backend selected but CQE module is not available. Ensure TS source or build exists for @ulp/computational-quantum-engine.');
+          }
         }
       }
     }
