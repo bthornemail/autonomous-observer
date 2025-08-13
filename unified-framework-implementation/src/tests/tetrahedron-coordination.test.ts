@@ -82,11 +82,8 @@ describe('Tetrahedron Coordination Protocol', () => {
       );
 
       expect(message.ternary_validation).toBeDefined();
-      expect(message.ternary_validation.state).toBeOneOf([
-        TernaryState.POSITIVE, 
-        TernaryState.NEGATIVE, 
-        TernaryState.NEUTRAL
-      ]);
+      expect([TernaryState.POSITIVE, TernaryState.NEGATIVE, TernaryState.NEUTRAL])
+        .toContain(message.ternary_validation.state);
       expect(message.ternary_validation.confidence).toBeGreaterThan(0);
       expect(message.ternary_validation.source).toContain('tetrahedron');
     });
@@ -146,12 +143,9 @@ describe('Tetrahedron Coordination Protocol', () => {
 
       const decision = tetrahedron.conductAgenticGovernance(proposal);
       
-      expect(decision.ternary_synthesis.state).toBeOneOf([
-        TernaryState.POSITIVE,
-        TernaryState.NEGATIVE, 
-        TernaryState.NEUTRAL
-      ]);
-      expect(decision.ternary_synthesis.source).toContain('agc_');
+      expect([TernaryState.POSITIVE, TernaryState.NEGATIVE, TernaryState.NEUTRAL])
+        .toContain(decision.ternary_synthesis.state);
+      expect(decision.ternary_synthesis.source).toContain('ternary_logic');
     });
 
     it('should calculate geometric consensus centroid', () => {
@@ -370,11 +364,8 @@ describe('Tetrahedron Coordination Protocol', () => {
         { ternary_test: 'consciousness_synthesis' }
       );
 
-      expect(message.ternary_validation.state).toBeOneOf([
-        TernaryState.POSITIVE,
-        TernaryState.NEGATIVE,
-        TernaryState.NEUTRAL
-      ]);
+      expect([TernaryState.POSITIVE, TernaryState.NEGATIVE, TernaryState.NEUTRAL])
+        .toContain(message.ternary_validation.state);
     });
 
     it('should maintain phi ratio consistency throughout system', () => {
