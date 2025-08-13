@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { generateTemplate, applyPlaceholdersToData } from '../index.mjs';
+import { generateTemplate, applyPlaceholdersToData, encodeBinaryToVector, decodeVectorToBinary } from '../index.mjs';
 
 function parseArgs(argv) {
   const args = {};
@@ -40,6 +40,10 @@ Usage: harmonic-template --dim=1024 --seed=my-seed --base=7 --harmonics=1,3,5 --
        --placeholders=k:5:0.8,k:13:0.2,range:100..120:0.1 \
        --format=Thesis-Based Marketplace Framework Report_.txt --out=vector.json
 
+Binary:
+  Encode: harmonic-template encode --in file.bin --dim=1024 --seed=payload --out payload-vector.json
+  Decode: harmonic-template decode --in payload-vector.json --out file.bin
+
 Options:
   --dim            Vector length (required)
   --seed           Seed for deterministic spectrum
@@ -50,6 +54,38 @@ Options:
   --format         Path to a text file with placeholders like ${phK} or ${phRange}
   --out            Output JSON file for vector/spec (default stdout)
 `);
+  process.exit(0);
+}
+
+const mode = (args._ && args._[0]) || '';
+if (mode === 'encode') {
+  const inPath = args.in || args.input;
+  const dim = Number(args.dim);
+  const seed = args.seed ?? 'payload';
+  const outPath = args.out || 'payload-vector.json';
+  if (!inPath || !Number.isInteger(dim)) {
+    console.error('encode requires --in <file> and --dim');
+    process.exit(1);
+  }
+  const buf = fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), inPath));
+  const { vector, spec, manifest } = encodeBinaryToVector(buf, { dim, seed });
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, JSON.stringify({ vector, manifest }, null, 2));
+  console.log(`Encoded ${inPath} -> ${outPath} (${buf.length} bytes)`);
+  process.exit(0);
+}
+
+if (mode === 'decode') {
+  const inPath = args.in || args.input;
+  const outPath = args.out || 'decoded.bin';
+  if (!inPath) {
+    console.error('decode requires --in <payload-vector.json>');
+    process.exit(1);
+  }
+  const j = JSON.parse(fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), inPath), 'utf8'));
+  const payload = decodeVectorToBinary(j.vector, j.manifest);
+  fs.writeFileSync(outPath, payload);
+  console.log(`Decoded ${inPath} -> ${outPath} (${payload.length} bytes)`);
   process.exit(0);
 }
 

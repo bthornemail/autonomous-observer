@@ -139,4 +139,204 @@ export function applyPlaceholdersToData(data, placeholders = [], clamp = [-1, 1]
   });
 }
 
-export default { generateTemplate, applyPlaceholdersToData, hashToSeed };
+// --- Binary payload encode/decode into spectrum phases ---
+// Modulation: QPSK (2 bits per carrier bin) with phases {0, π/2, π, 3π/2}
+
+function crc32(buf) {
+  // Standard CRC-32 (IEEE 802.3) implementation
+  let c = ~0 >>> 0;
+  for (let i = 0; i < buf.length; i++) {
+    c ^= buf[i];
+    for (let j = 0; j < 8; j++) {
+      const mask = -(c & 1);
+      c = (c >>> 1) ^ (0xEDB88320 & mask);
+    }
+  }
+  return (~c) >>> 0;
+}
+
+function dftOfReal(x) {
+  // Returns complex spectrum length N
+  const N = x.length;
+  const out = new Array(N);
+  for (let k = 0; k < N; k++) {
+    let re = 0, im = 0;
+    const angBase = -2 * Math.PI * k / N;
+    for (let n = 0; n < N; n++) {
+      const ang = angBase * n;
+      const c = Math.cos(ang), s = Math.sin(ang);
+      const xn = x[n];
+      re += xn * c;
+      im += xn * s;
+    }
+    out[k] = { re, im };
+  }
+  return out;
+}
+
+function selectCarrierBins(dim, seed, count) {
+  // Deterministically select `count` distinct bins in (1..upper) avoiding DC/Nyquist and ensuring symmetry
+  const half = Math.floor(dim / 2);
+  const upper = (dim % 2 === 0) ? (half - 1) : half; // last usable k on positive side
+  const candidates = [];
+  for (let k = 1; k <= upper; k++) candidates.push(k);
+  const rand = mulberry32(seed ^ 0xA5A5A5A5);
+  for (let i = candidates.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+  }
+  return candidates.slice(0, Math.min(count, candidates.length)).sort((a, b) => a - b);
+}
+
+function symbolToPhase2b(sym) {
+  // 2-bit symbol 0..3 -> phase
+  switch (sym & 3) {
+    case 0: return 0;
+    case 1: return Math.PI / 2;
+    case 2: return Math.PI;
+    case 3: return 3 * Math.PI / 2;
+    default: return 0;
+  }
+}
+
+function phaseToSymbol2b(theta) {
+  // Normalize to [0, 2π)
+  let a = theta % (2 * Math.PI);
+  if (a < 0) a += 2 * Math.PI;
+  const sector = Math.round((a / (Math.PI / 2)) % 4) & 3; // nearest of 4 quadrants
+  return sector;
+}
+
+export function encodeBinaryToVector(buffer, { dim, seed }) {
+  if (!Number.isInteger(dim) || dim <= 0) throw new Error('dim must be a positive integer');
+  const s = typeof seed === 'number' ? seed : hashToSeed(String(seed ?? 'harmonic'));
+  // Build base unitary spectrum
+  let spec = unitarySpectrum(dim, s);
+  // Capacity planning
+  const bitsPerSym = 2; // QPSK
+  const payload = Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer);
+  const metaBuf = Buffer.alloc(8);
+  metaBuf.writeUInt32BE(payload.length >>> 0, 0);
+  metaBuf.writeUInt32BE(crc32(payload), 4);
+  const totalBits = (payload.length + metaBuf.length) * 8;
+  const half = Math.floor(dim / 2);
+  const usable = (dim % 2 === 0) ? (half - 1) : half;
+  const binsNeeded = Math.ceil(totalBits / bitsPerSym);
+  if (binsNeeded > usable) {
+    throw new Error(`Insufficient capacity: need ${binsNeeded} carrier bins, have ${usable}. Increase dim.`);
+  }
+  const bins = selectCarrierBins(dim, s, binsNeeded);
+  // Stream bits
+  const allBytes = Buffer.concat([metaBuf, payload]);
+  let bitIdx = 0;
+  for (let i = 0; i < bins.length; i++) {
+    let sym = 0;
+    for (let b = 0; b < bitsPerSym; b++) {
+      const byte = allBytes[(bitIdx >> 3)] ?? 0;
+      const bit = (byte >> (7 - (bitIdx & 7))) & 1;
+      sym = (sym << 1) | bit;
+      bitIdx++;
+    }
+    const phase = symbolToPhase2b(sym);
+    const re = Math.cos(phase), im = Math.sin(phase);
+    const k = bins[i];
+    spec[k] = { re, im };
+    spec[(dim - k) % dim] = { re, im: -im }; // conjugate mirror
+  }
+  const vec = idftReal(spec);
+  // normalize
+  let norm = 0; for (let i = 0; i < vec.length; i++) norm += vec[i] * vec[i];
+  norm = Math.sqrt(norm) || 1; for (let i = 0; i < vec.length; i++) vec[i] /= norm;
+  const manifest = {
+    version: 1,
+    dim,
+    seed: s >>> 0,
+    modulation: 'qpsk-2b',
+    bitsPerSymbol: bitsPerSym,
+    bins,
+    payloadBytes: payload.length,
+    crc32: crc32(payload) >>> 0,
+  };
+  return { vector: Array.from(vec), spec, manifest };
+}
+
+export function decodeVectorToBinary(vectorOrSpec, manifest) {
+  let { dim, seed, bins: binsIn, bitsPerSymbol = 2, payloadBytes: payloadIn, crc32: expectedCrcIn } = manifest || {};
+  // Get spectrum
+  let spec;
+  if (Array.isArray(vectorOrSpec) && typeof vectorOrSpec[0] === 'number') {
+    // Time-domain vector was provided
+    const X = dftOfReal(vectorOrSpec);
+    spec = X;
+    if (!dim) dim = vectorOrSpec.length;
+  } else if (Array.isArray(vectorOrSpec) && typeof vectorOrSpec[0] === 'object') {
+    spec = vectorOrSpec;
+    if (!dim) dim = spec.length;
+  } else if (vectorOrSpec && Array.isArray(vectorOrSpec.vector)) {
+    const X = dftOfReal(vectorOrSpec.vector);
+    spec = X;
+    if (!dim) dim = vectorOrSpec.vector.length;
+  } else {
+    throw new Error('Unsupported input for decode: provide time-domain vector array or spec or {vector}');
+  }
+  if (!dim) throw new Error('decode requires dim (in manifest or deduced from vector)');
+  // If we don't know bins/payload yet, derive header using the first 32 carrier bins from candidate order
+  let bins = binsIn;
+  let payloadBytes = payloadIn;
+  let expectedCrc = expectedCrcIn;
+  if (!bins || payloadBytes == null) {
+    if (seed == null) throw new Error('decode needs seed when bins/payload are not provided');
+    const hdrSyms = Math.ceil((8 * 8) / bitsPerSymbol); // 8 byte header
+    const cand = selectCarrierBins(dim, typeof seed === 'number' ? seed : hashToSeed(String(seed)), hdrSyms);
+    const outHdr = Buffer.alloc(8);
+    let bitIdxHdr = 0;
+    for (let i = 0; i < cand.length; i++) {
+      const k = cand[i];
+      if (k == null || k < 0 || k >= spec.length) continue;
+      const z = spec[k];
+      if (!z) continue;
+      const theta = Math.atan2(z.im, z.re);
+      const sym = phaseToSymbol2b(theta);
+      for (let b = bitsPerSymbol - 1; b >= 0; b--) {
+        const bit = (sym >> b) & 1;
+        const bytePos = (bitIdxHdr >> 3);
+        const bitPos = 7 - (bitIdxHdr & 7);
+        if (bytePos < outHdr.length) outHdr[bytePos] |= (bit << bitPos);
+        bitIdxHdr++;
+      }
+    }
+    if (bitIdxHdr < 8 * 8) throw new Error('Failed to recover header from vector with provided seed/dim');
+    payloadBytes = outHdr.readUInt32BE(0);
+    expectedCrc = outHdr.readUInt32BE(4);
+    const totalBits = (payloadBytes + 8) * 8;
+    const binsNeeded = Math.ceil(totalBits / bitsPerSymbol);
+    bins = selectCarrierBins(dim, typeof seed === 'number' ? seed : hashToSeed(String(seed)), binsNeeded);
+  }
+
+  const totalBits = (payloadBytes + 8) * 8; // length+crc header
+  const syms = Math.ceil(totalBits / bitsPerSymbol);
+  const out = Buffer.alloc(payloadBytes + 8);
+  let bitIdx = 0;
+  for (let i = 0; i < syms; i++) {
+    const k = bins[i];
+    const z = spec[k];
+    const theta = Math.atan2(z.im, z.re);
+    const sym = phaseToSymbol2b(theta);
+    for (let b = bitsPerSymbol - 1; b >= 0; b--) {
+      const bit = (sym >> b) & 1; // MSB-first to mirror encoder
+      const bytePos = (bitIdx >> 3);
+      const bitPos = 7 - (bitIdx & 7);
+      if (bytePos < out.length) out[bytePos] |= (bit << bitPos);
+      bitIdx++;
+    }
+  }
+  const declaredLen = out.readUInt32BE(0);
+  const declaredCrc = out.readUInt32BE(4);
+  const payload = out.slice(8, 8 + declaredLen);
+  const actualCrc = crc32(payload) >>> 0;
+  if (declaredLen !== payloadBytes) throw new Error(`Manifest length mismatch: ${payloadBytes} vs ${declaredLen}`);
+  if (actualCrc !== declaredCrc || (expectedCrc != null && actualCrc !== ((expectedCrc >>> 0)))) throw new Error('CRC32 check failed; data corrupted or wrong manifest');
+  return payload;
+}
+
+export default { generateTemplate, applyPlaceholdersToData, hashToSeed, encodeBinaryToVector, decodeVectorToBinary };
