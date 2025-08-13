@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autonomous Universe Graph</title>
+    <style>
+      body { margin: 0; font-family: system-ui, sans-serif; }
+      #toolbar { position: fixed; top: 8px; left: 8px; background: rgba(255,255,255,0.9); padding: 8px; border-radius: 8px; z-index: 10; }
+      #graph2d, #graph3d { width: 100vw; height: 100vh; display: none; }
+      #graph2d.active, #graph3d.active { display: block; }
+      button { padding: 6px 10px; }
+    </style>
+  </head>
+  <body>
+    <div id="toolbar">
+      <button id="btn2d">2D</button>
+      <button id="btn3d">3D</button>
+      <button id="btnvr">VR</button>
+      <button id="btnar">AR</button>
+    </div>
+    <div id="graph2d" class="active"></div>
+    <div id="graph3d"></div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

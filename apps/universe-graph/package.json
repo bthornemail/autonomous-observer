@@ -1,0 +1,11 @@
+{
+  "name": "@ulp/universe-graph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Navigable 2D/3D/VR/AR force-graph for the Autonomous Universe (hub-driven)",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.cjs",
+    "start": "node server.cjs"
+  }
+}

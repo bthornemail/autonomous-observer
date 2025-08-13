@@ -2,6 +2,7 @@ packages:
   - 'packages/*'
   - 'apps/*'
   - 'apps/avatar-console'
+  - 'apps/universe-graph'
   - 'mcp-integration'
   - 'sacred-geometry-harmony'
   - 'scripts'
