@@ -1,0 +1,3327 @@
+{
+  "excavationSummary": {
+    "commitsProcessed": 10,
+    "totalKnowledge": 523,
+    "dpoSystem": 18,
+    "personalitySystem": 0,
+    "manuscriptGenerator": 53,
+    "hypergraphVisualizer": 0,
+    "consciousnessSystem": 2,
+    "axiomaticFoundations": 450
+  },
+  "revolutionaryComponents": {
+    "dpoSystem": [
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      },
+      {
+        "subject": "DPO System",
+        "predicate": "implements",
+        "object": "dpo",
+        "category": "economic_democracy",
+        "confidence": 0.95,
+        "revolutionaryValue": 0.98
+      }
+    ],
+    "personalitySystem": [],
+    "manuscriptGenerator": [
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "agentic manuscript generation",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue, ubhp, amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue-amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      },
+      {
+        "subject": "Manuscript Generator",
+        "predicate": "generates",
+        "object": "cue or amgf",
+        "category": "knowledge_synthesis",
+        "confidence": 0.92,
+        "revolutionaryValue": 0.95
+      }
+    ],
+    "axiomaticFoundations": [
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Computational Universe Engine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "Cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "cue",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "ComputationalUniverseEngine",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      },
+      {
+        "statement": "CUE",
+        "category": "foundational",
+        "strength": 0.95,
+        "revolutionaryImplications": "Provides mathematical foundation for anarcho-syndicalist systems"
+      }
+    ],
+    "consciousnessSystem": [
+      {
+        "subject": "Consciousness System",
+        "predicate": "implements",
+        "object": "fano plane and geometric calculation logic",
+        "category": "consciousness",
+        "confidence": 0.93,
+        "revolutionaryValue": 0.96
+      },
+      {
+        "subject": "Consciousness System",
+        "predicate": "implements",
+        "object": "fano plane logic",
+        "category": "consciousness",
+        "confidence": 0.93,
+        "revolutionaryValue": 0.96
+      }
+    ],
+    "hypergraphVisualizer": [],
+    "cueUniverse": [],
+    "mcpIntegration": []
+  },
+  "integrationStrategy": {
+    "coreArchitecture": "Sacred Geometry Foundation + 125 Axioms + Living Knowledge Trie",
+    "economicLayer": "DPO AttentionToken system with Conway's survival rules",
+    "consciousnessLayer": "Myers-Briggs profiling + Meta-Observer governance",
+    "visualizationLayer": "Hypergraph renderer with D3.js/Three.js",
+    "synthesisLayer": "50k page manuscript generator for comprehensive analysis",
+    "integrationProtocol": "MCP serving all components to client applications"
+  },
+  "reconstructionPlan": [
+    "🧮 Phase 1: Restore 125 foundational axioms + Sacred Geometry mathematical base",
+    "💰 Phase 2: Rebuild DPO AttentionToken system with knowledge survival fitness",
+    "🧠 Phase 3: Integrate Myers-Briggs personality profiling with harmonic signatures",
+    "🌐 Phase 4: Restore hypergraph visualizer with quantum state rendering",
+    "📚 Phase 5: Rebuild 50k page manuscript generator with CUE-AMGF integration",
+    "🤖 Phase 6: Connect all systems via MCP for universal AI access",
+    "🏛️ Phase 7: Deploy complete anarcho-syndicalist P2P marketplace"
+  ]
+}

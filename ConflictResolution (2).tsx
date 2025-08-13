@@ -1,0 +1,1 @@
+// ConflictResolution component implementation

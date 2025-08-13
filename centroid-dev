@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 710b5c90f1c748f46f5ab8da5d779888a9131bd3 Brian Thorne <bthornemail@gmail.com> 1754896677 -0700	branch: Created from HEAD
+710b5c90f1c748f46f5ab8da5d779888a9131bd3 57a3215899ae8c7eb16264178eda2ea7a5a39b92 Brian Thorne <bthornemail@gmail.com> 1754896691 -0700	commit: feat(tetrahedron): scaffold centroid orchestrator, vertex sockets, CUE runner, UI stub; add Vite proxy; create centroid-dev branch per topology
+57a3215899ae8c7eb16264178eda2ea7a5a39b92 ff9406b2c0940099e3314bc3cb887d31f089a472 Brian Thorne <bthornemail@gmail.com> 1754896894 -0700	commit: chore(repo): add root .gitignore and untrack node_modules to prevent data bloat
+ff9406b2c0940099e3314bc3cb887d31f089a472 c0cab7151272e534bf565527fc54a63fcb971a26 Brian Thorne <bthornemail@gmail.com> 1754901121 -0700	commit: git push --set-upstream origin important-need-to-resolve
+c0cab7151272e534bf565527fc54a63fcb971a26 6990e7a512a81b1d1f5b92e59e13bd7acb41153d Brian Thorne <bthornemail@gmail.com> 1754913536 -0700	commit: autonomus framework
+6990e7a512a81b1d1f5b92e59e13bd7acb41153d 9ceacc3ec12df7c609492b01b0abc693599070a4 Brian Thorne <bthornemail@gmail.com> 1754914845 -0700	commit: Let me create a simpler, more compatible version:

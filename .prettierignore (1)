@@ -1,0 +1,40 @@
+# Respect .editorconfig and skip large generated assets
+node_modules/
+coverage/
+dist/
+build/
+**/*.min.js
+**/*.bundle.js
+**/*.map
+universal-life-protocol-sdk-*.tgz
+
+# Generated data and archives
+archive/
+cleaned-reports/
+docs/test-reports/
+recovery/
+recovery/**
+patterns/
+
+# Local knowledge/data dumps
+universal-manuscript-50k-pages.json
+merged-knowledge-trie.json
+axiomatic-trie-complete.json
+COMPREHENSIVE_KNOWLEDGE_TRIE_ANALYSIS_REPORT.json
+philosophical-analysis-complete.json
+
+# Editors/config caches
+.claude/
+.obsidian/
+docs/.obsidian/
+
+# Subprojects managed separately
+dpo-anarcho-syndicalist-marketplace/
+personal-harmony-prototype/
+react-native-setup/
+news-syndicator-free/
+sacred-geometry-harmony/
+thesis-site/
+
+# Known non-standard JS files containing embedded markdown
+divine-paradox-manuscript-generator.js

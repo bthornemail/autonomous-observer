@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ULP Agent Hub</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 0; display: grid; grid-template-rows: auto 1fr auto; height: 100vh; }
+      header { padding: 8px 12px; background: #0b1020; color: #dbeafe; }
+      main { display: grid; grid-template-columns: 300px 1fr; gap: 8px; padding: 8px; }
+      aside { border-right: 1px solid #e5e7eb; padding-right: 8px; }
+      #log { white-space: pre-wrap; background: #0f172a; color: #e5e7eb; padding: 8px; height: 50vh; overflow: auto; }
+      #canvas { border: 1px solid #e5e7eb; width: 100%; height: 240px; }
+      footer { padding: 8px; border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
+  input, button, select { padding: 8px; }
+  #agentsList { font-size: 12px; max-height: 100px; overflow: auto; border: 1px solid #e5e7eb; padding: 4px; }
+  .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Universal Life Protocol — Agent Hub</strong>
+    </header>
+    <main>
+      <aside>
+        <h3>Connect</h3>
+        <div>
+          <label for="clientId">Identity</label>
+          <input id="clientId" placeholder="client-123" />
+        </div>
+        <div>
+          <label for="kind">Kind</label>
+          <select id="kind" title="Connection kind">
+            <option value="client">Client</option>
+            <option value="agent">Agent</option>
+          </select>
+        </div>
+        <button id="connect">Connect</button>
+        <hr />
+        <h3>Status</h3>
+        <div id="statusPanel">
+          <div>Clients: <span id="clientsCount">0</span></div>
+          <div>Agents: <span id="agentsCount">0</span></div>
+          <div>
+            <label for="agentsList">Agents List</label>
+            <div id="agentsList" aria-live="polite"></div>
+          </div>
+        </div>
+        <hr />
+        <h3>Send</h3>
+        <div>
+          <label for="channel">Channel</label>
+          <select id="channel" title="Message channel">
+            <option value="u2a">User → Agent</option>
+            <option value="a2u">Agent → User</option>
+            <option value="a2a">Agent → Agent</option>
+          </select>
+        </div>
+        <div>
+          <label for="to">To</label>
+          <input id="to" placeholder="agent-xyz (optional)" />
+        </div>
+        <div>
+          <label for="text">Text</label>
+          <input id="text" placeholder="message" />
+        </div>
+        <button id="send">Send</button>
+      </aside>
+      <section>
+        <canvas id="canvas"></canvas>
+        <h3>Log</h3>
+        <div id="log"></div>
+      </section>
+    </main>
+    <footer>
+      <label for="status" class="sr-only">Connection status</label>
+      <input id="status" disabled value="disconnected" title="Connection status" />
+      <button id="clear">Clear Log</button>
+      <button id="ping">Ping</button>
+    </footer>
+    <script>
+      const logEl = document.getElementById('log');
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      function log(line) { const time = new Date().toISOString(); logEl.textContent += `\n[${time}] ${line}`; logEl.scrollTop = logEl.scrollHeight; }
+      function drawSig(sig) {
+        const w = canvas.width = canvas.clientWidth; const h = canvas.height = canvas.clientHeight;
+        ctx.clearRect(0,0,w,h); ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2;
+        const n = Math.min(64, sig.length);
+        ctx.beginPath();
+        for (let i=0;i<n;i++) {
+          const t = i / (n-1);
+          const angle = t * Math.PI * 2 * 1.618;
+          const r = 20 + (Math.sin(i*0.7)+1)*0.5 * Math.min(w,h)/3;
+          const x = w/2 + Math.cos(angle) * r;
+          const y = h/2 + Math.sin(angle) * r;
+          if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.closePath(); ctx.stroke();
+      }
+
+      let ws;
+      async function refreshStatus() {
+        try {
+          const res = await fetch('/status', { headers: { 'accept': 'application/json' } });
+          if (!res.ok) return;
+          const s = await res.json();
+          document.getElementById('clientsCount').textContent = String(s.counts?.clients ?? (s.clients?.length||0));
+          document.getElementById('agentsCount').textContent = String(s.counts?.agents ?? (s.agents?.length||0));
+          const list = Array.isArray(s.agents) ? s.agents : [];
+          document.getElementById('agentsList').textContent = list.join('\n');
+        } catch {}
+      }
+      setInterval(refreshStatus, 3000);
+      refreshStatus();
+
+      document.getElementById('connect').onclick = () => {
+        const id = document.getElementById('clientId').value || undefined;
+        const kind = document.getElementById('kind').value;
+        const params = new URLSearchParams(location.search);
+        const overridePort = params.get('port');
+        const wsProtocol = location.protocol === 'https:' ? 'wss' : 'ws';
+        const wsPort = overridePort || location.port;
+        const host = location.hostname + (wsPort ? `:${wsPort}` : '');
+        const url = `${wsProtocol}://${host}/?id=${encodeURIComponent(id||'')}&kind=${kind}`;
+        ws = new WebSocket(url);
+        ws.onopen = () => { document.getElementById('status').value = 'connected'; log('connected'); refreshStatus(); };
+        ws.onclose = () => { document.getElementById('status').value = 'disconnected'; log('disconnected'); refreshStatus(); };
+        ws.onmessage = (ev) => {
+          try {
+            const msg = JSON.parse(ev.data);
+            log('recv ' + JSON.stringify(msg));
+            if (msg.signature) drawSig(String(msg.signature));
+          } catch {}
+        };
+      };
+
+      document.getElementById('send').onclick = () => {
+        if (!ws || ws.readyState !== 1) return;
+        const channel = document.getElementById('channel').value;
+        const to = document.getElementById('to').value || undefined;
+        const text = document.getElementById('text').value || '';
+        const msg = { role: 'user', type: 'text', content: text, meta: { channel }, to };
+        ws.send(JSON.stringify(msg));
+      };
+
+      document.getElementById('ping').onclick = () => {
+        if (!ws || ws.readyState !== 1) return;
+        ws.send(JSON.stringify({ role: 'user', type: 'control', content: 'ping' }));
+      };
+
+      document.getElementById('clear').onclick = () => { logEl.textContent = ''; };
+    </script>
+  </body>
+</html>

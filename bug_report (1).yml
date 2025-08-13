@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a problem to help us improve
+labels: [bug]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Briefly describe the bug
+      placeholder: Something doesn't work
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps to reproduce
+      placeholder: 1. Go to ...\n2. Click ...\n3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / logs
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Version / environment
+      placeholder: node, npm, OS, branch
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Integrity checks
+      options:
+        - label: I verified the issue on the latest dev-copilot
+        - label: No secrets or sensitive data are included

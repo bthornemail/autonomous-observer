@@ -1,0 +1,48 @@
+.app {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #111;
+  background: #fafafa;
+  min-height: 100vh;
+}
+
+.marketplace-home {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.revolutionary-header h1 {
+  margin: 0 0 8px;
+}
+
+.marketplace-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0 24px;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 16px;
+}

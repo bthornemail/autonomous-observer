@@ -1,0 +1,25 @@
+{
+  "name": "unified-framework-implementation",
+  "version": "1.0.0",
+  "description": "Implementation of UNIFIED_FRAMEWORK_SYNTHESIS.md with testing capabilities",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "bench": "vitest --run --reporter=verbose bench",
+    "compare": "node scripts/version-comparison.js",
+    "coherence": "node scripts/harmonic-coherence-test.js"
+  },
+  "dependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0"
+  }
+}

@@ -1,0 +1,581 @@
+{
+  "metadata": {
+    "processedAt": "2025-08-10T20:31:43.971Z",
+    "feedUrl": "mock-data",
+    "totalItems": 5,
+    "highPotentialItems": 3,
+    "averageRevolutionaryScore": 0.636,
+    "revolutionaryThreshold": 0.75,
+    "cueClarionSeeds": 21
+  },
+  "results": [
+    {
+      "item": {
+        "title": "Worker Cooperative Opens New Location Using Blockchain Technology",
+        "description": "A worker-owned cooperative bakery has expanded to a second location, implementing blockchain-based decision making and profit sharing among all worker-owners.",
+        "link": "https://example.com/coop-expansion",
+        "publishDate": "2025-08-10T12:00:00Z"
+      },
+      "revolutionaryScore": 1,
+      "matchedSeeds": [
+        {
+          "seedId": "391a01e2f160d88e7d9f411aed9b7c02",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist governance",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "913e05ab6d77f51c3379cd5dee0b79a6",
+          "seed": "DPO System -> attention token economy",
+          "matchScore": 0.392,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "3e10253034534b23ac897881ea4c63be",
+          "seed": "Manuscript Generator -> 50000 page analysis",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "ea5943b4e5f260cca08bd3f4c201e7ad",
+          "seed": "Universal Life Protocol -> ulp",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "5ab80cecd7a4452121ecf03be6f09e72",
+          "seed": "Universal Life Protocol -> universal life protocol",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "cd1be276d7a30a6bdc1290d8d542b754",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "c399b9e0ec150d80b7e59765444ff91e",
+          "seed": "Universal Life Protocol -> universal-life-protocol",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "66da2a65263d8ef061a25b50b20eaa3d",
+          "seed": "Physics System -> quantum",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "52751cd26a622bd83284e265f8833ae1",
+          "seed": "Chemistry System -> molecular",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "f1f89f3a655bbcf4c6a4290be2b8a19f",
+          "seed": "Biology System -> dna",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "2c522dff3cb2ae64b191b06738749fea",
+          "seed": "DPO System -> dpo",
+          "matchScore": 0.392,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "1f18796b43fb8ed56736e3eda795d844",
+          "seed": "Consciousness System -> fano plane and geometric calculation logic",
+          "matchScore": 0.384,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4e88d48a621cc131092c0fd94959f6aa",
+          "seed": "Consciousness System -> fano plane logic",
+          "matchScore": 0.384,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4ba309ef832912e221409d315ff26da6",
+          "seed": "Manuscript Generator -> agentic manuscript generation",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "b57a3068d04e28caeb9aacde64a6ec24",
+          "seed": "Manuscript Generator -> cue, ubhp, amgf",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "275698ad1fe5867fa8241b3de1e8603e",
+          "seed": "Manuscript Generator -> cue-amgf",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "651d57419394f4d2950ea1989ec1b625",
+          "seed": "Manuscript Generator -> cue or amgf",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "manual-seed-0",
+          "seed": "Cooperative Economy -> worker ownership",
+          "matchScore": 0.5880000000000001,
+          "matchedKeywords": [
+            "cooperative",
+            "worker"
+          ],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "manual-seed-1",
+          "seed": "Direct Action -> hierarchical power",
+          "matchScore": 0.38,
+          "matchedKeywords": [],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "seedId": "manual-seed-2",
+          "seed": "Decentralized Technology -> autonomous communities",
+          "matchScore": 0.46,
+          "matchedKeywords": [
+            "blockchain"
+          ],
+          "category": "technological_liberation"
+        },
+        {
+          "seedId": "manual-seed-3",
+          "seed": "Sacred Geometry -> natural harmony",
+          "matchScore": 0.36000000000000004,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "categories": [
+        "general",
+        "economic_democracy",
+        "consciousness",
+        "knowledge_synthesis",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "harmonicResonance": 9.183089323890815,
+      "recommendations": [
+        "🚩 HIGH REVOLUTIONARY POTENTIAL - Recommended for anarcho-syndicalist action",
+        "💰 Economic democracy content - Share with cooperative networks",
+        "💻 Tech liberation content - Share with decentralized tech communities"
+      ]
+    },
+    {
+      "item": {
+        "title": "Decentralized Mesh Network Provides Internet to Rural Communities",
+        "description": "Community organizers have deployed a mesh network using open-source technology to provide internet access without relying on corporate ISPs.",
+        "link": "https://example.com/mesh-network",
+        "publishDate": "2025-08-10T10:30:00Z"
+      },
+      "revolutionaryScore": 1,
+      "matchedSeeds": [
+        {
+          "seedId": "391a01e2f160d88e7d9f411aed9b7c02",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist governance",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "913e05ab6d77f51c3379cd5dee0b79a6",
+          "seed": "DPO System -> attention token economy",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "3e10253034534b23ac897881ea4c63be",
+          "seed": "Manuscript Generator -> 50000 page analysis",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "ea5943b4e5f260cca08bd3f4c201e7ad",
+          "seed": "Universal Life Protocol -> ulp",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "5ab80cecd7a4452121ecf03be6f09e72",
+          "seed": "Universal Life Protocol -> universal life protocol",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "cd1be276d7a30a6bdc1290d8d542b754",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "c399b9e0ec150d80b7e59765444ff91e",
+          "seed": "Universal Life Protocol -> universal-life-protocol",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "66da2a65263d8ef061a25b50b20eaa3d",
+          "seed": "Physics System -> quantum",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "52751cd26a622bd83284e265f8833ae1",
+          "seed": "Chemistry System -> molecular",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "f1f89f3a655bbcf4c6a4290be2b8a19f",
+          "seed": "Biology System -> dna",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "2c522dff3cb2ae64b191b06738749fea",
+          "seed": "DPO System -> dpo",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "1f18796b43fb8ed56736e3eda795d844",
+          "seed": "Consciousness System -> fano plane and geometric calculation logic",
+          "matchScore": 0.192,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4e88d48a621cc131092c0fd94959f6aa",
+          "seed": "Consciousness System -> fano plane logic",
+          "matchScore": 0.192,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4ba309ef832912e221409d315ff26da6",
+          "seed": "Manuscript Generator -> agentic manuscript generation",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "b57a3068d04e28caeb9aacde64a6ec24",
+          "seed": "Manuscript Generator -> cue, ubhp, amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "275698ad1fe5867fa8241b3de1e8603e",
+          "seed": "Manuscript Generator -> cue-amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "651d57419394f4d2950ea1989ec1b625",
+          "seed": "Manuscript Generator -> cue or amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "manual-seed-0",
+          "seed": "Cooperative Economy -> worker ownership",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "manual-seed-1",
+          "seed": "Direct Action -> hierarchical power",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "seedId": "manual-seed-2",
+          "seed": "Decentralized Technology -> autonomous communities",
+          "matchScore": 0.2760000000000001,
+          "matchedKeywords": [
+            "decentralized"
+          ],
+          "category": "technological_liberation"
+        },
+        {
+          "seedId": "manual-seed-3",
+          "seed": "Sacred Geometry -> natural harmony",
+          "matchScore": 0.18000000000000002,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "categories": [
+        "general",
+        "economic_democracy",
+        "consciousness",
+        "knowledge_synthesis",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "harmonicResonance": 4.605619212668928,
+      "recommendations": [
+        "🚩 HIGH REVOLUTIONARY POTENTIAL - Recommended for anarcho-syndicalist action",
+        "💰 Economic democracy content - Share with cooperative networks",
+        "💻 Tech liberation content - Share with decentralized tech communities"
+      ]
+    },
+    {
+      "item": {
+        "title": "Traditional Stock Market Reaches New Highs",
+        "description": "Wall Street experienced another record-breaking day as investors continued to pour money into technology stocks and corporate bonds.",
+        "link": "https://example.com/stocks-high",
+        "publishDate": "2025-08-10T09:15:00Z"
+      },
+      "revolutionaryScore": 0,
+      "matchedSeeds": [],
+      "categories": [],
+      "harmonicResonance": 0,
+      "recommendations": []
+    },
+    {
+      "item": {
+        "title": "Mathematical Patterns Found in Nature Inspire New Architecture",
+        "description": "Architects are incorporating golden ratio and fibonacci sequences found in natural growth patterns to design more harmonious and sustainable buildings.",
+        "link": "https://example.com/nature-architecture",
+        "publishDate": "2025-08-10T14:45:00Z"
+      },
+      "revolutionaryScore": 0.18000000000000002,
+      "matchedSeeds": [
+        {
+          "seedId": "manual-seed-3",
+          "seed": "Sacred Geometry -> natural harmony",
+          "matchScore": 0.18000000000000002,
+          "matchedKeywords": [
+            "golden ratio",
+            "fibonacci"
+          ],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "categories": [
+        "mathematical_foundation"
+      ],
+      "harmonicResonance": 0.19321090836974225,
+      "recommendations": []
+    },
+    {
+      "item": {
+        "title": "Direct Action Campaign Wins Major Victory Against Corporate Development",
+        "description": "Months of community organizing and direct action have successfully prevented a corporate developer from destroying a local forest for a shopping mall.",
+        "link": "https://example.com/direct-action-victory",
+        "publishDate": "2025-08-10T16:20:00Z"
+      },
+      "revolutionaryScore": 1,
+      "matchedSeeds": [
+        {
+          "seedId": "391a01e2f160d88e7d9f411aed9b7c02",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist governance",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "913e05ab6d77f51c3379cd5dee0b79a6",
+          "seed": "DPO System -> attention token economy",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "3e10253034534b23ac897881ea4c63be",
+          "seed": "Manuscript Generator -> 50000 page analysis",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "ea5943b4e5f260cca08bd3f4c201e7ad",
+          "seed": "Universal Life Protocol -> ulp",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "5ab80cecd7a4452121ecf03be6f09e72",
+          "seed": "Universal Life Protocol -> universal life protocol",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "cd1be276d7a30a6bdc1290d8d542b754",
+          "seed": "Universal Life Protocol -> anarcho-syndicalist",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "c399b9e0ec150d80b7e59765444ff91e",
+          "seed": "Universal Life Protocol -> universal-life-protocol",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "66da2a65263d8ef061a25b50b20eaa3d",
+          "seed": "Physics System -> quantum",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "52751cd26a622bd83284e265f8833ae1",
+          "seed": "Chemistry System -> molecular",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "f1f89f3a655bbcf4c6a4290be2b8a19f",
+          "seed": "Biology System -> dna",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "general"
+        },
+        {
+          "seedId": "2c522dff3cb2ae64b191b06738749fea",
+          "seed": "DPO System -> dpo",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "1f18796b43fb8ed56736e3eda795d844",
+          "seed": "Consciousness System -> fano plane and geometric calculation logic",
+          "matchScore": 0.192,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4e88d48a621cc131092c0fd94959f6aa",
+          "seed": "Consciousness System -> fano plane logic",
+          "matchScore": 0.192,
+          "matchedKeywords": [],
+          "category": "consciousness"
+        },
+        {
+          "seedId": "4ba309ef832912e221409d315ff26da6",
+          "seed": "Manuscript Generator -> agentic manuscript generation",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "b57a3068d04e28caeb9aacde64a6ec24",
+          "seed": "Manuscript Generator -> cue, ubhp, amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "275698ad1fe5867fa8241b3de1e8603e",
+          "seed": "Manuscript Generator -> cue-amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "651d57419394f4d2950ea1989ec1b625",
+          "seed": "Manuscript Generator -> cue or amgf",
+          "matchScore": 0.19,
+          "matchedKeywords": [],
+          "category": "knowledge_synthesis"
+        },
+        {
+          "seedId": "manual-seed-0",
+          "seed": "Cooperative Economy -> worker ownership",
+          "matchScore": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "seedId": "manual-seed-1",
+          "seed": "Direct Action -> hierarchical power",
+          "matchScore": 0.38,
+          "matchedKeywords": [
+            "direct action",
+            "organizing"
+          ],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "seedId": "manual-seed-2",
+          "seed": "Decentralized Technology -> autonomous communities",
+          "matchScore": 0.18400000000000002,
+          "matchedKeywords": [],
+          "category": "technological_liberation"
+        },
+        {
+          "seedId": "manual-seed-3",
+          "seed": "Sacred Geometry -> natural harmony",
+          "matchScore": 0.18000000000000002,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "categories": [
+        "general",
+        "economic_democracy",
+        "consciousness",
+        "knowledge_synthesis",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "harmonicResonance": 4.449259750724829,
+      "recommendations": [
+        "🚩 HIGH REVOLUTIONARY POTENTIAL - Recommended for anarcho-syndicalist action",
+        "💰 Economic democracy content - Share with cooperative networks",
+        "💻 Tech liberation content - Share with decentralized tech communities"
+      ]
+    }
+  ]
+}

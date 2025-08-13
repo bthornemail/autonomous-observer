@@ -1,0 +1,26 @@
+ Let me create a simpler benchmark test that focuses on the key performance metrics:
+
+● Write(unified-framework-implementation/src/tests/performance-benchmark.test.ts)
+  ⎿  Wrote 298 lines to unified-framework-implementation/src/tests/performance-benchmark.test.ts
+     /**
+      * Performance Benchmark Suite for CUE Implementation
+      * Focused performance testing of core components
+      */
+     import { describe, it, expect } from 'vitest';
+     import { VectorSymbolicArchitecture } from '../core/VectorSymbolicArchitecture.js';
+     import { TernaryLogicEngine, TernaryState } from '../core/TernaryLogicEngine.js';
+     import { GeometricAddressingSystem } from '../core/GeometricAddressingSystem.js';
+     import { TetrahedronCoordinationProtocol } from '../core/TetrahedronCoordinationProtocol.js';
+     … +288 lines (ctrl+r to expand)
+
+● Bash(cd /home/main/dev/signularity2d/ClaudeCode/unified-framework-implementation && npm test
+      src/tests/performance-benchmark.test.ts)
+  ⎿  Tests  11 passed (11)
+        Start at  19:45:09
+        Duration  952ms (transform 219ms, setup 0ms, collect 267ms, tests 281ms, environment 0ms,
+     prepare 140ms)
+      PASS  Waiting for file changes...
+     +42 more lines (20s)
+     ctrl+b to run in background
+
+✢ Processing… (214s · ⚒ 9.7k tokens · esc to interrupt)

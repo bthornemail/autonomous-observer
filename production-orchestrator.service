@@ -1,0 +1,19 @@
+[Unit]
+Description=Production Readiness Orchestrator
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/main/dev/signularity2d/CoPilot/mcp-integration
+Environment=HUB_WS_URL=ws://localhost:8081
+Environment=COPILOT_ID=prod_orchestrator
+# Optional knowledge trie path and redis URL
+# Environment=KNOWLEDGE_TRIE_PATH=/home/main/dev/signularity2d/CoPilot/merged-knowledge-trie.json
+# Environment=REDIS_URL=redis://127.0.0.1:6379
+ExecStart=/usr/bin/env node scripts/production-orchestrator.js
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

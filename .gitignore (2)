@@ -1,0 +1,42 @@
+# Root ignore for monorepo and generated artifacts
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.eslintcache
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+coverage/
+
+# Caches
+.cache/
+**/.cache/
+.turbo/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Env/Secrets
+.env
+.env.*
+!.env.example
+
+# Logs & temp
+*.log
+logs/
+tmp/
+
+# Archives/bundles
+*.tgz
+*.zip
+
+# Generated reports (keep committed canonical docs under docs/)
+cleaned-reports/

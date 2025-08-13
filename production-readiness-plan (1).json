@@ -1,0 +1,66 @@
+{
+  "trie": {
+    "path": null
+  },
+  "agents": [],
+  "now": [
+    {
+      "id": "sec-jwt-bridge",
+      "title": "Add JWT support to UBHP/CUE bridge with dual-accept (API key + JWT) window",
+      "area": "security",
+      "priority": "now"
+    },
+    {
+      "id": "sec-cors-allowlist",
+      "title": "Tighten CORS allowlist for bridge and hub UI",
+      "area": "security",
+      "priority": "now"
+    },
+    {
+      "id": "obs-prom-metrics",
+      "title": "Expose Prometheus /metrics for hub and bridge (reqs, channels, heartbeats, 429s)",
+      "area": "observability",
+      "priority": "now"
+    },
+    {
+      "id": "ci-cd",
+      "title": "Add CI: lint, typecheck, tests; add CD for deploy assets (systemd, Nginx)",
+      "area": "ci-cd",
+      "priority": "now"
+    },
+    {
+      "id": "tests-integration",
+      "title": "Write integration tests for hub routing and bridge rate limiting",
+      "area": "testing",
+      "priority": "now"
+    }
+  ],
+  "next": [
+    {
+      "id": "docs-ops",
+      "title": "Add operations runbook: health endpoints, envs, service management",
+      "area": "docs",
+      "priority": "next"
+    },
+    {
+      "id": "ui-heartbeat",
+      "title": "UI: heartbeat badges and channel counters view",
+      "area": "ui",
+      "priority": "next"
+    },
+    {
+      "id": "auth-rotation",
+      "title": "Key rotation procedure and secret management guidance",
+      "area": "security",
+      "priority": "next"
+    }
+  ],
+  "later": [
+    {
+      "id": "perf-backpressure",
+      "title": "Backpressure and message size limits in hub",
+      "area": "performance",
+      "priority": "later"
+    }
+  ]
+}

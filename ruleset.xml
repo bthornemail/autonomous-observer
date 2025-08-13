@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Codacy PMD 7 Ruleset"
+    xmlns="https://pmd.github.io/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://pmd.github.io/ruleset/2.0.0 https://pmd.github.io/schemas/pmd-7.0.0.xsd">
+    <description>Codacy PMD 7 Ruleset</description></ruleset>

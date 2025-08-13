@@ -1,0 +1,40 @@
+{
+  "name": "@ulp/web2-web3-bridge",
+  "version": "3.0.0",
+  "description": "Universal Life Protocol Web2-Web3 Bridge - Seamless transition layer for easy adoption",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js", 
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "dev": "nodemon src/index.ts",
+    "test": "jest",
+    "start:bridge": "node dist/bridge/server.js"
+  },
+  "dependencies": {
+    "@ulp/provider-sdk": "workspace:*",
+    "@ulp/client-sdk": "workspace:*",
+    "express": "^4.19.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-github2": "^0.1.0",
+    "web3": "^4.0.0",
+    "ethers": "^6.0.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "nodemon": "^3.0.0",
+    "jest": "^29.7.0"
+  },
+  "keywords": [
+    "universal-life-protocol",
+    "bridge",
+    "web2",
+    "web3", 
+    "transition",
+    "onboarding",
+    "progressive-enhancement"
+  ],
+  "license": "MIT"
+}

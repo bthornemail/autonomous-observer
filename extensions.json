@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "DavidAnson.vscode-markdownlint",
+    "GitHub.copilot",
+    "ms-playwright.playwright",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}

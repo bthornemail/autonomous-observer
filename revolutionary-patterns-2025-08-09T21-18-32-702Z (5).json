@@ -1,0 +1,106 @@
+{
+  "type": "revolutionary",
+  "count": 28576,
+  "samplePatterns": [
+    {
+      "source": "revolutionary_generation",
+      "category": "anarcho_syndicalist_principle",
+      "type": "generated_pattern",
+      "subject": "decentralized_freedom",
+      "predicate": "creates_revolutionary_outcome",
+      "object": "liberation",
+      "confidence": 0.8,
+      "metadata": {
+        "generation_batch": 0,
+        "guiding_star_principle": "freedom",
+        "system_type": "decentralized"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.9708203932499369
+    },
+    {
+      "source": "revolutionary_generation",
+      "category": "anarcho_syndicalist_principle",
+      "type": "generated_pattern",
+      "subject": "democratic_autonomy",
+      "predicate": "creates_revolutionary_outcome",
+      "object": "empowerment",
+      "confidence": 0.8,
+      "metadata": {
+        "generation_batch": 0,
+        "guiding_star_principle": "autonomy",
+        "system_type": "democratic"
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.9708203932499369
+    },
+    {
+      "source": "revolutionary_generation",
+      "category": "anarcho_syndicalist_principle",
+      "type": "generated_pattern",
+      "subject": "cooperative_reciprocity",
+      "predicate": "creates_revolutionary_outcome",
+      "object": "sustainability",
+      "confidence": 0.8,
+      "metadata": {
+        "generation_batch": 0,
+        "guiding_star_principle": "reciprocity",
+        "system_type": "cooperative"
+      },
+      "guidingStarPrinciples": [
+        "reciprocity"
+      ],
+      "sacredGeometryAlignment": 0.9708203932499369
+    },
+    {
+      "source": "revolutionary_generation",
+      "category": "anarcho_syndicalist_principle",
+      "type": "generated_pattern",
+      "subject": "mutual_aid_sovereignty",
+      "predicate": "creates_revolutionary_outcome",
+      "object": "regeneration",
+      "confidence": 0.8,
+      "metadata": {
+        "generation_batch": 0,
+        "guiding_star_principle": "sovereignty",
+        "system_type": "mutual_aid"
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.9708203932499369
+    },
+    {
+      "source": "revolutionary_generation",
+      "category": "anarcho_syndicalist_principle",
+      "type": "generated_pattern",
+      "subject": "decentralized_freedom",
+      "predicate": "creates_revolutionary_outcome",
+      "object": "liberation",
+      "confidence": 0.8,
+      "metadata": {
+        "generation_batch": 0,
+        "guiding_star_principle": "freedom",
+        "system_type": "decentralized"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.9708203932499369
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.799999999999579,
+    "averageSacredAlignment": 0.9708203932496509,
+    "principleDistribution": {
+      "freedom": 7144,
+      "autonomy": 7144,
+      "reciprocity": 7144,
+      "sovereignty": 7144
+    }
+  }
+}

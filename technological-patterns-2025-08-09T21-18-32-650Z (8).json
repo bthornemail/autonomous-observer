@@ -1,0 +1,106 @@
+{
+  "type": "technological",
+  "count": 57152,
+  "samplePatterns": [
+    {
+      "source": "technological_generation",
+      "category": "technological_capability",
+      "type": "generated_pattern",
+      "subject": "software_system",
+      "predicate": "process_in_efficient_manner",
+      "object": "efficient_outcome",
+      "confidence": 0.73,
+      "metadata": {
+        "generation_batch": 0,
+        "tech_domain": "software",
+        "capability": "process"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "technological_generation",
+      "category": "technological_capability",
+      "type": "generated_pattern",
+      "subject": "hardware_system",
+      "predicate": "store_in_secure_manner",
+      "object": "secure_outcome",
+      "confidence": 0.73,
+      "metadata": {
+        "generation_batch": 0,
+        "tech_domain": "hardware",
+        "capability": "store"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "technological_generation",
+      "category": "technological_capability",
+      "type": "generated_pattern",
+      "subject": "network_system",
+      "predicate": "transmit_in_scalable_manner",
+      "object": "scalable_outcome",
+      "confidence": 0.73,
+      "metadata": {
+        "generation_batch": 0,
+        "tech_domain": "network",
+        "capability": "transmit"
+      },
+      "guidingStarPrinciples": [
+        "reciprocity"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "technological_generation",
+      "category": "technological_capability",
+      "type": "generated_pattern",
+      "subject": "database_system",
+      "predicate": "analyze_in_reliable_manner",
+      "object": "reliable_outcome",
+      "confidence": 0.73,
+      "metadata": {
+        "generation_batch": 0,
+        "tech_domain": "database",
+        "capability": "analyze"
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "technological_generation",
+      "category": "technological_capability",
+      "type": "generated_pattern",
+      "subject": "security_system",
+      "predicate": "generate_in_maintainable_manner",
+      "object": "maintainable_outcome",
+      "confidence": 0.73,
+      "metadata": {
+        "generation_batch": 0,
+        "tech_domain": "security",
+        "capability": "generate"
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.7300000000003887,
+    "averageSacredAlignment": 0.6472135954999214,
+    "principleDistribution": {
+      "freedom": 19052,
+      "autonomy": 19050,
+      "reciprocity": 9525,
+      "sovereignty": 9525
+    }
+  }
+}

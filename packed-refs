@@ -1,0 +1,10 @@
+# pack-refs with: peeled fully-peeled sorted 
+c62e0ee75c251ead53d1d3c6de23de494f22ffc6 refs/heads/autonomous-observer-test
+9ceacc3ec12df7c609492b01b0abc693599070a4 refs/heads/centroid-dev
+c5c11dc9c1b4c06d6cfa3389bf036a9df8f03c87 refs/heads/claude-code
+710b5c90f1c748f46f5ab8da5d779888a9131bd3 refs/heads/master
+c62e0ee75c251ead53d1d3c6de23de494f22ffc6 refs/remotes/origin/autonomous-observer-test
+9ceacc3ec12df7c609492b01b0abc693599070a4 refs/remotes/origin/centroid-dev
+9ceacc3ec12df7c609492b01b0abc693599070a4 refs/remotes/origin/claude-code
+710b5c90f1c748f46f5ab8da5d779888a9131bd3 refs/remotes/origin/master
+2ce05c28d922ed9efd493395762de90199160980 refs/tags/v1.0.1

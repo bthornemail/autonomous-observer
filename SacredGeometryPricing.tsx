@@ -1,0 +1,1 @@
+// SacredGeometryPricing component implementation

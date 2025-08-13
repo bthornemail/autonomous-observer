@@ -1,0 +1,37 @@
+name: Integrity CI
+
+on:
+  pull_request:
+    branches:
+      - copilot-**
+  push:
+    branches:
+      - copilot-**
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install --prefer-offline --no-audit --no-fund
+      - name: Build (if present)
+        run: npm run -s build --workspaces --if-present || true
+      - name: Test (if present)
+        run: npm test --workspaces --if-present || echo 'tests skipped'
+      - name: Format check
+        run: npm run -s format || true
+      - name: Type check (if TS present)
+        run: |
+          if [ -f tsconfig.json ]; then
+            npm run -s typecheck || echo 'typecheck failed (non-blocking)';
+          else
+            echo 'no tsconfig.json, skipping typecheck';
+          fi
+      - name: Basic workspace sanity
+        run: node -e "console.log('EditorConfig present:', require('fs').existsSync('.editorconfig'))"

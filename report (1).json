@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "processedAt": "2025-08-11T04:36:36.350Z",
+    "urls": [],
+    "mock": true,
+    "seedCount": 4,
+    "averageScore": 0.5924000000000001
+  },
+  "knowledge": {
+    "trie": {
+      "Cooperative Economy": {
+        "implements": {
+          "worker ownership": {
+            "id": "manual-1",
+            "category": "economic_democracy",
+            "revolutionaryValue": 0.98,
+            "keywords": [
+              "cooperative",
+              "worker",
+              "ownership",
+              "democracy",
+              "mutual aid"
+            ],
+            "harmonicSignature": 0.44819541488372094
+          }
+        }
+      },
+      "Direct Action": {
+        "challenges": {
+          "hierarchical power": {
+            "id": "manual-2",
+            "category": "revolutionary_praxis",
+            "revolutionaryValue": 0.95,
+            "keywords": [
+              "direct action",
+              "mutual aid",
+              "solidarity",
+              "organizing",
+              "protest"
+            ],
+            "harmonicSignature": 0.045304951684997055
+          }
+        }
+      },
+      "Decentralized Technology": {
+        "enables": {
+          "autonomous communities": {
+            "id": "manual-3",
+            "category": "technological_liberation",
+            "revolutionaryValue": 0.92,
+            "keywords": [
+              "decentralized",
+              "p2p",
+              "blockchain",
+              "mesh networks",
+              "open source"
+            ],
+            "harmonicSignature": 1.1439500300461756
+          }
+        }
+      },
+      "Sacred Geometry": {
+        "guides": {
+          "natural harmony": {
+            "id": "manual-4",
+            "category": "mathematical_foundation",
+            "revolutionaryValue": 0.9,
+            "keywords": [
+              "golden ratio",
+              "fibonacci",
+              "sacred geometry",
+              "natural patterns",
+              "harmony"
+            ],
+            "harmonicSignature": 0.6633939353874568
+          }
+        }
+      }
+    }
+  },
+  "items": [
+    {
+      "item": {
+        "title": "Worker Cooperative Opens New Location Using Blockchain Technology",
+        "description": "A worker-owned cooperative bakery has expanded to a second location, implementing blockchain-based decision making and profit sharing among all worker-owners.",
+        "link": "https://example.com/coop-expansion",
+        "publishDate": "2025-08-10T12:00:00Z"
+      },
+      "total": 1,
+      "resonance": 1.692129616152652,
+      "categories": [
+        "economic_democracy",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "matches": [
+        {
+          "id": "manual-1",
+          "label": "Cooperative Economy -> worker ownership",
+          "score": 0.5880000000000001,
+          "matchedKeywords": [
+            "cooperative",
+            "worker"
+          ],
+          "category": "economic_democracy"
+        },
+        {
+          "id": "manual-2",
+          "label": "Direct Action -> hierarchical power",
+          "score": 0.38,
+          "matchedKeywords": [],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "id": "manual-3",
+          "label": "Decentralized Technology -> autonomous communities",
+          "score": 0.46,
+          "matchedKeywords": [
+            "blockchain"
+          ],
+          "category": "technological_liberation"
+        },
+        {
+          "id": "manual-4",
+          "label": "Sacred Geometry -> natural harmony",
+          "score": 0.36000000000000004,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "recs": [
+        "High thematic potential",
+        "Economic democracy: share with coop networks",
+        "Tech liberation: share with decentralization communities"
+      ]
+    },
+    {
+      "item": {
+        "title": "Decentralized Mesh Network Provides Internet to Rural Communities",
+        "description": "Community organizers have deployed a mesh network using open-source technology to provide internet access without relying on corporate ISPs.",
+        "link": "https://example.com/mesh-network",
+        "publishDate": "2025-08-10T10:30:00Z"
+      },
+      "total": 0.8420000000000002,
+      "resonance": 0.8601393587998456,
+      "categories": [
+        "economic_democracy",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "matches": [
+        {
+          "id": "manual-1",
+          "label": "Cooperative Economy -> worker ownership",
+          "score": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "id": "manual-2",
+          "label": "Direct Action -> hierarchical power",
+          "score": 0.19,
+          "matchedKeywords": [],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "id": "manual-3",
+          "label": "Decentralized Technology -> autonomous communities",
+          "score": 0.2760000000000001,
+          "matchedKeywords": [
+            "decentralized"
+          ],
+          "category": "technological_liberation"
+        },
+        {
+          "id": "manual-4",
+          "label": "Sacred Geometry -> natural harmony",
+          "score": 0.18000000000000002,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "recs": [
+        "High thematic potential",
+        "Economic democracy: share with coop networks",
+        "Tech liberation: share with decentralization communities"
+      ]
+    },
+    {
+      "item": {
+        "title": "Traditional Stock Market Reaches New Highs",
+        "description": "Wall Street experienced another record-breaking day as investors continued to pour money into technology stocks and corporate bonds.",
+        "link": "https://example.com/stocks-high",
+        "publishDate": "2025-08-10T09:15:00Z"
+      },
+      "total": 0,
+      "resonance": 0,
+      "categories": [],
+      "matches": [],
+      "recs": []
+    },
+    {
+      "item": {
+        "title": "Mathematical Patterns Found in Nature Inspire New Architecture",
+        "description": "Architects are incorporating golden ratio and fibonacci sequences found in natural growth patterns to design more harmonious and sustainable buildings.",
+        "link": "https://example.com/nature-architecture",
+        "publishDate": "2025-08-10T14:45:00Z"
+      },
+      "total": 0.18000000000000002,
+      "resonance": 0.19321090836974225,
+      "categories": [
+        "mathematical_foundation"
+      ],
+      "matches": [
+        {
+          "id": "manual-4",
+          "label": "Sacred Geometry -> natural harmony",
+          "score": 0.18000000000000002,
+          "matchedKeywords": [
+            "golden ratio",
+            "fibonacci"
+          ],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "recs": []
+    },
+    {
+      "item": {
+        "title": "Direct Action Campaign Wins Major Victory Against Corporate Development",
+        "description": "Months of community organizing and direct action have successfully prevented a corporate developer from destroying a local forest for a shopping mall.",
+        "publishDate": "2025-08-10T16:20:00Z",
+        "link": "https://example.com/direct-action-victory"
+      },
+      "total": 0.9400000000000002,
+      "resonance": 0.7037798968557468,
+      "categories": [
+        "economic_democracy",
+        "revolutionary_praxis",
+        "technological_liberation",
+        "mathematical_foundation"
+      ],
+      "matches": [
+        {
+          "id": "manual-1",
+          "label": "Cooperative Economy -> worker ownership",
+          "score": 0.196,
+          "matchedKeywords": [],
+          "category": "economic_democracy"
+        },
+        {
+          "id": "manual-2",
+          "label": "Direct Action -> hierarchical power",
+          "score": 0.38,
+          "matchedKeywords": [
+            "direct action",
+            "organizing"
+          ],
+          "category": "revolutionary_praxis"
+        },
+        {
+          "id": "manual-3",
+          "label": "Decentralized Technology -> autonomous communities",
+          "score": 0.18400000000000002,
+          "matchedKeywords": [],
+          "category": "technological_liberation"
+        },
+        {
+          "id": "manual-4",
+          "label": "Sacred Geometry -> natural harmony",
+          "score": 0.18000000000000002,
+          "matchedKeywords": [],
+          "category": "mathematical_foundation"
+        }
+      ],
+      "recs": [
+        "High thematic potential",
+        "Economic democracy: share with coop networks",
+        "Tech liberation: share with decentralization communities"
+      ]
+    }
+  ],
+  "connections": {
+    "manual-1": {
+      "manual-2": 3,
+      "manual-3": 3,
+      "manual-4": 3
+    },
+    "manual-2": {
+      "manual-1": 3,
+      "manual-3": 3,
+      "manual-4": 3
+    },
+    "manual-3": {
+      "manual-1": 3,
+      "manual-2": 3,
+      "manual-4": 3
+    },
+    "manual-4": {
+      "manual-1": 3,
+      "manual-2": 3,
+      "manual-3": 3
+    }
+  }
+}

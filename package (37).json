@@ -1,0 +1,36 @@
+{
+  "name": "ulp-studio",
+  "version": "3.0.0",
+  "description": "Universal Life Protocol Studio - Complete development environment with tetrahedron architecture",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build", 
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@ulp/devkit": "workspace:*",
+    "@ulp/provider-sdk": "workspace:*", 
+    "@ulp/client-sdk": "workspace:*",
+    "@ulp/web2-web3-bridge": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@monaco-editor/react": "^4.6.0",
+    "@react-three/fiber": "^8.0.0",
+    "@react-three/drei": "^9.0.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  },
+  "keywords": [
+    "universal-life-protocol",
+    "studio",
+    "ide",
+    "tetrahedron",
+    "development-environment"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm run hub:*)",
+      "Bash(curl:*)",
+      "Bash(node:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run server:*)",
+      "Bash(python3:*)",
+      "Bash(lsof:*)",
+      "Bash(git init:*)",
+      "Bash(cd:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(cp:*)",
+      "Bash(ln:*)",
+      "WebFetch(domain:chatgpt.com)",
+      "WebSearch",
+      "WebSearch",
+      "WebSearch",
+      "Bash(npm run test:*)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(npm test)",
+      "Bash(npm test:*)"
+    ],
+    "deny": []
+  }
+}

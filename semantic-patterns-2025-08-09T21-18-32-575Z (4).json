@@ -1,0 +1,106 @@
+{
+  "type": "semantic",
+  "count": 71440,
+  "samplePatterns": [
+    {
+      "source": "semantic_generation",
+      "category": "semantic_relationship",
+      "type": "generated_pattern",
+      "subject": "positive_abstract",
+      "predicate": "has_synonym_relation_to",
+      "object": "positive_temporal",
+      "confidence": 0.7,
+      "metadata": {
+        "generation_batch": 0,
+        "semantic_type": "synonym",
+        "modifier_type": "positive"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "semantic_generation",
+      "category": "semantic_relationship",
+      "type": "generated_pattern",
+      "subject": "negative_concrete",
+      "predicate": "has_antonym_relation_to",
+      "object": "negative_spatial",
+      "confidence": 0.7,
+      "metadata": {
+        "generation_batch": 0,
+        "semantic_type": "antonym",
+        "modifier_type": "negative"
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.6455969094234918
+    },
+    {
+      "source": "semantic_generation",
+      "category": "semantic_relationship",
+      "type": "generated_pattern",
+      "subject": "neutral_temporal",
+      "predicate": "has_hypernym_relation_to",
+      "object": "neutral_causal",
+      "confidence": 0.7,
+      "metadata": {
+        "generation_batch": 0,
+        "semantic_type": "hypernym",
+        "modifier_type": "neutral"
+      },
+      "guidingStarPrinciples": [
+        "reciprocity"
+      ],
+      "sacredGeometryAlignment": 0.6407630045869638
+    },
+    {
+      "source": "semantic_generation",
+      "category": "semantic_relationship",
+      "type": "generated_pattern",
+      "subject": "strong_spatial",
+      "predicate": "has_hyponym_relation_to",
+      "object": "strong_logical",
+      "confidence": 0.7,
+      "metadata": {
+        "generation_batch": 0,
+        "semantic_type": "hyponym",
+        "modifier_type": "strong"
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.632760179769624
+    },
+    {
+      "source": "semantic_generation",
+      "category": "semantic_relationship",
+      "type": "generated_pattern",
+      "subject": "weak_causal",
+      "predicate": "has_meronym_relation_to",
+      "object": "weak_abstract",
+      "confidence": 0.7,
+      "metadata": {
+        "generation_batch": 0,
+        "semantic_type": "meronym",
+        "modifier_type": "weak"
+      },
+      "guidingStarPrinciples": [
+        "freedom"
+      ],
+      "sacredGeometryAlignment": 0.6216683965516653
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.6999999999993332,
+    "averageSacredAlignment": 0.3236076265999049,
+    "principleDistribution": {
+      "freedom": 17860,
+      "autonomy": 17860,
+      "reciprocity": 17860,
+      "sovereignty": 17860
+    }
+  }
+}

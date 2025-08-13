@@ -1,0 +1,17 @@
+{
+  "name": "sacred-geometry-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP Server for Sacred Geometry Harmony integration with VS Code",
+  "type": "module",
+  "main": "sacred-geometry-mcp-server.js",
+  "scripts": {
+    "start": "node sacred-geometry-mcp-server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "sacred-geometry-harmony": "^2.0.0"
+  },
+  "bin": {
+    "sacred-geometry-mcp": "sacred-geometry-mcp-server.js"
+  }
+}

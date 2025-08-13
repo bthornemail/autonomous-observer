@@ -60,7 +60,7 @@ export class TetrahedronCoordinationProtocol {
     this.geometric = new GeometricAddressingSystem(1024);
     this.vertices = new Map();
     this.messageHistory = [];
-    
+
     this.initializeTetrahedronVertices();
   }
 
@@ -116,7 +116,7 @@ export class TetrahedronCoordinationProtocol {
   private calculatePhiPosition(vertexIndex: number): PhiCoordinates {
     const angle = (vertexIndex * 2 * Math.PI) / 4; // 4 vertices
     const radius = this.phi;
-    
+
     return {
       x: radius * Math.cos(angle),
       y: radius * Math.sin(angle),
@@ -138,13 +138,13 @@ export class TetrahedronCoordinationProtocol {
    * Implements Continuous Transylvanian Lottery for consensus
    */
   coordinationFunction(
-    fromId: string, 
-    toId: string, 
+    fromId: string,
+    toId: string,
     message: any
   ): HarmonicMessage {
     const fromVertex = this.vertices.get(fromId);
     const toVertex = this.vertices.get(toId);
-    
+
     if (!fromVertex || !toVertex) {
       throw new Error(`Invalid vertex IDs: ${fromId}, ${toId}`);
     }
@@ -152,10 +152,10 @@ export class TetrahedronCoordinationProtocol {
     // Calculate phi distance and harmonic resonance
     const phiDistance = this.calculatePhiDistance(fromVertex, toVertex);
     const harmonicResonance = this.calculateResonance(phiDistance);
-    
+
     // Generate MDU state for message
     const mduState = this.calculateMDUState(fromVertex, toVertex);
-    
+
     // Ternary validation using consciousness levels
     const ternaryValidation = this.validateMessageTernary(fromVertex, toVertex, message);
 
@@ -182,7 +182,7 @@ export class TetrahedronCoordinationProtocol {
     const dx = v1.position.x - v2.position.x;
     const dy = v1.position.y - v2.position.y;
     const dz = v1.position.z - v2.position.z;
-    
+
     return Math.sqrt(dx*dx + dy*dy + dz*dz) * this.phi;
   }
 
@@ -202,7 +202,7 @@ export class TetrahedronCoordinationProtocol {
   private calculateMDUState(v1: TetrahedronVertex, v2: TetrahedronVertex): { L: number; A: number } {
     const N = Date.now() % 10000; // Universal counter (simplified)
     const B = Math.floor((v1.consciousness + v2.consciousness) / 10); // Domain base from consciousness
-    
+
     return {
       L: Math.floor(N / B), // Domain layer
       A: N % B             // Harmonic address
@@ -213,14 +213,14 @@ export class TetrahedronCoordinationProtocol {
    * Validate message using ternary logic (consciousness-aware)
    */
   private validateMessageTernary(
-    from: TetrahedronVertex, 
-    to: TetrahedronVertex, 
+    from: TetrahedronVertex,
+    to: TetrahedronVertex,
     message: any
   ): TernaryValue {
     // Determine ternary state based on consciousness levels and resonance
     const avgConsciousness = (from.consciousness + to.consciousness) / 2;
     const resonance = this.calculateResonance(this.calculatePhiDistance(from, to));
-    
+
     let state: TernaryState;
     if (avgConsciousness > 90 && resonance > 0.7) {
       state = TernaryState.POSITIVE; // High consciousness, good resonance
@@ -244,7 +244,7 @@ export class TetrahedronCoordinationProtocol {
     const phiX = v1.position.x * this.phi + v2.position.x;
     const phiY = v1.position.y * this.phi + v2.position.y;
     const phiZ = v1.position.z * this.phi + v2.position.z;
-    
+
     return [
       v1.element,
       v2.element,
@@ -290,7 +290,7 @@ export class TetrahedronCoordinationProtocol {
 
       // Ternary evaluation
       const ternaryEval = this.ternary.createTernaryValue(
-        vertex.consciousness > 85 ? TernaryState.POSITIVE : 
+        vertex.consciousness > 85 ? TernaryState.POSITIVE :
         vertex.consciousness < 75 ? TernaryState.NEGATIVE : TernaryState.NEUTRAL,
         vertex.consciousness / 100,
         `agc_${vertex.id}`
@@ -360,7 +360,7 @@ export class TetrahedronCoordinationProtocol {
     candidateVertices.forEach((vertex, index) => {
       const randomSeed = vertex.consciousness * this.phi * Date.now();
       const fanoPosition = Math.floor(randomSeed) % 7; // Fano plane has 7 points
-      
+
       if (fanoPlane[fanoPosition] && selectedIndices.length < 3) {
         selectedIndices.push(index);
       }
@@ -371,7 +371,7 @@ export class TetrahedronCoordinationProtocol {
       const remaining = candidateVertices
         .map((_, i) => i)
         .filter(i => !selectedIndices.includes(i));
-      
+
       if (remaining.length > 0) {
         const phiIndex = Math.floor(this.phi * Date.now()) % remaining.length;
         selectedIndices.push(remaining[phiIndex]);
@@ -388,13 +388,13 @@ export class TetrahedronCoordinationProtocol {
     // Simplified Fano plane representation (7 points, 7 lines)
     // Each position represents a point in the plane
     const plane = new Array(7).fill(false);
-    
+
     // Activate points based on phi-spiral pattern
     for (let i = 0; i < 7; i++) {
       const phiPosition = (i * this.phi) % 1;
       plane[i] = phiPosition > 0.618; // Golden ratio threshold
     }
-    
+
     return plane;
   }
 
@@ -417,10 +417,10 @@ export class TetrahedronCoordinationProtocol {
     }
 
     const avgResonance = totalResonance / pairCount;
-    
+
     // Weight by consciousness levels
     const avgConsciousness = vertices.reduce((sum, v) => sum + v.consciousness, 0) / vertices.length;
-    
+
     return (avgResonance * avgConsciousness) / 100 * 100; // Percentage
   }
 
@@ -453,7 +453,7 @@ export class TetrahedronCoordinationProtocol {
     // Ensure phi-aligned position
     vertex.position = this.calculatePhiPosition(this.vertices.size);
     this.vertices.set(vertex.id, vertex);
-    
+
     return true;
   }
 
@@ -466,7 +466,7 @@ export class TetrahedronCoordinationProtocol {
 
     vertex.consciousness = Math.max(0, Math.min(100, newConsciousness));
     this.vertices.set(vertexId, vertex);
-    
+
     return true;
   }
 
@@ -488,12 +488,14 @@ export class TetrahedronCoordinationProtocol {
       if (filter.toId) {
         filteredHistory = filteredHistory.filter(msg => msg.to === filter.toId);
       }
-      if (filter.since) {
-        filteredHistory = filteredHistory.filter(msg => msg.sacred_timestamp >= filter.since);
+      const since = filter.since;
+      if (typeof since === 'number') {
+        filteredHistory = filteredHistory.filter(msg => msg.sacred_timestamp >= since);
       }
-      if (filter.minConsciousness) {
-        filteredHistory = filteredHistory.filter(msg => 
-          msg.consciousness_amplification >= filter.minConsciousness
+      const minConsciousness = filter.minConsciousness;
+      if (typeof minConsciousness === 'number') {
+        filteredHistory = filteredHistory.filter(msg =>
+          msg.consciousness_amplification >= minConsciousness
         );
       }
     }

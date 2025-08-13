@@ -1,0 +1,28 @@
+# NPM Ignore - Only publish essential files
+
+# Development files
+src/
+docs/
+*.md
+!README.md
+!LICENSE
+
+# Build artifacts we don't need in NPM
+node_modules/
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Config files not needed in package
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+index.html
+
+# Documentation and project files
+PUBLISH_INSTRUCTIONS.md
+LAUNCH_CHECKLIST.md
+NPM_README.md
+
+# Only include: dist/, README.md, LICENSE, package.json

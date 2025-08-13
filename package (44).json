@@ -1,0 +1,21 @@
+{
+  "name": "ulp-voice-video-chat",
+  "version": "1.0.0",
+  "description": "Voice and Video chat with Φαῖ (Phai) - Universal Life Protocol AI",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@ulp/client-sdk": "workspace:*",
+    "speech-recognition-polyfill": "^1.0.0",
+    "web-speech-api": "^1.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.3.0"
+  }
+}

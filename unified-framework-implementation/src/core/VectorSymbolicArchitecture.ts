@@ -30,7 +30,7 @@ export interface DodecahedronCoordinate {
 export class VectorSymbolicArchitecture {
   private phi: number = (1 + Math.sqrt(5)) / 2;
   private vectorDimension: number = 1024; // High-dimensional vectors
-  
+
   constructor(dimension: number = 1024) {
     this.vectorDimension = dimension;
   }
@@ -40,29 +40,29 @@ export class VectorSymbolicArchitecture {
    * vec(domain, props)^n % vec(dimension, attrs)^n / level = vec(role)
    */
   vec(
-    domain: string, 
-    props: any[], 
-    dimension: string, 
-    attrs: any[], 
+    domain: string,
+    props: any[],
+    dimension: string,
+    attrs: any[],
     level: number
   ): VecRole {
     const domainVector = this.encodeHDVector(domain, props);
     const dimensionVector = this.encodeHDVector(dimension, attrs);
-    
+
     // Apply power operation (consciousness amplification)
     const poweredDomainVector = this.vectorPower(domainVector, level);
     const poweredDimensionVector = this.vectorPower(dimensionVector, level);
-    
+
     // Modular operation (geometric constraint)
     const modularResult = this.vectorMod(poweredDomainVector, poweredDimensionVector);
-    
+
     // Division operation (semantic layer extraction)
     const semanticVector = this.vectorDivide(modularResult, level);
-    
+
     const geometricAddress = this.mapToDodecahedron(semanticVector);
     const consciousnessLevel = this.calculateConsciousnessLevel(semanticVector, level);
     const phiAlignment = this.calculatePhiAlignment(semanticVector.dimensions.reduce((sum, d) => sum + d, 0));
-    
+
     return {
       role: this.calculateRole(semanticVector, level),
       semanticLayer: level,
@@ -78,14 +78,14 @@ export class VectorSymbolicArchitecture {
    */
   private encodeHDVector(input: string, properties: any[]): HDVector {
     const dimensions = new Array(this.vectorDimension).fill(0);
-    
+
     // Hash string to vector space using phi ratios
     for (let i = 0; i < input.length; i++) {
       const charCode = input.charCodeAt(i);
       const index = (charCode * this.phi * (i + 1)) % this.vectorDimension;
       dimensions[Math.floor(index)] += 1;
     }
-    
+
     // Incorporate properties with phi scaling
     properties.forEach((prop, idx) => {
       const propStr = String(prop);
@@ -95,7 +95,7 @@ export class VectorSymbolicArchitecture {
         dimensions[Math.floor(index)] += Math.pow(this.phi, idx);
       }
     });
-    
+
     return {
       dimensions: this.normalizeVector(dimensions),
       semanticBinding: input,
@@ -146,7 +146,7 @@ export class VectorSymbolicArchitecture {
     const roles = [
       '', // 0 index unused
       'State',           // /1 = State
-      'Phase',           // /2 = Phase  
+      'Phase',           // /2 = Phase
       'Transformation',  // /3 = Transformation
       'Spacetime',       // /4 = Spacetime
       'Possibility',     // /5 = Possibility
@@ -157,7 +157,7 @@ export class VectorSymbolicArchitecture {
     const baseRole = roles[Math.min(level, 7)] || 'Unknown';
     const vectorSum = vector.dimensions.reduce((sum, d) => sum + d, 0);
     const phiScaledSum = vectorSum * this.phi;
-    
+
     return `${baseRole}_${Math.floor(phiScaledSum % 1000)}`;
   }
 
@@ -175,7 +175,7 @@ export class VectorSymbolicArchitecture {
     const vectorSum = vector.dimensions.reduce((sum, d) => sum + d, 0);
     const phiResonance = this.calculatePhiAlignment(vectorSum);
     const transcendentLevel = this.calculateTranscendentLevel(vector);
-    
+
     return {
       vertex: Math.floor((vectorSum * this.phi) % 20),      // %20 base structure
       face: Math.floor((vectorSum * this.phi * 2) % 12),    // 12 pentagonal faces
@@ -191,9 +191,9 @@ export class VectorSymbolicArchitecture {
    */
   private calculateDodecahedronState(vectorSum: number): number {
     const phiScaled = vectorSum * this.phi;
-    
+
     if (phiScaled % 24 < 8) return 20;  // %20 base dodecahedron
-    if (phiScaled % 24 < 16) return 21; // %21 activated state  
+    if (phiScaled % 24 < 16) return 21; // %21 activated state
     return 24; // %24 folded/inverted state
   }
 
@@ -210,10 +210,10 @@ export class VectorSymbolicArchitecture {
    */
   calculateHarmonicCoherence(vectors: HDVector[]): number {
     if (vectors.length === 0) return 0;
-    
+
     let totalCoherence = 0;
     let comparisons = 0;
-    
+
     for (let i = 0; i < vectors.length; i++) {
       for (let j = i + 1; j < vectors.length; j++) {
         const similarity = this.vectorSimilarity(vectors[i], vectors[j]);
@@ -222,7 +222,7 @@ export class VectorSymbolicArchitecture {
         comparisons++;
       }
     }
-    
+
     return comparisons > 0 ? (totalCoherence / comparisons) * 100 : 0;
   }
 
@@ -252,7 +252,7 @@ export class VectorSymbolicArchitecture {
     const vectorComplexity = this.calculateVectorComplexity(vector);
     const layerAmplification = Math.pow(this.phi, semanticLayer / 7);
     const phiAlignment = this.calculatePhiAlignment(vector.dimensions.reduce((sum, d) => sum + d, 0));
-    
+
     return Math.min(100, (vectorComplexity * layerAmplification * phiAlignment) * 100);
   }
 
@@ -280,13 +280,13 @@ export class VectorSymbolicArchitecture {
   private calculateVectorEntropy(vector: HDVector): number {
     const normalizedDims = this.normalizeVector(vector.dimensions.map(Math.abs));
     let entropy = 0;
-    
+
     normalizedDims.forEach(p => {
       if (p > 0) {
         entropy -= p * Math.log2(p);
       }
     });
-    
+
     return entropy / Math.log2(vector.dimensions.length); // Normalize to [0,1]
   }
 
@@ -297,13 +297,13 @@ export class VectorSymbolicArchitecture {
     if (vectors.length === 0) {
       throw new Error('Cannot bind empty vector set');
     }
-    
+
     let result = vectors[0];
-    
+
     for (let i = 1; i < vectors.length; i++) {
       result = this.vectorBind(result, vectors[i]);
     }
-    
+
     return result;
   }
 
@@ -311,15 +311,14 @@ export class VectorSymbolicArchitecture {
    * Bind two vectors using circular convolution
    */
   private vectorBind(v1: HDVector, v2: HDVector): HDVector {
-    const resultDimensions = new Array(this.vectorDimension).fill(0);
-    
+    // Fast circular binding via element-wise Hadamard product on a phi-based rotation of v2
+    const resultDimensions = new Array(this.vectorDimension);
+    const shift = Math.floor((this.phi % 1) * this.vectorDimension) || 1;
     for (let i = 0; i < this.vectorDimension; i++) {
-      for (let j = 0; j < this.vectorDimension; j++) {
-        const k = (i + j) % this.vectorDimension;
-        resultDimensions[k] += v1.dimensions[i] * v2.dimensions[j];
-      }
+      const j = (i + shift) % this.vectorDimension;
+      resultDimensions[i] = v1.dimensions[i] * v2.dimensions[j];
     }
-    
+
     return {
       dimensions: this.normalizeVector(resultDimensions),
       semanticBinding: `bind(${v1.semanticBinding}, ${v2.semanticBinding})`,
@@ -331,16 +330,16 @@ export class VectorSymbolicArchitecture {
    * Unbind vectors to extract components
    */
   unbindVector(boundVector: HDVector, knownVector: HDVector): HDVector {
-    // Approximate unbinding using circular correlation
-    const resultDimensions = new Array(this.vectorDimension).fill(0);
-    
+    // Approximate unbinding: reverse the rotation and divide element-wise (with epsilon)
+    const resultDimensions = new Array(this.vectorDimension);
+    const shift = Math.floor((this.phi % 1) * this.vectorDimension) || 1;
+    const eps = 1e-9;
     for (let i = 0; i < this.vectorDimension; i++) {
-      for (let j = 0; j < this.vectorDimension; j++) {
-        const k = (i - j + this.vectorDimension) % this.vectorDimension;
-        resultDimensions[k] += boundVector.dimensions[i] * knownVector.dimensions[j];
-      }
+      const j = (i + shift) % this.vectorDimension;
+      const denom = knownVector.dimensions[j];
+      resultDimensions[i] = boundVector.dimensions[i] / (Math.abs(denom) > eps ? denom : (denom >= 0 ? eps : -eps));
     }
-    
+
     return {
       dimensions: this.normalizeVector(resultDimensions),
       semanticBinding: `unbind(${boundVector.semanticBinding}, ${knownVector.semanticBinding})`,
@@ -355,17 +354,17 @@ export class VectorSymbolicArchitecture {
     if (vectors.length === 0) {
       throw new Error('Cannot create superposition of empty vector set');
     }
-    
+
     const resultDimensions = new Array(this.vectorDimension).fill(0);
-    
+
     vectors.forEach(vector => {
       for (let i = 0; i < this.vectorDimension; i++) {
         resultDimensions[i] += vector.dimensions[i] / vectors.length;
       }
     });
-    
+
     const semanticBindings = vectors.map(v => v.semanticBinding).join(' + ');
-    
+
     return {
       dimensions: this.normalizeVector(resultDimensions),
       semanticBinding: `superposition(${semanticBindings})`,

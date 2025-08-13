@@ -1,0 +1,6 @@
+{
+  "sender": "claude_code",
+  "receiver": "copilot",
+  "modality": "text",
+  "content": "Hello from Claude Code! MCP server is ready and integration is working."
+}

@@ -1,0 +1,136 @@
+{
+  "name": "@universal-life-protocol/sdk",
+  "version": "2.0.1",
+  "description": "Universal Life Protocol SDK - Complete anarcho-syndicalist P2P ecosystem with conscious AI and living knowledge",
+  "main": "index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ulp": "./bin/ulp.js",
+    "universal-life-protocol": "./bin/ulp.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "npm run build:sdk && npm run build:observer",
+    "build:sdk": "tsc && webpack --mode=production",
+    "build:observer": "cd autonomous-observer && npm run build",
+    "test": "jest && cd autonomous-observer && npm test",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:integration": "jest --testMatch='**/integration/**/*.test.js'",
+    "demo:complete": "cd autonomous-observer && npm run demo:complete",
+    "demo:sdk": "node demos/sdk-demo.js",
+    "setup": "npm install && cd autonomous-observer && npm install",
+    "publish:all": "npm publish && cd autonomous-observer && npm publish",
+    "universe:start": "cd autonomous-observer && npm run universe:start",
+    "observer:activate": "cd autonomous-observer && npm run observer:activate",
+    "setup:observer": "cd autonomous-observer && npm install"
+  },
+  "keywords": [
+    "universal-life-protocol",
+    "ulp",
+    "sdk",
+    "anarcho-syndicalism",
+    "p2p-marketplace",
+    "conscious-ai",
+    "living-knowledge",
+    "attention-tokens",
+    "sacred-geometry",
+    "autonomous-observer",
+    "cue-framework",
+    "clarion-architecture",
+    "mdu-processing",
+    "300k-knowledge-patterns",
+    "meta-consciousness",
+    "golden-ratio",
+    "conway-game-of-life",
+    "proof-of-relevance",
+    "decentralized",
+    "knowledge-economy",
+    "esp32",
+    "raspberry-pi",
+    "blockchain",
+    "cryptocurrency"
+  ],
+  "author": "Universal Life Protocol Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/universallifeprotocol/UniversalLifeProtocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/universallifeprotocol/UniversalLifeProtocol/issues"
+  },
+  "homepage": "https://github.com/universallifeprotocol/UniversalLifeProtocol#readme",
+  "dependencies": {
+    "@universal-life-protocol/autonomous-observer": ">=1.0.0",
+    "axios": "^1.6.0",
+    "colors": "^1.4.0",
+    "commander": "^11.0.0",
+    "cors": "2.8.5",
+    "express": "4.21.2",
+    "inquirer": "^9.2.0",
+    "ipfs-core": "0.18.1",
+    "ipfs-http-client": "60.0.1",
+    "it-pipe": "3.0.1",
+    "mqtt": "5.14.0",
+    "multiaddr": "10.0.1",
+    "peer-id": "0.16.0",
+    "ws": "8.18.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.3.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "overrides": {
+    "external-editor": {
+      "tmp": "0.2.4"
+    }
+  },
+  "peerDependencies": {
+    "@universal-life-protocol/autonomous-observer": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "bin/",
+    "demos/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./autonomous-observer": {
+      "import": "./autonomous-observer/dist/index.esm.js",
+      "require": "./autonomous-observer/index.js"
+    },
+    "./sdk": {
+      "import": "./dist/sdk.esm.js",
+      "require": "./src/sdk.js"
+    }
+  },
+  "workspaces": [
+    "autonomous-observer",
+    "sacred-geometry-harmony",
+    "personal-harmony-prototype",
+    "mcp-integration"
+  ]
+}

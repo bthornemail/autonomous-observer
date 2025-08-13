@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-08-11T20:16:03-07:00",
+  "system": {
+    "memory_total_gb": 15.50,
+    "memory_used_percent": 65,
+    "cpu_model": "Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz"
+  },
+  "tests": {
+    "sacred_truth_duration_ms": 101,
+    "web_api_functional": true,
+    "concurrent_analysis_duration_ms": 101,
+    "termux_compatible": true
+  },
+  "recommendations": {
+    "suitable_for_1gb": true,
+    "optimization_needed": false
+  }
+}

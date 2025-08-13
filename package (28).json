@@ -1,0 +1,50 @@
+{
+  "name": "@ulp/devkit",
+  "version": "3.0.0",
+  "description": "Universal Life Protocol Development Kit - Complete toolkit for building autonomous tetrahedron applications",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "ulp": "./bin/ulp-cli.js",
+    "ulp-create": "./bin/create-app.js",
+    "ulp-tetrahedron": "./bin/tetrahedron-scaffold.js"
+  },
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "create:app": "node bin/create-app.js",
+    "scaffold:tetrahedron": "node bin/tetrahedron-scaffold.js",
+    "mcp:tools": "node tools/mcp-integration.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@universal-life-protocol/autonomous-observer": "workspace:*",
+    "@universal-life-protocol/sacred-geometry": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@react-three/fiber": "^8.0.0",
+    "@react-three/drei": "^9.0.0",
+    "three": "^0.160.0",
+    "ws": "^8.18.0",
+    "express": "^4.19.2",
+    "vite": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "rollup": "^4.0.0",
+    "jest": "^29.7.0"
+  },
+  "keywords": [
+    "universal-life-protocol",
+    "tetrahedron",
+    "autonomous",
+    "mcp",
+    "sacred-geometry",
+    "conscious-ai",
+    "web3",
+    "devkit"
+  ],
+  "license": "MIT"
+}

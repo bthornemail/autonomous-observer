@@ -1,0 +1,16 @@
+{
+  "name": "Demo User",
+  "interests": ["cooperative", "mesh", "golden ratio", "direct action"],
+  "categoryWeights": {
+    "economic_democracy": 1.3,
+    "technological_liberation": 1.2,
+    "mathematical_foundation": 1.1
+  },
+  "personality": {
+    "openness": 0.8,
+    "conscientiousness": 0.6,
+    "extraversion": 0.4,
+    "agreeableness": 0.7,
+    "neuroticism": 0.3
+  }
+}

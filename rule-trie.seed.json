@@ -1,0 +1,164 @@
+{
+  "version": "0.1.0",
+  "rules": [
+    {
+      "id": "bridge-auth-required",
+      "title": "Bridge must require JWT or API key",
+      "description": "UBHP/CUE bridge enforces either a JWT (HS256) or API key when configured.",
+      "rationale": "Protects the ingress point from unauthorized usage.",
+      "category": "security",
+      "severity": "block",
+      "appliesTo": {
+        "files": [
+          "mcp-integration/src/agents/bridge.js"
+        ],
+        "services": [
+          "bridge"
+        ],
+        "languages": [
+          "js"
+        ],
+        "endpoints": [
+          "/ubhp/send"
+        ]
+      },
+      "predicates": [
+        {
+          "type": "regex",
+          "expr": "JWT_SECRET|JWT_ALG|verifyJwtHS256"
+        },
+        {
+          "type": "regex",
+          "expr": "BRIDGE_API_KEY|X-API-Key|Authorization"
+        }
+      ],
+      "action": {
+        "onFail": "block",
+        "fixes": [
+          "Add JWT and/or API key verification to bridge.js"
+        ]
+      },
+      "evidence": {
+        "references": [
+          "https://owasp.org/www-project-api-security/"
+        ]
+      },
+      "edges": {
+        "related": [
+          "bridge-rate-limit-enabled",
+          "bridge-cors-not-wildcard-in-prod"
+        ]
+      }
+    },
+    {
+      "id": "bridge-rate-limit-enabled",
+      "title": "Bridge must apply rate limiting",
+      "description": "Token bucket rate limiter on /ubhp/send to prevent abuse.",
+      "rationale": "Mitigates request floods and DoS.",
+      "category": "security",
+      "severity": "block",
+      "appliesTo": {
+        "files": [
+          "mcp-integration/src/agents/bridge.js"
+        ],
+        "services": [
+          "bridge"
+        ],
+        "languages": [
+          "js"
+        ]
+      },
+      "predicates": [
+        {
+          "type": "regex",
+          "expr": "RATE_LIMIT_RPS|RATE_LIMIT_BURST|buckets|allow\\(ip\\)"
+        }
+      ],
+      "action": {
+        "onFail": "block",
+        "fixes": [
+          "Implement simple token bucket in bridge.js"
+        ]
+      },
+      "evidence": {
+        "references": [
+          "https://12factor.net/"
+        ]
+      }
+    },
+    {
+      "id": "observability-metrics-exposed",
+      "title": "Hub and Bridge expose /metrics",
+      "description": "Prometheus exposition available with counters and gauges for key telemetry.",
+      "rationale": "Enable monitoring and SLO tracking.",
+      "category": "observability",
+      "severity": "block",
+      "appliesTo": {
+        "files": [
+          "mcp-integration/src/agents/hub.js",
+          "mcp-integration/src/agents/bridge.js"
+        ],
+        "services": [
+          "hub",
+          "bridge"
+        ],
+        "languages": [
+          "js"
+        ],
+        "endpoints": [
+          "/metrics"
+        ]
+      },
+      "predicates": [
+        {
+          "type": "regex",
+          "expr": "/metrics|hub_messages_total|bridge_requests_total"
+        }
+      ],
+      "action": {
+        "onFail": "block",
+        "fixes": [
+          "Add metrics endpoints and counters"
+        ]
+      },
+      "evidence": {
+        "references": [
+          "https://prometheus.io/docs/instrumenting/exposition_formats/"
+        ]
+      }
+    },
+    {
+      "id": "status-endpoint-exists",
+      "title": "/status endpoint returns counts",
+      "description": "Expose lightweight status JSON for discovery and operational checks.",
+      "rationale": "Human-friendly health and inventory.",
+      "category": "observability",
+      "severity": "warn",
+      "appliesTo": {
+        "files": [
+          "mcp-integration/src/agents/hub.js",
+          "mcp-integration/src/agents/bridge.js"
+        ],
+        "services": [
+          "hub",
+          "bridge"
+        ],
+        "languages": [
+          "js"
+        ],
+        "endpoints": [
+          "/status"
+        ]
+      },
+      "predicates": [
+        {
+          "type": "regex",
+          "expr": "/status|clients|agents|connected"
+        }
+      ],
+      "action": {
+        "onFail": "warn"
+      }
+    }
+  ]
+}

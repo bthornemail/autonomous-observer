@@ -1,0 +1,39 @@
+{
+  "services": {
+    "agent_hub": {
+      "http": 8081,
+      "ws": 8081,
+      "description": "Main Agent Hub for inter-agent communication"
+    },
+    "phai_claude": {
+      "http": 3004,
+      "ws": 3004,
+      "description": "Phai (Claude Code Agent) service endpoint"
+    },
+    "webui": {
+      "http": 4077,
+      "description": "Web UI for agent interaction"
+    },
+    "mcp_server": {
+      "stdio": true,
+      "description": "MCP Server runs on stdio, not network ports"
+    }
+  },
+  "discovery": {
+    "auto_detect": true,
+    "fallback_ports": [8080, 8082, 8083, 3005, 3006, 4078, 4079],
+    "health_check_timeout": 2000
+  },
+  "environment": {
+    "development": {
+      "agent_hub": { "http": 8081, "ws": 8081 },
+      "phai_claude": { "http": 3004, "ws": 3004 },
+      "webui": { "http": 4077 }
+    },
+    "production": {
+      "agent_hub": { "http": 8081, "ws": 8081 },
+      "phai_claude": { "http": 3004, "ws": 3004 },
+      "webui": { "http": 4077 }
+    }
+  }
+}

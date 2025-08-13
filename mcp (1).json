@@ -1,0 +1,35 @@
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "redis_url",
+      "description": "Redis URL (e.g. redis://localhost:6379)",
+      "default": "redis://127.0.0.1:6379"
+    }
+  ],
+  "servers": {
+    "redis": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-redis"],
+      "env": {
+        "REDIS_URL": "${input:redis_url}"
+      }
+    },
+    "codacy": {
+      "command": "node",
+      "args": ["mcp-integration/codacy-mcp-server.js"],
+      "env": {
+        "CODACY_API_TOKEN": "${env:CODACY_API_TOKEN}"
+      }
+    },
+    "ulp-dynamic": {
+      "command": "node",
+      "args": ["mcp-integration/ulp-dynamic-mcp-server.js"]
+    },
+    "claude": {
+      "command": "claude",
+      "args": ["mcp", "serve"],
+      "env": {}
+    }
+  }
+}

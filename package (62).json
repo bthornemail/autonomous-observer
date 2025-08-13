@@ -1,0 +1,13 @@
+{
+  "name": "@universal-life-protocol/autonomous-observer",
+  "version": "1.0.1",
+  "description": "Stub autonomous observer package for workspace integrity. Replace with real implementation.",
+  "main": "index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "echo 'autonomous-observer: no-op build'",
+    "test": "echo 'autonomous-observer: no tests'"
+  },
+  "license": "MIT"
+}

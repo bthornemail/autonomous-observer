@@ -1,0 +1,45 @@
+{
+  "name": "ulp-mcp-integration",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP integrations and demos for Universal Life Protocol",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "express": "^4.19.2",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "browsermcp": "npx @browsermcp/mcp",
+    "browsermcp:demo": "node browser-mcp-demo.js",
+    "server": "node ulp-dynamic-mcp-server.js",
+    "mcp": "node ulp-mcp-server.cjs",
+    "hub": "PORT=${HUB_PORT:-8081} node src/agents/hub.js",
+    "vertex": "node src/agents/vertex.js",
+    "bridge": "node src/agents/bridge.js",
+    "universe": "node src/agents/universe.js",
+    "tetra": "node src/agents/tetrahedron.js",
+    "orchestrate:prod": "node src/agents/orchestrator.js"
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "env": {
+    "HUB_PORT": "8081",
+    "HUB_HTTP_URL": "http://localhost:8081",
+    "HUB_WS_URL": "ws://localhost:8081",
+    "BRIDGE_PORT": "4080",
+    "REMOTE_MCP_URL": "ws://localhost:3000",
+    "MCP_STDIO": "true",
+    "CODACY_ACCOUNT_TOKEN": "",
+    "MEMORY_FILE_PATH": "./data/memory.json",
+    "REDIS_URL": "redis://127.0.0.1:6379"
+  }
+}

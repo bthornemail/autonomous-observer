@@ -1,0 +1,26 @@
+{
+  "name": "@ulp/computational-quantum-engine",
+  "version": "0.1.0",
+  "description": "Computational Quantum Engine primitives: FFT-based circular convolution and deconvolution for VSA-style binding",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "cqe-demo": "dist/bin/cqe-demo.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "dev": "tsc -w -p tsconfig.json",
+    "demo": "node dist/bin/cqe-demo.js"
+  },
+  "devDependencies": {
+  "rimraf": "^5.0.5",
+  "typescript": "^5.3.0",
+  "@types/node": "^20.11.30"
+  }
+}

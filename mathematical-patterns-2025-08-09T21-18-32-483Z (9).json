@@ -1,0 +1,106 @@
+{
+  "type": "mathematical",
+  "count": 85728,
+  "samplePatterns": [
+    {
+      "source": "mathematical_generation",
+      "category": "mathematical_relationship",
+      "type": "generated_pattern",
+      "subject": "number",
+      "predicate": "add_with_commutative_property",
+      "object": "equation",
+      "confidence": 0.75,
+      "metadata": {
+        "generation_batch": 0,
+        "pattern_index": 0,
+        "golden_ratio_factor": 0.5
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.4854101966249684
+    },
+    {
+      "source": "mathematical_generation",
+      "category": "mathematical_relationship",
+      "type": "generated_pattern",
+      "subject": "equation",
+      "predicate": "subtract_with_associative_property",
+      "object": "function",
+      "confidence": 0.75,
+      "metadata": {
+        "generation_batch": 0,
+        "pattern_index": 1,
+        "golden_ratio_factor": 0.9994422545474424
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.5663118960624631
+    },
+    {
+      "source": "mathematical_generation",
+      "category": "mathematical_relationship",
+      "type": "generated_pattern",
+      "subject": "function",
+      "predicate": "multiply_with_distributive_property",
+      "object": "variable",
+      "confidence": 0.75,
+      "metadata": {
+        "generation_batch": 0,
+        "pattern_index": 2,
+        "golden_ratio_factor": 0.45283257733355053
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "mathematical_generation",
+      "category": "mathematical_relationship",
+      "type": "generated_pattern",
+      "subject": "variable",
+      "predicate": "divide_with_reflexive_property",
+      "object": "constant",
+      "confidence": 0.75,
+      "metadata": {
+        "generation_batch": 0,
+        "pattern_index": 3,
+        "golden_ratio_factor": 0.0050122459293172605
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.7281152949374528
+    },
+    {
+      "source": "mathematical_generation",
+      "category": "mathematical_relationship",
+      "type": "generated_pattern",
+      "subject": "constant",
+      "predicate": "integrate_with_symmetric_property",
+      "object": "theorem",
+      "confidence": 0.75,
+      "metadata": {
+        "generation_batch": 0,
+        "pattern_index": 4,
+        "golden_ratio_factor": 0.5939141614503436
+      },
+      "guidingStarPrinciples": [
+        "sovereignty"
+      ],
+      "sacredGeometryAlignment": 0.8090169943749475
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.75,
+    "averageSacredAlignment": 0.8494602944766099,
+    "principleDistribution": {
+      "freedom": 0,
+      "autonomy": 0,
+      "reciprocity": 0,
+      "sovereignty": 85728
+    }
+  }
+}

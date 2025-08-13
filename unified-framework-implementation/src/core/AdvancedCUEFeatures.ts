@@ -10,7 +10,7 @@ import { GeometricAddress, KnowledgeTriple } from './GeometricAddressingSystem.j
 
 export interface DynamicDomainBase {
   layer: number;
-  base: number | (() => number);
+  base: number | ((L: number) => number);
   isFunction: boolean;
   history: number[];
   phiAlignment: number;
@@ -82,7 +82,7 @@ export class AdvancedCUEFeatures {
     this.causalityRules = [];
     this.lifePatterns = new Map();
     this.proposalHistory = [];
-    
+
     this.initializeFoundationalBases();
   }
 
@@ -92,7 +92,7 @@ export class AdvancedCUEFeatures {
   private initializeFoundationalBases() {
     // CUE Axiom #5 - Axiomatic Covenant
     const foundationalBases = [7, 12, 20, 21, 24, 25];
-    
+
     foundationalBases.forEach((base, index) => {
       this.dynamicBases.set(index, {
         layer: index,
@@ -139,7 +139,7 @@ export class AdvancedCUEFeatures {
     // Complex case: dynamic base requires path reconstruction
     // N = A_L + Σ(i=0 to L-1) B_i
     let N = state.A;
-    
+
     for (let i = 0; i < state.L; i++) {
       const historicalBase = state.B.history[i] || this.getDynamicBaseValue(i, state.B);
       N += historicalBase;
@@ -158,7 +158,7 @@ export class AdvancedCUEFeatures {
 
     const baseFunction = dynamicBase.base as (L: number) => number;
     const value = baseFunction(layer);
-    
+
     // Update history
     if (dynamicBase.history.length <= layer) {
       dynamicBase.history[layer] = value;
@@ -217,14 +217,14 @@ export class AdvancedCUEFeatures {
    * System can experience collapse, reset, or reversal
    */
   processSystemicCollapse(
-    currentState: MDUState, 
+    currentState: MDUState,
     collapseEvent: TernaryValue
   ): MDUState {
     if (collapseEvent.state === TernaryState.NEGATIVE && collapseEvent.confidence > 0.8) {
       // Catastrophic collapse: reduce layer and reset
       const newLayer = Math.max(0, currentState.L - 1);
       const newBase = this.dynamicBases.get(newLayer);
-      
+
       if (newBase) {
         return {
           N: currentState.A, // Reset to current address
@@ -250,14 +250,14 @@ export class AdvancedCUEFeatures {
 
     const expansion: number[] = [];
     let x = 1; // Start with 1
-    
+
     // Generate β-expansion
     for (let i = 0; i < 50; i++) { // Limit to 50 terms
       x *= beta;
       const digit = Math.floor(x);
       expansion.push(digit);
       x -= digit;
-      
+
       if (x === 0) break; // Exact representation found
     }
 
@@ -279,11 +279,11 @@ export class AdvancedCUEFeatures {
     // Look for local periodicity without global periodicity
     const window = 5;
     let localPeriods = 0;
-    
+
     for (let i = 0; i < expansion.length - window * 2; i++) {
       const segment1 = expansion.slice(i, i + window);
       const segment2 = expansion.slice(i + window, i + window * 2);
-      
+
       if (this.arraysEqual(segment1, segment2)) {
         localPeriods++;
       }
@@ -307,7 +307,7 @@ export class AdvancedCUEFeatures {
     const half = Math.floor(expansion.length / 2);
     const firstHalf = expansion.slice(0, half);
     const secondHalf = expansion.slice(half, half * 2);
-    
+
     return this.arraysEqual(firstHalf, secondHalf);
   }
 
@@ -341,7 +341,7 @@ export class AdvancedCUEFeatures {
    */
   createTranscendentalHarmonics(base: 'phi' | 'pi' | 'e' | number): AperiodicStructure {
     let beta: number;
-    
+
     switch (base) {
       case 'phi':
         beta = this.phi;
@@ -379,7 +379,7 @@ export class AdvancedCUEFeatures {
 
       if (sourceState && targetState) {
         const influencedBase = rule.influence(sourceState);
-        
+
         // Update target layer's domain base
         const newTargetState: MDUState = {
           ...targetState,
@@ -407,7 +407,7 @@ export class AdvancedCUEFeatures {
       influence: (sourceState: MDUState) => {
         // B_L = f(A_{L-1})
         const newBase = 7 + sourceState.A; // Example function
-        
+
         return {
           layer: targetLayer,
           base: newBase,
@@ -426,7 +426,7 @@ export class AdvancedCUEFeatures {
    */
   createLifePattern(width: number, height: number, initialDensity: number = 0.3): LifePattern {
     const cells: ConwayLifeCell[][] = [];
-    
+
     for (let x = 0; x < width; x++) {
       cells[x] = [];
       for (let y = 0; y < height; y++) {
@@ -459,27 +459,28 @@ export class AdvancedCUEFeatures {
   evolveLifePattern(pattern: LifePattern): LifePattern {
     const width = pattern.cells.length;
     const height = pattern.cells[0].length;
-    const newCells: ConwayLifeCell[][] = [];
-
-    // Copy structure
+    const newCells: ConwayLifeCell[][] = new Array(width);
     for (let x = 0; x < width; x++) {
-      newCells[x] = [];
-      for (let y = 0; y < height; y++) {
-        newCells[x][y] = { ...pattern.cells[x][y] };
-      }
+      newCells[x] = new Array(height);
     }
+
+    const applyPhiBounds = this.exceedsPhiBounds(pattern);
 
     // Count neighbors and update states
     for (let x = 0; x < width; x++) {
       for (let y = 0; y < height; y++) {
         const neighbors = this.countLiveNeighbors(pattern.cells, x, y, width, height);
-        const cell = newCells[x][y];
-        
-        cell.neighbors = neighbors;
-        cell.generation = pattern.generation + 1;
+        const prev = pattern.cells[x][y];
+        const cell: ConwayLifeCell = {
+          alive: prev.alive,
+          position: prev.position,
+          generation: pattern.generation + 1,
+          neighbors,
+          harmonicResonance: prev.harmonicResonance
+        };
 
         // Standard Conway rules with phi-bounded modification
-        if (cell.alive) {
+        if (prev.alive) {
           // Death by underpopulation or overpopulation
           if (neighbors < 2 || neighbors > 3) {
             cell.alive = false;
@@ -493,17 +494,19 @@ export class AdvancedCUEFeatures {
           }
         }
 
-        // Apply phi bounds to prevent infinite growth
-        if (this.exceedsPhiBounds(pattern)) {
+        // Apply phi bounds to prevent infinite growth (precomputed)
+        if (applyPhiBounds) {
           cell.harmonicResonance *= 0.618; // Apply phi reduction
           if (cell.harmonicResonance < 0.1) {
             cell.alive = false;
           }
         }
+
+        newCells[x][y] = cell;
       }
     }
 
-    const newPattern: LifePattern = {
+  const newPattern: LifePattern = {
       cells: newCells,
       generation: pattern.generation + 1,
       stable: this.isPatternStable(pattern, newCells),
@@ -525,20 +528,20 @@ export class AdvancedCUEFeatures {
     height: number
   ): number {
     let count = 0;
-    
+
     for (let dx = -1; dx <= 1; dx++) {
       for (let dy = -1; dy <= 1; dy++) {
         if (dx === 0 && dy === 0) continue;
-        
+
         const nx = x + dx;
         const ny = y + dy;
-        
+
         if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
           if (cells[nx][ny].alive) count++;
         }
       }
     }
-    
+
     return count;
   }
 
@@ -549,7 +552,7 @@ export class AdvancedCUEFeatures {
     const livingCells = this.countLivingCells(pattern.cells);
     const totalCells = pattern.cells.length * pattern.cells[0].length;
     const density = livingCells / totalCells;
-    
+
     return density > 0.618; // Golden ratio threshold
   }
 
@@ -572,7 +575,7 @@ export class AdvancedCUEFeatures {
   private isPatternStable(oldPattern: LifePattern, newCells: ConwayLifeCell[][]): boolean {
     const width = oldPattern.cells.length;
     const height = oldPattern.cells[0].length;
-    
+
     for (let x = 0; x < width; x++) {
       for (let y = 0; y < height; y++) {
         if (oldPattern.cells[x][y].alive !== newCells[x][y].alive) {
@@ -580,7 +583,7 @@ export class AdvancedCUEFeatures {
         }
       }
     }
-    
+
     return true;
   }
 
@@ -592,18 +595,18 @@ export class AdvancedCUEFeatures {
     let complexity = 0;
     const width = cells.length;
     const height = cells[0].length;
-    
+
     // Sample at different scales
     const scales = [1, 2, 4, 8];
-    
+
     scales.forEach(scale => {
       let boxesWithLife = 0;
       let totalBoxes = 0;
-      
+
       for (let x = 0; x < width; x += scale) {
         for (let y = 0; y < height; y += scale) {
           let hasLife = false;
-          
+
           for (let dx = 0; dx < scale && x + dx < width; dx++) {
             for (let dy = 0; dy < scale && y + dy < height; dy++) {
               if (cells[x + dx][y + dy].alive) {
@@ -613,17 +616,17 @@ export class AdvancedCUEFeatures {
             }
             if (hasLife) break;
           }
-          
+
           if (hasLife) boxesWithLife++;
           totalBoxes++;
         }
       }
-      
+
       if (totalBoxes > 0) {
         complexity += (boxesWithLife / totalBoxes) / scale;
       }
     });
-    
+
     return complexity;
   }
 
@@ -699,7 +702,7 @@ export class AdvancedCUEFeatures {
 
     proposal.votes.forEach(vote => {
       totalWeight += vote.weight;
-      
+
       switch (vote.vote.state) {
         case TernaryState.POSITIVE:
           positiveWeight += vote.weight * vote.vote.confidence;
@@ -715,7 +718,7 @@ export class AdvancedCUEFeatures {
 
     // Require phi-ratio majority for acceptance
     const acceptanceThreshold = totalWeight * 0.618; // Golden ratio threshold
-    
+
     if (positiveWeight > acceptanceThreshold) {
       proposal.status = 'accepted';
       return 'accepted';

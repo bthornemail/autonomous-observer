@@ -1,0 +1,207 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://copilot-universe.local/schemas/rule-trie.schema.json",
+    "title": "Rule Trie Schema",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "string",
+            "pattern": "^\n?\n?\\d+\\.\\d+\\.\\d+(-[a-z0-9.]+)?$"
+        },
+        "rules": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/ruleNode"
+            }
+        }
+    },
+    "required": [
+        "version",
+        "rules"
+    ],
+    "definitions": {
+        "severity": {
+            "type": "string",
+            "enum": [
+                "info",
+                "warn",
+                "block"
+            ]
+        },
+        "predicate": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "regex",
+                        "ast",
+                        "http",
+                        "metric",
+                        "file",
+                        "custom"
+                    ]
+                },
+                "expr": {
+                    "type": [
+                        "string",
+                        "object"
+                    ]
+                },
+                "config": {
+                    "type": [
+                        "object",
+                        "null"
+                    ],
+                    "default": null
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "ruleNode": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9-]*$"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "rationale": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "severity": {
+                    "$ref": "#/definitions/severity"
+                },
+                "appliesTo": {
+                    "type": "object",
+                    "properties": {
+                        "files": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "services": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "languages": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "endpoints": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "predicates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/predicate"
+                    },
+                    "minItems": 1
+                },
+                "action": {
+                    "type": "object",
+                    "properties": {
+                        "onFail": {
+                            "type": "string",
+                            "enum": [
+                                "block",
+                                "warn",
+                                "auto-fix"
+                            ]
+                        },
+                        "fixes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        }
+                    },
+                    "required": [
+                        "onFail"
+                    ],
+                    "additionalProperties": false
+                },
+                "evidence": {
+                    "type": "object",
+                    "properties": {
+                        "references": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "default": []
+                        },
+                        "examples": {
+                            "type": "object"
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "edges": {
+                    "type": "object",
+                    "properties": {
+                        "depends_on": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "supersedes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        },
+                        "related": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": []
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "required": [
+                "id",
+                "title",
+                "category",
+                "severity",
+                "appliesTo",
+                "predicates",
+                "action"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

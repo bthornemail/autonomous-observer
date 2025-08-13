@@ -1,0 +1,171 @@
+/* Sacred Geometry Personal Harmony Styles */
+.app {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #001122 0%, #000000 100%);
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.app-header {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  color: #cccccc;
+  -webkit-text-fill-color: #cccccc;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.app-nav button {
+  padding: 1rem 2rem;
+  background: rgba(255, 215, 0, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  color: #ffffff;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.app-nav button:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.app-nav button.active {
+  background: rgba(255, 215, 0, 0.3);
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.app-main {
+  padding: 2rem;
+  min-height: 60vh;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  color: #888888;
+}
+
+/* Component Styles */
+.harmony-calculator {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.visualizer-container {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.meditation-companion {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.sacred-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin: 0.5rem;
+  width: 200px;
+}
+
+.sacred-button {
+  background: linear-gradient(45deg, #ffd700, #ff8c00);
+  border: none;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sacred-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.harmony-result {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.harmony-score {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  margin: 1rem 0;
+}
+
+.phi-display {
+  color: #ffd700;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin: 1rem 0;
+}
+
+/* Sacred Animations */
+@keyframes sacredPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+.sacred-pulse {
+  animation: sacredPulse 2s infinite;
+}
+
+@keyframes goldenRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.golden-rotate {
+  animation: goldenRotate 10s linear infinite;
+}

@@ -1,0 +1,109 @@
+{
+  "inputs": [
+    {
+      "id": "codacy_account_token",
+      "type": "promptString",
+      "description": "Codacy Account Token for API access",
+      "password": true
+    },
+    {
+      "id": "NOTION_TOKEN",
+      "type": "promptString",
+      "description": "Notion API Token (https://www.notion.so/profile/integrations)",
+      "password": true
+    },
+    {
+      "id": "memory_file_path",
+      "type": "promptString",
+      "description": "Path to the memory storage file",
+      "default": "./data/memory.json",
+      "password": false
+    },
+    {
+      "id": "redis_url",
+      "type": "promptString",
+      "description": "Redis connection URL",
+      "default": "redis://127.0.0.1:6379",
+      "password": false
+    },
+    {
+      "id": "remote_mcp_url",
+      "type": "promptString",
+      "description": "Remote MCP endpoint (e.g. ws://localhost:3000)",
+      "default": "ws://localhost:3000",
+      "password": false
+    }
+  ],
+  "servers": {
+    "codacy": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@codacy/codacy-mcp@latest"],
+      "env": {
+        "CODACY_ACCOUNT_TOKEN": "${input:codacy_account_token}"
+      }
+    },
+    "memory": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory@latest"],
+      "env": {
+        "MEMORY_FILE_PATH": "${input:memory_file_path}"
+      }
+    },
+    "sequentialthinking": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@latest"]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "redis": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-redis"],
+      "env": {
+        "REDIS_URL": "${input:redis_url}"
+      }
+    },
+    "codacy": {
+      "command": "node",
+      "args": ["mcp-integration/codacy-mcp-server.js"],
+      "env": {
+        "CODACY_API_TOKEN": "${CODACY_API_TOKEN}"
+      }
+    },
+    "ulp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["mcp-integration/ulp-mcp-server.cjs"],
+      "env": {
+        "REMOTE_MCP_URL": "${input:remote_mcp_url}",
+        "HUB_HTTP_URL": "http://localhost:8081",
+        "HUB_WS_URL": "ws://localhost:8081"
+      }
+    },
+    "ulp-dynamic": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["mcp-integration/ulp-dynamic-mcp-server.js"],
+      "env": {
+        "HUB_HTTP_URL": "http://localhost:8081",
+        "HUB_WS_URL": "ws://localhost:8081"
+      }
+    },
+    "claude": {
+      "command": "claude",
+      "args": ["mcp", "serve"],
+      "env": {}
+    }
+  }
+}

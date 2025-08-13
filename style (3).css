@@ -1,0 +1,15 @@
+:root{--bg:#0b0d10;--fg:#eaeef2;--muted:#9aa4af;--acc:#8b5cf6;--ok:#22c55e}
+*{box-sizing:border-box}html{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.6}
+header{padding:2rem 1rem;border-bottom:1px solid #222}
+header h1{margin:0 0 0.5rem 0;font-size:1.8rem}
+nav{display:flex;flex-wrap:wrap;gap:.5rem}
+nav a{color:var(--fg);text-decoration:none;padding:.35rem .6rem;border:1px solid #222;border-radius:8px}
+nav a:hover{background:#111}
+main{max-width:960px;margin:0 auto;padding:1.5rem}
+.lead{font-size:1.05rem;color:var(--muted)}
+.metrics ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem}
+.metrics li{background:#0f1216;border:1px solid #1b1f26;border-radius:10px;padding:.75rem}
+h2{margin-top:1.25rem}
+pre{background:#0f1216;border:1px solid #1b1f26;border-radius:10px;padding:1rem;overflow:auto}
+footer{padding:2rem 1rem;border-top:1px solid #222;color:var(--muted);text-align:center}

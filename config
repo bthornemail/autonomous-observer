@@ -1,0 +1,29 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/bthornemail/autonomous-observer.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "autonomous-observer-test"]
+	remote = origin
+	merge = refs/heads/autonomous-observer-test
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "centroid-dev"]
+	github-pr-base-branch = "bthornemail#autonomous-observer#master"
+	vscode-merge-base = origin/master
+	remote = origin
+	merge = refs/heads/centroid-dev
+	github-pr-owner-number = "bthornemail#autonomous-observer#1"
+[branch "claude-code"]
+	github-pr-base-branch = "bthornemail#autonomous-observer#centroid-dev"
+	vscode-merge-base = origin/centroid-dev
+	remote = origin
+	merge = refs/heads/claude-code
+[branch "new-reality"]
+	vscode-merge-base = origin/claude-code
+	remote = origin
+	merge = refs/heads/new-reality

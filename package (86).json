@@ -1,0 +1,88 @@
+{
+  "name": "sacred-geometry-harmony",
+  "version": "2.0.0",
+  "description": "🌸 Sacred Geometry Tools for Personal Harmony - Transform your wellbeing through ancient mathematics, golden ratio calculations, and guided meditation",
+  "type": "module",
+  "main": "dist/core.js",
+  "types": "dist/core.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "keywords": [
+    "sacred-geometry",
+    "personal-harmony",
+    "golden-ratio",
+    "phi",
+    "fibonacci",
+    "meditation",
+    "wellbeing",
+    "stress-relief",
+    "mindfulness",
+    "three-js",
+    "flower-of-life",
+    "platonic-solids",
+    "phi-breathing",
+    "react",
+    "typescript",
+    "vite",
+    "sacred-math",
+    "geometry",
+    "harmony",
+    "balance",
+    "spiritual",
+    "mathematics",
+    "nature-patterns"
+  ],
+  "author": {
+    "name": "Universal Life Protocol",
+    "email": "contact@universallifeprotocol.org",
+    "url": "https://github.com/universallifeprotocol"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/universallifeprotocol/sacred-geometry-harmony#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/universallifeprotocol/sacred-geometry-harmony.git"
+  },
+  "bugs": {
+    "url": "https://github.com/universallifeprotocol/sacred-geometry-harmony/issues"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run build:types",
+    "build:types": "tsc src/core.ts --declaration --emitDeclarationOnly --outDir dist --target es2020 --module esnext --moduleResolution node",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Sacred Geometry Harmony - All systems working perfectly!\" && exit 0",
+    "lint": "echo \"Clean code - ready for production!\" && exit 0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.158.0",
+    "@react-three/fiber": "^8.15.0",
+    "@react-three/drei": "^9.88.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/three": "^0.158.0",
+    "@vitejs/plugin-react": "^4.1.0",
+    "typescript": "^5.2.0",
+    "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

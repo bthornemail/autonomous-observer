@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    versioning-strategy: increase-if-necessary
+    commit-message:
+      prefix: chore
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: "npm"
+    directory: "/autonomous-observer"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+    versioning-strategy: increase-if-necessary

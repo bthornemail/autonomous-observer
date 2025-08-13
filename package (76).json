@@ -1,0 +1,47 @@
+{
+  "name": "@universal-life-protocol/dpo-marketplace",
+  "version": "1.0.0",
+  "description": "Revolutionary Anarcho-Syndicalist Peer-to-Peer Marketplace with Cooperative Economics",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start:cooperative": "npm run dev",
+    "deploy:revolutionary": "npm run build && npm run preview"
+  },
+  "keywords": [
+    "anarcho-syndicalist",
+    "cooperative-economics",
+    "p2p-marketplace",
+    "sacred-geometry",
+    "attention-tokens",
+    "mutual-aid",
+    "revolutionary-commerce",
+    "worker-ownership",
+    "decentralized-trade"
+  ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0"
+  },
+  "overrides": {
+    "esbuild": ">=0.25.0"
+  },
+  "author": "Universal Life Protocol Revolutionary Collective",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/universallifeprotocol/dpo-marketplace.git"
+  }
+}

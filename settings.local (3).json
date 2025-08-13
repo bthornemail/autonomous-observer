@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ulp-dynamic__analyze-singularity2d-history",
+      "mcp__ulp-dynamic__build-knowledge-trie",
+      "mcp__ulp-dynamic__extract-framework-patterns",
+      "mcp__ulp-dynamic__query-knowledge-trie",
+      "mcp__ulp-dynamic__register-agent",
+      "mcp__ulp-dynamic__create-communication-channel",
+      "mcp__ulp-dynamic__agent-to-agent-message",
+      "mcp__redis__set",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(cp:*)",
+      "Bash(npm run hub:*)",
+      "Bash(npm run bridge:*)",
+      "Bash(npm run start:all:*)",
+      "Bash(npm run vertex:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node:*)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "redis",
+    "codacy",
+    "ulp-dynamic"
+  ]
+}

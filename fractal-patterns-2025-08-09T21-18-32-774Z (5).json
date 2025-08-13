@@ -1,0 +1,111 @@
+{
+  "type": "fractal",
+  "count": 14288,
+  "samplePatterns": [
+    {
+      "source": "fractal_generation",
+      "category": "fractal_knowledge_structure",
+      "type": "generated_pattern",
+      "subject": "fractal_level_1",
+      "predicate": "contains_self_similar_pattern",
+      "object": "iteration_0",
+      "confidence": 0.68,
+      "metadata": {
+        "generation_batch": 0,
+        "fractal_level": 1,
+        "iteration": 0,
+        "self_similarity_factor": 0.6180339887498948
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.647213595499958
+    },
+    {
+      "source": "fractal_generation",
+      "category": "fractal_knowledge_structure",
+      "type": "generated_pattern",
+      "subject": "fractal_level_1",
+      "predicate": "contains_self_similar_pattern",
+      "object": "iteration_1",
+      "confidence": 0.68,
+      "metadata": {
+        "generation_batch": 0,
+        "fractal_level": 1,
+        "iteration": 1,
+        "self_similarity_factor": 0.6242143286373938
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.6536857314549577
+    },
+    {
+      "source": "fractal_generation",
+      "category": "fractal_knowledge_structure",
+      "type": "generated_pattern",
+      "subject": "fractal_level_1",
+      "predicate": "contains_self_similar_pattern",
+      "object": "iteration_2",
+      "confidence": 0.68,
+      "metadata": {
+        "generation_batch": 0,
+        "fractal_level": 1,
+        "iteration": 2,
+        "self_similarity_factor": 0.6303946685248927
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.6601578674099572
+    },
+    {
+      "source": "fractal_generation",
+      "category": "fractal_knowledge_structure",
+      "type": "generated_pattern",
+      "subject": "fractal_level_1",
+      "predicate": "contains_self_similar_pattern",
+      "object": "iteration_3",
+      "confidence": 0.68,
+      "metadata": {
+        "generation_batch": 0,
+        "fractal_level": 1,
+        "iteration": 3,
+        "self_similarity_factor": 0.6365750084123917
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.6666300033649568
+    },
+    {
+      "source": "fractal_generation",
+      "category": "fractal_knowledge_structure",
+      "type": "generated_pattern",
+      "subject": "fractal_level_1",
+      "predicate": "contains_self_similar_pattern",
+      "object": "iteration_4",
+      "confidence": 0.68,
+      "metadata": {
+        "generation_batch": 0,
+        "fractal_level": 1,
+        "iteration": 4,
+        "self_similarity_factor": 0.6427553482998906
+      },
+      "guidingStarPrinciples": [
+        "autonomy"
+      ],
+      "sacredGeometryAlignment": 0.6731021393199564
+    }
+  ],
+  "generationStats": {
+    "averageConfidence": 0.6800000000001382,
+    "averageSacredAlignment": 0.03386003377913026,
+    "principleDistribution": {
+      "freedom": 0,
+      "autonomy": 14288,
+      "reciprocity": 0,
+      "sovereignty": 0
+    }
+  }
+}

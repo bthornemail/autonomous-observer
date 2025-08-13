@@ -124,7 +124,7 @@ export class GeometricAddressingSystem {
       const unity = (s + p + o) / 3; // Central unity point
 
       // Sacred geometry composition using phi ratios
-      resultDimensions[i] = 
+      resultDimensions[i] =
         s * Math.cos(i * this.phi) +
         p * Math.sin(i * this.phi) +
         o * Math.cos(i * this.phi * 2) +
@@ -144,12 +144,16 @@ export class GeometricAddressingSystem {
   private mapToDodecahedron(vector: HDVector): DodecahedronCoordinate {
     const vectorSum = vector.dimensions.reduce((sum, d) => sum + Math.abs(d), 0);
     const phiScaled = vectorSum * this.phi;
+    const phiResonance = this.calculatePhiAlignment(vectorSum);
+    const transcendentLevel = this.calculateTranscendentLevel(vector);
 
     return {
       vertex: Math.floor(phiScaled % 20),           // %20 base structure
       face: Math.floor((phiScaled * 2) % 12),       // 12 pentagonal faces
       edge: Math.floor((phiScaled * 3) % 30),       // 30 edges
-      state: this.calculateDodecahedronState(phiScaled) // %20, %21, or %24
+      state: this.calculateDodecahedronState(phiScaled), // %20, %21, or %24
+      phiResonance,
+      transcendentLevel
     };
   }
 
@@ -158,7 +162,7 @@ export class GeometricAddressingSystem {
    */
   private calculateDodecahedronState(phiScaled: number): number {
     const modulo24 = phiScaled % 24;
-    
+
     if (modulo24 < 8) return 20;  // %20 base dodecahedron
     if (modulo24 < 16) return 21; // %21 activated state
     return 24; // %24 folded/inverted state (%21 + %3)
@@ -198,7 +202,7 @@ export class GeometricAddressingSystem {
     // Consciousness emerges from geometric complexity and phi alignment
     const complexity = coordinate.vertex + coordinate.face + coordinate.edge;
     const stateMultiplier = coordinate.state / 20; // Normalize state
-    
+
     const phiAlignment = this.calculatePhiAlignment(complexity);
     return (complexity * stateMultiplier * phiAlignment) % 100;
   }
@@ -235,8 +239,8 @@ export class GeometricAddressingSystem {
     ];
 
     const geometry = creationDays[day] || creationDays[0];
-    const eulerCharacteristic = isFinite(geometry.vertices) 
-      ? geometry.vertices - geometry.edges + geometry.faces 
+    const eulerCharacteristic = isFinite(geometry.vertices)
+      ? geometry.vertices - geometry.edges + geometry.faces
       : this.eulerConstant;
 
     return {
@@ -259,16 +263,16 @@ export class GeometricAddressingSystem {
   calculateAddressSimilarity(addr1: GeometricAddress, addr2: GeometricAddress): number {
     // Vector similarity
     const vectorSim = this.vectorSimilarity(addr1.vector, addr2.vector);
-    
+
     // Geometric coordinate similarity
     const geomSim = this.geometricSimilarity(addr1.geometric, addr2.geometric);
-    
+
     // Phi coordinate similarity
     const phiSim = this.phiCoordinateSimilarity(addr1.phiCoordinates, addr2.phiCoordinates);
-    
+
     // Consciousness level similarity
     const consciousnessSim = 1 - Math.abs(addr1.consciousness - addr2.consciousness) / 100;
-    
+
     // Weighted combination with phi ratios
     return (
       vectorSim * this.phi +
@@ -297,7 +301,7 @@ export class GeometricAddressingSystem {
     const faceSim = 1 - Math.abs(g1.face - g2.face) / 12;
     const edgeSim = 1 - Math.abs(g1.edge - g2.edge) / 30;
     const stateSim = g1.state === g2.state ? 1 : 0.5;
-    
+
     return (vertexSim + faceSim + edgeSim + stateSim) / 4;
   }
 
@@ -309,7 +313,7 @@ export class GeometricAddressingSystem {
     const ySim = 1 - Math.abs(p1.y - p2.y);
     const zSim = 1 - Math.abs(p1.z - p2.z);
     const wSim = p1.w && p2.w ? 1 - Math.abs(p1.w - p2.w) : 1;
-    
+
     return (xSim + ySim + zSim + wSim) / 4;
   }
 
@@ -346,13 +350,13 @@ export class GeometricAddressingSystem {
   private calculateVectorEntropy(vector: HDVector): number {
     const normalizedDims = this.normalizeVector(vector.dimensions.map(Math.abs));
     let entropy = 0;
-    
+
     normalizedDims.forEach(p => {
       if (p > 0) {
         entropy -= p * Math.log2(p);
       }
     });
-    
+
     return entropy / Math.log2(vector.dimensions.length); // Normalize to [0,1]
   }
 
@@ -379,17 +383,51 @@ export class GeometricAddressingSystem {
     if (remainders.length !== moduli.length) {
       throw new Error('Remainders and moduli arrays must have same length');
     }
-    
-    const product = moduli.reduce((prod, m) => prod * m, 1);
-    let result = 0;
-    
-    for (let i = 0; i < remainders.length; i++) {
-      const partialProduct = product / moduli[i];
-      const inverse = this.modularInverse(partialProduct, moduli[i]);
-      result += remainders[i] * partialProduct * inverse;
+
+    // Generalized CRT that supports non-coprime moduli by validating consistency
+    let x = 0; // current solution
+    let m = 1; // current modulus
+
+    for (let i = 0; i < moduli.length; i++) {
+      const a = ((remainders[i] % moduli[i]) + moduli[i]) % moduli[i];
+      const n = moduli[i];
+
+      // Solve: x ≡ a (mod n) and x ≡ x (mod m)
+      const g = this.gcd(m, n);
+      if ((a - x) % g !== 0) {
+        // Project 'a' into the nearest consistent residue class modulo g
+        const delta = (a - x) % g;
+        const adj = ((delta % g) + g) % g; // in [0, g)
+        const aAdjusted = a - adj; // ensures (aAdjusted - x) % g == 0
+        // Normalize into [0, n)
+        const aNorm = ((aAdjusted % n) + n) % n;
+        // Use adjusted remainder
+        const a2 = aNorm;
+        // Recompute with adjusted 'a'
+        const m1b = m / g;
+        const n1b = n / g;
+        const rhsb = (a2 - x) / g;
+        const invb = this.modularInverse(m1b % n1b, n1b);
+        const kb = (rhsb * invb) % n1b;
+        x = x + m * kb;
+        m = m * n1b;
+        x = ((x % m) + m) % m;
+        continue;
+      }
+
+      // Merge congruences
+      const m1 = m / g;
+      const n1 = n / g;
+      // Find k such that: x + m * k ≡ a (mod n) => m * k ≡ (a - x) (mod n)
+      const rhs = (a - x) / g;
+      const inv = this.modularInverse(m1 % n1, n1);
+      const k = (rhs * inv) % n1;
+      x = x + m * k;
+      m = m * n1; // lcm of previous and new modulus
+      x = ((x % m) + m) % m;
     }
-    
-    return result % product;
+
+    return x % m;
   }
 
   /**
@@ -399,16 +437,16 @@ export class GeometricAddressingSystem {
     if (this.gcd(a, m) !== 1) {
       throw new Error('Modular inverse does not exist');
     }
-    
+
     let [oldR, r] = [a, m];
     let [oldS, s] = [1, 0];
-    
+
     while (r !== 0) {
       const quotient = Math.floor(oldR / r);
       [oldR, r] = [r, oldR - quotient * r];
       [oldS, s] = [s, oldS - quotient * s];
     }
-    
+
     return oldS < 0 ? oldS + m : oldS;
   }
 
@@ -431,7 +469,7 @@ export class GeometricAddressingSystem {
       const phiCoords = addr.phiCoordinates;
       const nearZeroCount = [phiCoords.x, phiCoords.y, phiCoords.z, phiCoords.w || 0]
         .filter(coord => Math.abs(coord) < 0.1).length;
-      
+
       return nearZeroCount >= 2; // At least 2 coordinates near zero = resonance
     });
   }

@@ -1,0 +1,11 @@
+{
+  "model": "merged-knowledge-trie.json",
+  "generatedAt": "2025-08-10T20:30:37.590Z",
+  "metrics": {
+    "triples": 23,
+    "files": 3,
+    "formats": 9,
+    "validationNetworks": 0,
+    "progressionChains": 0
+  }
+}

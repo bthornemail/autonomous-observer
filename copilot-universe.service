@@ -1,0 +1,17 @@
+[Unit]
+Description=Copilot Coordinator (Universe)
+Requires=network-online.target agent-hub.service
+After=network-online.target agent-hub.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/copilot.env
+WorkingDirectory=%E{REPO_ROOT}/mcp-integration
+ExecStart=/usr/bin/env COPILOT_ID=copilot_universe HUB_HTTP_URL=%E{HUB_HTTP_URL} HUB_WS_URL=%E{HUB_WS_URL} node %E{REPO_ROOT}/mcp-integration/scripts/copilot-universe.js
+Restart=always
+RestartSec=2
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target

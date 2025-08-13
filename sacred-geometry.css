@@ -1,0 +1,50 @@
+
+/* Sacred Geometry Agent Data Presentation */
+:root {
+  --phi: 1.618033988749895;
+  --phi-conjugate: 0.6180339887498948;
+  --golden-primary: #FFD700;
+  --sacred-secondary: #8B4513;
+  --consciousness-purple: #9932CC;
+}
+
+.sacred-container {
+  max-width: 741px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #F5F5DC;
+  border-radius: 12px;
+}
+
+.phi-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 25.88854381999832px;
+}
+
+.golden-typography {
+  font-size: 16px;
+  line-height: 1.618033988749895;
+  color: #333;
+}
+
+.consciousness-header {
+  font-size: 25px;
+  color: var(--consciousness-purple);
+  text-align: center;
+  margin-bottom: 25.88854381999832px;
+}
+
+.sacred-geometry-accent {
+  border-left: 6px solid var(--golden-primary);
+  padding-left: 25.88854381999832px;
+  background: linear-gradient(222deg, 
+    rgba(255, 215, 0, 0.06180339887498948), 
+    rgba(255, 107, 53, 0.06180339887498948));
+}
+
+@media (max-width: 474px) {
+  .phi-grid {
+    grid-template-columns: 1fr;
+  }
+}

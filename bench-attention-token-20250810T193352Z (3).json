@@ -1,0 +1,9 @@
+💰 Initializing AttentionToken economy...
+💎 Starting Proof-of-Relevance mining...
+{
+  "test": "AttentionTokenSystem#getTotalSupply",
+  "iterations": 1000000,
+  "nsElapsed": 5550404,
+  "opsPerSec": 180167065,
+  "sum": 10500000
+}

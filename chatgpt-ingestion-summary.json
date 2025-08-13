@@ -1,0 +1,13 @@
+{
+  "source": "archive/Chat GPT HIstory",
+  "outputs": [
+    "cleaned-reports/chatgpt-history-knowledge.json"
+  ],
+  "merge": {
+    "into": "merged-knowledge-trie.json",
+    "newTriples": 2136,
+    "mergedTriples": 3445,
+    "finalTotalApprox": 2174,
+    "harmonicCoherence": 49.14
+  }
+}

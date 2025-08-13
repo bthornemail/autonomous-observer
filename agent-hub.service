@@ -1,0 +1,17 @@
+[Unit]
+Description=Agent Hub (HTTP+WS)
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/copilot.env
+WorkingDirectory=%E{REPO_ROOT}/mcp-integration
+ExecStart=/usr/bin/env PORT=%E{HUB_PORT} node %E{REPO_ROOT}/mcp-integration/agent-hub.js
+Restart=always
+RestartSec=2
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target

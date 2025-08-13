@@ -1,0 +1,1 @@
+// SacredGeometryLayout component implementation

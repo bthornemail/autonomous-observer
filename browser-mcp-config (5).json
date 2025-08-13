@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "browsermcp": {
+      "command": "npx",
+      "args": [
+        "@browsermcp/mcp@latest"
+      ],
+      "description": "Browser MCP for web automation, form filling, and navigation",
+      "capabilities": [
+        "web_navigation",
+        "form_automation",
+        "content_extraction",
+        "screenshot_capture",
+        "dom_manipulation"
+      ]
+    }
+  }
+}

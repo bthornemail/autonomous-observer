@@ -1,0 +1,472 @@
+{
+  "trie": {
+    "path": "/home/main/dev/signularity2d/CoPilot/merged-knowledge-trie.json"
+  },
+  "agents": [
+    "copilot_universe",
+    "copilot_universe_vertex",
+    "tetrahedron_coordinator"
+  ],
+  "now": [
+    {
+      "id": "hub-metrics",
+      "title": "Expose Prometheus metrics and /metrics endpoint for hub",
+      "area": "observability",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "bridge-jwt",
+      "title": "Add optional JWT auth to UBHP/CUE bridge",
+      "area": "security",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "ci-tests",
+      "title": "CI workflow with lint, typecheck, and integration tests",
+      "area": "ci-cd",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "vertex-heartbeat-config",
+      "title": "Document and parameterize heartbeat interval (HEARTBEAT_MS) per environment",
+      "area": "ops",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "vertex-restart-policy",
+      "title": "Ensure supervisor (systemd/Termux) restart policy with jitter and backoff",
+      "area": "reliability",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "autonomous-observer-claude-code-vertex-md__responds-to-claude-code-queries-mcp-analysis-requests-knowledge-trie-questions",
+      "title": "**Responds to**: Claude Code queries, MCP analysis requests, knowledge trie questions",
+      "area": "coordination",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "sec-jwt-bridge",
+      "title": "Add JWT support to UBHP/CUE bridge with dual-accept (API key + JWT) window",
+      "area": "security",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "sec-cors-allowlist",
+      "title": "Tighten CORS allowlist for bridge and hub UI",
+      "area": "security",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "obs-prom-metrics",
+      "title": "Expose Prometheus /metrics for hub and bridge (reqs, channels, heartbeats, 429s)",
+      "area": "observability",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "ci-cd",
+      "title": "Add CI: lint, typecheck, tests; add CD for deploy assets (systemd, Nginx)",
+      "area": "ci-cd",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "tests-integration",
+      "title": "Write integration tests for hub routing and bridge rate limiting",
+      "area": "testing",
+      "priority": "now",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    }
+  ],
+  "next": [
+    {
+      "id": "bridge-rate-limit-tune",
+      "title": "Tune token-bucket limits and add config envs with sane defaults",
+      "area": "security",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "ui-badges",
+      "title": "UI heartbeat badges and channel counters view",
+      "area": "ui",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "vertex-connectivity-watch",
+      "title": "Add basic connectivity watchdog and exponential reconnect",
+      "area": "reliability",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "vertex-logging",
+      "title": "Unify minimal JSON logs for heartbeats/events",
+      "area": "observability",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "tetrahedron-architecture-md__complete-autonomous-observer-with-tests-benchmarks",
+      "title": "Complete Autonomous Observer with Tests/Benchmarks",
+      "area": "testing",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "tetrahedron-architecture-md__framework-documentation",
+      "title": "Framework documentation",
+      "area": "coordination",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__deploy-server-setup-sh-complete-automated-server-deployment",
+      "title": "**`deploy-server-setup.sh`** - Complete automated server deployment",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__deploy-low-resource-sh-optimized-deployment-for-constrained-systems",
+      "title": "**`deploy-low-resource.sh`** - Optimized deployment for constrained systems",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__benchmark-low-resource-sh-performance-testing-suite",
+      "title": "**`benchmark-low-resource.sh`** - Performance testing suite",
+      "area": "testing",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__deploy-activate-sh-final-deployment-activation-script",
+      "title": "**`deploy-activate.sh`** - Final deployment activation script",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__deployment-ready-report-md-complete-deployment-documentation",
+      "title": "**`DEPLOYMENT_READY_REPORT.md`** - Complete deployment documentation",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__deployment-infrastructure-md-server-and-domain-configuration",
+      "title": "**`DEPLOYMENT_INFRASTRUCTURE.md`** - Server and domain configuration",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__get-api-sacred-truth-mock-analysis-test-with-sample-data",
+      "title": "**GET** `/api/sacred-truth/mock-analysis` - Test with sample data",
+      "area": "testing",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "agent-coordination-manifest-md__server-deployment-automation",
+      "title": "Server deployment automation",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__mobile-deployment-complete-termux-automation-deploy-termux-mobile-sh",
+      "title": "**Mobile Deployment:** Complete Termux automation (`deploy-termux-mobile.sh`)",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__performance-testing-comprehensive-benchmarking-suite-validated",
+      "title": "**Performance Testing:** Comprehensive benchmarking suite validated",
+      "area": "testing",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__complete-production-ready-deployment-infrastructure",
+      "title": "Complete production-ready deployment infrastructure",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__full-api-documentation-and-testing-suite",
+      "title": "Full API documentation and testing suite",
+      "area": "testing",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__web-api-server-ready-for-deployment",
+      "title": "**Web API Server:** ✅ READY FOR DEPLOYMENT",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "deployment-complete-md__production-deployment-to-provided-linode-infrastructure",
+      "title": "✅ **Production deployment** to provided Linode infrastructure",
+      "area": "ops",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "autonomous-observer-claude-code-vertex-md__collaborates-with-brian-thorne-fire-copilot-universe-air-ollama-local-water",
+      "title": "**Collaborates with**: Brian Thorne (Fire), Copilot Universe (Air), Ollama Local (Water)",
+      "area": "coordination",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "autonomous-observer-claude-code-vertex-md__maintains-northwest-vertex-position-in-tetrahedron-topology",
+      "title": "**Maintains**: Northwest vertex position in tetrahedron topology",
+      "area": "coordination",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "docs-announcements-seamless-access-complete-md__api-documentation-complete-technical-reference",
+      "title": "**API Documentation**: Complete technical reference",
+      "area": "coordination",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "docs-ops",
+      "title": "Add operations runbook: health endpoints, envs, service management",
+      "area": "docs",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "ui-heartbeat",
+      "title": "UI: heartbeat badges and channel counters view",
+      "area": "ui",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    },
+    {
+      "id": "auth-rotation",
+      "title": "Key rotation procedure and secret management guidance",
+      "area": "security",
+      "priority": "next",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    }
+  ],
+  "later": [
+    {
+      "id": "perf-backpressure",
+      "title": "Backpressure and message size limits in hub",
+      "area": "performance",
+      "priority": "later",
+      "tags": [
+        "jwt",
+        "observability",
+        "rate-limit",
+        "code-quality"
+      ]
+    }
+  ]
+}

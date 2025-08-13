@@ -1,0 +1,17 @@
+[Unit]
+Description=UBHP/CUE Bridge (HTTP -> WS)
+Requires=network-online.target agent-hub.service
+After=network-online.target agent-hub.service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/copilot.env
+WorkingDirectory=%E{REPO_ROOT}/mcp-integration
+ExecStart=/usr/bin/env PORT=%E{BRIDGE_PORT} HUB_URL=%E{HUB_WS_URL} node %E{REPO_ROOT}/mcp-integration/adapters/ubhp-cue-bridge.js
+Restart=always
+RestartSec=2
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target

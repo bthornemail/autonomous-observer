@@ -1,0 +1,21 @@
+[Unit]
+Description=Tetrahedron Coordinator Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Edit WorkingDirectory to your repo clone path
+WorkingDirectory=/home/main/dev/signularity2d/CoPilot/mcp-integration
+# Configure hub and docs location
+Environment=HUB_WS_URL=ws://localhost:8081
+Environment=TETRA_DOC_DIR=/home/main/github/UniversalLifeProtocol
+Environment=COPILOT_ID=tetrahedron_coordinator
+ExecStart=/usr/bin/env node scripts/tetrahedron-coordinator.js
+Restart=always
+RestartSec=5s
+#User=copilot
+#Group=copilot
+
+[Install]
+WantedBy=multi-user.target

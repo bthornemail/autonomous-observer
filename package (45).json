@@ -1,0 +1,35 @@
+{
+  "name": "knowledge-marketplace",
+  "version": "3.0.0",
+  "description": "Universal Life Protocol Knowledge Marketplace - P2P trading platform for knowledge and AttentionTokens",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview", 
+    "start:server": "node server/index.js"
+  },
+  "dependencies": {
+    "@ulp/devkit": "workspace:*",
+    "@ulp/provider-sdk": "workspace:*",
+    "@ulp/client-sdk": "workspace:*", 
+    "@ulp/web2-web3-bridge": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "web3": "^4.0.0",
+    "wagmi": "^2.0.0",
+    "@rainbow-me/rainbowkit": "^2.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "typescript": "^5.3.0"
+  },
+  "keywords": [
+    "universal-life-protocol", 
+    "marketplace",
+    "p2p",
+    "knowledge-trading",
+    "attention-tokens",
+    "web3"
+  ],
+  "license": "MIT"
+}

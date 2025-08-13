@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(cd:*)",
+      "Bash(npm run build:*)",
+      "Bash(node:*)",
+      "Bash(python3:*)",
+      "Bash(npm:*)",
+      "Bash(mkdir:*)",
+      "Bash(git log:*)",
+      "Bash(git submodule add:*)",
+      "Bash(git init:*)",
+      "Bash(chmod:*)",
+      "Bash(git commit:*)",
+      "Bash(timeout:*)",
+      "Bash(true)",
+      "Bash(git checkout:*)",
+      "Bash(ENABLE_WEB_SEARCH=true node web-enhanced-knowledge-archaeologist.js)",
+      "Bash(ENABLE_WEB_SEARCH=true node super-enhanced-knowledge-archaeologist.js)",
+      "Bash(ENABLE_WEB_SEARCH=true node ultimate-enhanced-knowledge-archaeologist.js)"
+    ],
+    "deny": []
+  }
+}
