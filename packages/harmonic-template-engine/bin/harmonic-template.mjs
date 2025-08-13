@@ -83,7 +83,18 @@ if (mode === 'decode') {
     process.exit(1);
   }
   const j = JSON.parse(fs.readFileSync(path.resolve(process.env.INIT_CWD || process.cwd(), inPath), 'utf8'));
-  const payload = decodeVectorToBinary(j.vector, j.manifest);
+  let payload;
+  try {
+    payload = decodeVectorToBinary(j.vector, j.manifest);
+  } catch (e) {
+    if ((e && String(e).includes('Invalid or missing manifest')) || (!j.manifest && (args.dim || args.seed))) {
+      const dim = args.dim ? Number(args.dim) : undefined;
+      const seed = args.seed;
+      payload = decodeVectorToBinary(j.vector, { dim, seed });
+    } else {
+      throw e;
+    }
+  }
   fs.writeFileSync(outPath, payload);
   console.log(`Decoded ${inPath} -> ${outPath} (${payload.length} bytes)`);
   process.exit(0);

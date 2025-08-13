@@ -280,6 +280,8 @@ export function decodeVectorToBinary(vectorOrSpec, manifest) {
     throw new Error('Unsupported input for decode: provide time-domain vector array or spec or {vector}');
   }
   if (!dim) throw new Error('decode requires dim (in manifest or deduced from vector)');
+  // Align dim with actual spectrum length for safety
+  dim = spec.length;
   // If we don't know bins/payload yet, derive header using the first 32 carrier bins from candidate order
   let bins = binsIn;
   let payloadBytes = payloadIn;
@@ -315,11 +317,14 @@ export function decodeVectorToBinary(vectorOrSpec, manifest) {
 
   const totalBits = (payloadBytes + 8) * 8; // length+crc header
   const syms = Math.ceil(totalBits / bitsPerSymbol);
+  if (!bins || bins.length < syms) throw new Error('Insufficient carrier bins recovered for payload');
   const out = Buffer.alloc(payloadBytes + 8);
   let bitIdx = 0;
   for (let i = 0; i < syms; i++) {
     const k = bins[i];
+    if (k == null || k < 0 || k >= spec.length) throw new Error(`Carrier bin index out of range: ${k}`);
     const z = spec[k];
+    if (!z) throw new Error(`Spectrum missing at bin ${k}`);
     const theta = Math.atan2(z.im, z.re);
     const sym = phaseToSymbol2b(theta);
     for (let b = bitsPerSymbol - 1; b >= 0; b--) {
