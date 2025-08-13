@@ -8,8 +8,14 @@ const path = require('path');
 
 async function main() {
   let solc, ethers;
-  try { solc = require('solc'); } catch (e) { console.error('Missing dependency: solc. Install with: npm i solc'); process.exit(2); }
-  try { ethers = require('ethers'); } catch (e) { console.error('Missing dependency: ethers. Install with: npm i ethers@6'); process.exit(2); }
+  try { solc = require('solc'); } catch (e) {
+    try { solc = require(path.resolve(__dirname, 'node_modules/solc')); }
+    catch { console.error('Missing dependency: solc. Run: (cd scripts && npm i)'); process.exit(2); }
+  }
+  try { ethers = require('ethers'); } catch (e) {
+    try { ethers = require(path.resolve(__dirname, 'node_modules/ethers')); }
+    catch { console.error('Missing dependency: ethers. Run: (cd scripts && npm i)'); process.exit(2); }
+  }
 
   const args = process.argv.slice(2);
   const opt = {};
@@ -20,9 +26,9 @@ async function main() {
   }
   const rpcUrl = opt.rpc || process.env.EVM_RPC_URL || process.env.RPC_URL;
   const privKey = opt.key || process.env.ETH_PRIVATE_KEY || process.env.PRIVKEY;
-  if (!rpcUrl || !privKey) {
-    console.error('Usage: deploy-harmonic-registry --rpc <url> --key <hex>');
-    console.error('Or set env: EVM_RPC_URL, ETH_PRIVATE_KEY');
+  if (!rpcUrl) {
+    console.error('Usage: deploy-harmonic-registry --rpc <url> [--key <hex>]');
+    console.error('Or set env: EVM_RPC_URL');
     process.exit(2);
   }
 
@@ -33,7 +39,12 @@ async function main() {
   const input = {
     language: 'Solidity',
     sources: { 'HarmonicAxiomRegistry.sol': { content: source } },
-    settings: { optimizer: { enabled: true, runs: 200 }, outputSelection: { '*': { '*': ['abi', 'evm.bytecode'] } } }
+    settings: {
+      optimizer: { enabled: true, runs: 200 },
+      // Force pre-Shanghai compatible opcodes to avoid PUSH0 issues on older chains
+      evmVersion: 'paris',
+      outputSelection: { '*': { '*': ['abi', 'evm.bytecode'] } }
+    }
   };
 
   const output = JSON.parse(solc.compile(JSON.stringify(input)));
@@ -48,17 +59,53 @@ async function main() {
   const abi = c.abi;
   const bytecode = '0x' + c.evm.bytecode.object;
 
-  const provider = new (ethers.JsonRpcProvider || ethers.providers.JsonRpcProvider)(rpcUrl);
-  const wallet = new (ethers.Wallet)(privKey, provider);
+  const provider = ethers.providers ? new ethers.providers.JsonRpcProvider(rpcUrl) : new ethers.JsonRpcProvider(rpcUrl);
+  let signer;
+  if (privKey) {
+    signer = new (ethers.Wallet || ethers.Wallet)(privKey, provider);
+  } else {
+    // Try unlocked account via JSON-RPC signer
+    const accts = await provider.send('eth_accounts', []);
+    if (!accts || !accts.length) {
+      console.error('No accounts available on node and no private key provided. Provide --key or unlock an account on Geth.');
+      process.exit(2);
+    }
+    signer = provider.getSigner(accts[0]);
+  }
 
-  const factory = new (ethers.ContractFactory || ethers.ContractFactory)(abi, bytecode, wallet);
-  const contract = await factory.deploy();
-  const receipt = await contract.deploymentTransaction().wait();
+  const factory = new ethers.ContractFactory(abi, bytecode, signer);
+  // Allow manual gas override to bypass estimateGas caps or buggy nodes
+  const gasIdx = args.indexOf('--gas');
+  let gasOverride = {};
+  if (gasIdx !== -1) {
+    const v = args[gasIdx + 1];
+    gasOverride = { gasLimit: (ethers.BigNumber ? ethers.BigNumber.from(v) : v) };
+  } else {
+    // Probe latest block gasLimit and use 95% of it if estimate fails
+    try {
+      const est = await factory.signer.estimateGas({ data: bytecode });
+      gasOverride = { gasLimit: est };
+    } catch (e) {
+      const latest = await provider.getBlock('latest');
+      const cap = latest && latest.gasLimit ? latest.gasLimit : (ethers.BigNumber ? ethers.BigNumber.from('6000000') : '6000000');
+      const ninetyFive = cap.mul ? cap.mul(95).div(100) : cap;
+      gasOverride = { gasLimit: ninetyFive };
+    }
+  }
+  const contract = await factory.deploy(gasOverride);
+  let txHash;
+  if (contract.deployTransaction) {
+    const receipt = await contract.deployTransaction.wait();
+    txHash = receipt.transactionHash;
+  } else if (contract.deploymentTransaction) {
+    const receipt = await contract.deploymentTransaction().wait();
+    txHash = receipt.hash || receipt.transactionHash;
+  }
 
   console.log(JSON.stringify({
     status: 'deployed',
-    address: contract.target || contract.address,
-    txHash: receipt.hash || receipt.transactionHash,
+  address: contract.address || contract.target,
+  txHash: txHash,
     chainId: (await provider.getNetwork()).chainId.toString()
   }, null, 2));
 }

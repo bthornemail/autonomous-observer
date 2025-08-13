@@ -8,12 +8,13 @@ const path = require('path');
 async function main() {
   let ethers;
   try {
-    ethers = require('ethers'); // v6
+    ethers = require('ethers'); // prefer project-level install
   } catch (e) {
     try {
-      ethers = require('ethers'); // if alias resolves to v5 anyway
+      // fallback to local scripts deps
+      ethers = require(path.resolve(__dirname, 'node_modules/ethers'));
     } catch (e2) {
-      console.error('Missing dependency: ethers. Install with: npm i ethers@6');
+      console.error('Missing dependency: ethers. Run: (cd scripts && npm i)');
       process.exit(2);
     }
   }
@@ -31,9 +32,9 @@ async function main() {
   const rpcUrl = opt.rpc || process.env.EVM_RPC_URL || process.env.RPC_URL;
   const privKey = opt.key || process.env.ETH_PRIVATE_KEY || process.env.PRIVKEY;
   const registryAddr = opt.registry || process.env.HARMONIC_REGISTRY_ADDRESS;
-  if (!rpcUrl || !privKey || !registryAddr) {
-    console.error('Usage: publish-harmonic-axiom --axiom <path> --rpc <url> --key <hex> --registry <address>');
-    console.error('Or set env: EVM_RPC_URL, ETH_PRIVATE_KEY, HARMONIC_REGISTRY_ADDRESS');
+  if (!rpcUrl || !registryAddr) {
+    console.error('Usage: publish-harmonic-axiom --axiom <path> --rpc <url> [--key <hex>] --registry <address>');
+    console.error('Or set env: EVM_RPC_URL, [ETH_PRIVATE_KEY], HARMONIC_REGISTRY_ADDRESS');
     process.exit(2);
   }
 
@@ -69,18 +70,47 @@ async function main() {
   const shaHex = (ax.signature && ax.signature.digest) || '';
 
   // ethers v6 helpers
-  const toUtf8Bytes = ethers.toUtf8Bytes || ethers.utils && ethers.utils.toUtf8Bytes;
+  const toUtf8Bytes = ethers.toUtf8Bytes || (ethers.utils && ethers.utils.toUtf8Bytes);
+  const hexlify = ethers.hexlify || (ethers.utils && ethers.utils.hexlify);
   const getBytes = ethers.getBytes || (v => v);
   const concat = ethers.concat || ethers.utils && ethers.utils.concat;
   const keccak256 = ethers.keccak256 || ethers.utils && ethers.utils.keccak256;
 
-  const provider = new ethers.JsonRpcProvider ? new ethers.JsonRpcProvider(rpcUrl) : new ethers.providers.JsonRpcProvider(rpcUrl);
-  const wallet = new ethers.Wallet ? new ethers.Wallet(privKey, provider) : new ethers.Wallet(privKey, provider);
+  const provider = ethers.providers ? new ethers.providers.JsonRpcProvider(rpcUrl) : new ethers.JsonRpcProvider(rpcUrl);
+  let wallet;
+  if (privKey) {
+    wallet = new (ethers.Wallet || ethers.Wallet)(privKey, provider);
+  } else {
+    // unlocked account fallback
+    const accts = await provider.send('eth_accounts', []);
+    if (!accts || !accts.length) {
+      console.error('No private key provided and no unlocked accounts available on node. Provide --key or unlock an account.');
+      process.exit(2);
+    }
+    wallet = provider.getSigner(accts[0]);
+  }
 
   // sign message unless signature is provided via env
   let signature = process.env.ETH_SIGNATURE_HEX || process.env.ETH_SIGNATURE;
   if (!signature) {
-    signature = await wallet.signMessage(message);
+    const msgBytes = toUtf8Bytes(message);
+    try {
+      if (wallet.signMessage) {
+        signature = await wallet.signMessage(message);
+      }
+    } catch (e) {
+      // Fallback: build EIP-191 formatted message bytes and use eth_sign
+      const addr = (wallet.getAddress ? await wallet.getAddress() : (await provider.listAccounts())[0]);
+      const prefix = toUtf8Bytes("\x19Ethereum Signed Message:\n");
+      const lenStr = String(msgBytes.length);
+      const eip191 = concat([prefix, toUtf8Bytes(lenStr), msgBytes]);
+      signature = await provider.send('eth_sign', [addr, hexlify(eip191)]);
+    }
+    if (!signature) {
+      // As a last resort, try eth_sign directly on the raw message bytes
+      const addr = (wallet.getAddress ? await wallet.getAddress() : (await provider.listAccounts())[0]);
+      signature = await provider.send('eth_sign', [addr, hexlify(msgBytes)]);
+    }
   }
 
   // registry
@@ -91,7 +121,21 @@ async function main() {
 
   // submit tx
   const msgBytes = toUtf8Bytes(message);
-  const tx = await registry.registerAxiom(msgBytes, signature, scheme, hdPath, shaHex);
+  // allow manual gas override and auto-cap under block gas limit
+  const gasIdx = args.indexOf('--gas');
+  let overrides = {};
+  if (gasIdx !== -1) {
+    overrides.gasLimit = args[gasIdx + 1];
+  } else {
+    try {
+      const latest = await provider.getBlock('latest');
+      if (latest && latest.gasLimit) {
+        const cap = latest.gasLimit.mul ? latest.gasLimit.mul(95).div(100) : latest.gasLimit;
+        overrides.gasLimit = cap;
+      }
+    } catch {}
+  }
+  const tx = await registry.registerAxiom(msgBytes, signature, scheme, hdPath, shaHex, overrides);
   const receipt = await tx.wait();
 
   // compute id client-side (keccak256(abi.encodePacked(scheme, keccak256(message))))

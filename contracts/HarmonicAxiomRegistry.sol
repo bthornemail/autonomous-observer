@@ -27,13 +27,12 @@ contract HarmonicAxiomRegistry {
         string calldata sha256hex        // optional; pass empty string if unused
     ) external returns (bytes32 id) {
         address signer = recoverPersonalSign(message, signature);
-        require(signer != address(0), "invalid signature");
-        // Allow either direct signer call or a relayer where signer authorizes msg.sender off-chain
-        require(msg.sender == signer, "caller != signer");
+        require(signer != address(0));
+    // Note: allow relayed txs; signer is stored on-chain from the signature itself.
 
         bytes32 jh = keccak256(message);
         id = keccak256(abi.encodePacked(scheme, jh));
-        require(axioms[id].owner == address(0), "axiom exists");
+        require(axioms[id].owner == address(0));
 
         axioms[id] = Axiom({
             owner: signer,
@@ -47,13 +46,9 @@ contract HarmonicAxiomRegistry {
         emit AxiomRegistered(id, signer, scheme, jh, hdPath, sha256hex);
     }
 
-    function getAxiom(bytes32 id) external view returns (Axiom memory) {
-        return axioms[id];
-    }
-
     // --- EIP-191 personal_sign recovery ---
-    function recoverPersonalSign(bytes memory message, bytes memory sig) public pure returns (address) {
-        require(sig.length == 65, "bad sig len");
+    function recoverPersonalSign(bytes memory message, bytes memory sig) internal pure returns (address) {
+        require(sig.length == 65);
         bytes32 r; bytes32 s; uint8 v;
         assembly {
             r := mload(add(sig, 32))
@@ -61,7 +56,7 @@ contract HarmonicAxiomRegistry {
             v := byte(0, mload(add(sig, 96)))
         }
         if (v < 27) v += 27;
-        require(v == 27 || v == 28, "bad v");
+        require(v == 27 || v == 28);
         bytes32 ethHash = keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n", _uintToDec(message.length), message));
         return ecrecover(ethHash, v, r, s);
     }
