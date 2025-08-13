@@ -107,6 +107,18 @@ const TETRAHEDRON_HUB = {
 };
 ```
 
+### Avatar Gate (Physical Interface)
+
+To bridge physical phenomena (bio-signals, proximity fields, EM potentials) into the autonomous universe,
+the Avatar Gate ingests low-voltage telemetry and emits harmonic signatures compatible with the tetrahedron
+protocol. It can represent devices like a HAGAMOSphere-inspired spherical drone or a Lynchpin-style seed-of-life
+mechanism, acting as a consent-aware “gate” for network presence and security.
+
+- Implementation reference: `@ulp/avatar-gate`
+- Input: UDP packets from ESP32/ESP3D/BLE adapters (raw bytes or JSON)
+- Transform: balanced ternary (3-PSK) harmonic identity with plan-aware carriers (e.g., merkaba125)
+- Output: WebSocket messages to the Hub (agent-to-agent payloads with harmonic_signature)
+
 ### Agent-to-Agent Message Format
 ```javascript
 {

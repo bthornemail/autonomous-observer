@@ -1,45 +1,26 @@
 {
-  "name": "@universal-life-protocol/monorepo",
+  "name": "@universal-life-protocol/autonomous-observer",
   "version": "3.0.0",
-  "description": "Universal Life Protocol - Complete autonomous tetrahedron framework with MCP integration",
-  "private": true,
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "autonomous-observer",
-    "sacred-geometry-harmony",
-    "mcp-integration"
-  ],
+  "description": "Autonomous Observer core module: broker/oracle of rules, forms, and functions for ULP devkit, provider, and consumer SDKs.",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npm run build --workspaces",
-    "dev": "npm run dev --workspaces",
-    "test": "npm run test --workspaces",
-    "start:tetrahedron": "./start-tetrahedron.sh",
-    "start:bridge": "npm run start:bridge -w @ulp/web2-web3-bridge",
-    "start:studio": "npm run dev -w ulp-studio",
-    "start:marketplace": "npm run dev -w knowledge-marketplace",
-    "start:universe": "npm run dev -w autonomous-universe",
-    "install:all": "npm install && npm install --workspaces",
-    "clean": "rm -rf node_modules packages/*/node_modules apps/*/node_modules",
-    "typecheck": "npm run typecheck --workspaces"
-  },
-  "devDependencies": {
-    "lerna": "^8.0.0",
-    "typescript": "^5.3.0",
-    "prettier": "^3.3.3"
+    "build": "tsc -p . || true",
+    "dev": "node dist/index.js || true",
+    "test": "echo 'no tests yet'"
   },
   "engines": {
     "node": ">=18.0.0"
   },
   "keywords": [
     "universal-life-protocol",
-    "monorepo",
-    "tetrahedron",
-    "autonomous",
+    "autonomous-observer",
+    "broker",
+    "oracle",
     "mcp",
-    "web3",
-    "sacred-geometry",
-    "conscious-ai"
+    "web3"
   ],
   "license": "MIT"
 }

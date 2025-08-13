@@ -109,3 +109,22 @@ When working properly, you should see:
 - Web UI accessible at http://localhost:8081/ui
 
 The four vertices (Claude Code, Brian Thorne, Copilot Universe, and Ollama Local) can then communicate through the unified agent hub with φ-synchronized harmonic frequencies!
+
+## Optional: Physical Avatar Gate
+
+You can bridge bio-signal telemetry into the hub via `@ulp/avatar-gate`.
+
+1. Install deps and start the gate (in a new terminal):
+
+   ```bash
+   pnpm -w @ulp/avatar-gate install
+   AVATAR_NAME=lynchpin_avatar \
+   TETRA_HUB_URL=ws://localhost:8081 \
+   pnpm -w @ulp/avatar-gate start
+   ```
+2. Send a mock UDP packet:
+
+   ```bash
+   echo -n "hello" | socat - UDP-DATAGRAM:127.0.0.1:53100
+   ```
+3. The hub will receive an `avatar_harmonic_ping` with a harmonic signature preview.
