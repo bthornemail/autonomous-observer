@@ -1,0 +1,12 @@
+{
+  "name": "@ulp/harmonic-edge-oracle",
+  "version": "1.0.0",
+  "description": "Harmonic Edge Oracle for ULP marketplace",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["ulp", "oracle", "harmonic", "edge"],
+  "author": "Universal Life Protocol",
+  "license": "MIT"
+}

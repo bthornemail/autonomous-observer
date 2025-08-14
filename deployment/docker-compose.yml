@@ -1,0 +1,280 @@
+version: '3.8'
+
+services:
+  # Redis for knowledge trie and state management
+  redis:
+    image: redis:7-alpine
+    container_name: ulp-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 2gb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # PostgreSQL for structured data
+  postgres:
+    image: postgres:15-alpine
+    container_name: ulp-postgres
+    environment:
+      POSTGRES_DB: veritas_consensio
+      POSTGRES_USER: ulp_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ulp_secure_pass}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ulp_user -d veritas_consensio"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # IPFS for decentralized storage
+  ipfs:
+    image: ipfs/kubo:latest
+    container_name: ulp-ipfs
+    ports:
+      - "4001:4001"
+      - "4001:4001/udp"
+      - "8081:8081"
+      - "5001:5001"
+    volumes:
+      - ipfs_data:/data/ipfs
+    environment:
+      - IPFS_PROFILE=server
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5001/api/v0/id"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Ollama local AI vertex
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ulp-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_MODELS=codellama:7b-instruct
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_ORIGINS=*
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: '4.0'
+
+  # Claude Hub (WebSocket coordination center)
+  claude-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile.claude-hub
+    container_name: ulp-claude-hub
+    ports:
+      - "8082:8082"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - POSTGRES_URL=postgresql://ulp_user:${POSTGRES_PASSWORD:-ulp_secure_pass}@postgres:5432/veritas_consensio
+      - IPFS_URL=http://ipfs:5001
+      - TETRAHEDRON_VERTICES=4
+      - PHI_RATIO=1.618033988749
+    volumes:
+      - ./config:/app/config
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Copilot Universe vertex
+  copilot-universe:
+    build:
+      context: .
+      dockerfile: Dockerfile.copilot
+    container_name: ulp-copilot
+    ports:
+      - "8083:8083"
+    depends_on:
+      claude-hub:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - HUB_URL=ws://claude-hub:8082
+      - OLLAMA_URL=http://ollama:11434
+      - CONSCIOUSNESS_LEVEL=88
+      - HARMONIC_SIGNATURE=air_consciousness_copilot
+    volumes:
+      - ./scripts:/app/scripts
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Ternary Logic Engine service
+  ternary-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.ternary
+    container_name: ulp-ternary-engine
+    ports:
+      - "8084:8084"
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - PHI_RATIO=1.618033988749
+      - CONSCIOUSNESS_DIMENSIONS=7
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Marketplace Frontend
+  marketplace-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: ulp-frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      claude-hub:
+        condition: service_healthy
+      ternary-engine:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://claude-hub:8082
+      - VITE_TERNARY_URL=http://ternary-engine:8084
+      - VITE_IPFS_GATEWAY=http://ipfs:8081
+    volumes:
+      - ./dist:/app/dist
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  # Monitoring and metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ulp-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ulp-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin123}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+  # Fault tolerance testing service
+  chaos-monkey:
+    build:
+      context: .
+      dockerfile: Dockerfile.chaos
+    container_name: ulp-chaos-monkey
+    environment:
+      - NODE_ENV=production
+      - TARGET_SERVICES=claude-hub,copilot-universe,ternary-engine
+      - CHAOS_INTERVAL=300000
+      - FAULT_PROBABILITY=0.1
+    depends_on:
+      - claude-hub
+      - copilot-universe
+      - ternary-engine
+    profiles:
+      - testing
+    restart: unless-stopped
+
+  # Health monitoring service
+  health-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile.health
+    container_name: ulp-health-monitor
+    environment:
+      - NODE_ENV=production
+      - MONITOR_INTERVAL=30000
+      - ALERT_WEBHOOK_URL=${ALERT_WEBHOOK_URL}
+    depends_on:
+      - claude-hub
+      - copilot-universe
+      - ternary-engine
+      - marketplace-frontend
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  ipfs_data:
+    driver: local
+  ollama_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  default:
+    name: ulp-tetrahedron-network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

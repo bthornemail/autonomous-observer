@@ -11,8 +11,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "@ulp/client-sdk": "workspace:*",
-    "speech-recognition-polyfill": "^1.0.0",
-    "web-speech-api": "^1.0.0"
+    "@types/dom-speech-recognition": "^0.0.4"
   },
   "devDependencies": {
     "vite": "^5.0.0",

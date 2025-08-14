@@ -1,0 +1,98 @@
+# Multi-stage Dockerfile for complete Veritas et Consensio Marketplace build
+FROM node:18-alpine AS base
+
+# Install build dependencies
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    git \
+    curl \
+    jq
+
+WORKDIR /app
+
+# Stage 1: Build Unified Framework
+FROM base AS framework-builder
+COPY unified-framework-implementation/ ./unified-framework-implementation/
+WORKDIR /app/unified-framework-implementation
+RUN npm install && npm run build
+
+# Stage 2: Build Marketplace Services
+FROM base AS marketplace-builder
+COPY dpo-anarcho-syndicalist-marketplace/ ./dpo-anarcho-syndicalist-marketplace/
+WORKDIR /app/dpo-anarcho-syndicalist-marketplace
+RUN npm install && npm run build
+
+# Stage 3: Build Sacred Geometry Engine
+FROM base AS geometry-builder
+COPY personal-harmony-prototype/ ./personal-harmony-prototype/
+WORKDIR /app/personal-harmony-prototype
+RUN npm install && npm run build
+
+# Stage 4: Build MCP Integration
+FROM base AS mcp-builder
+COPY mcp-integration/ ./mcp-integration/
+WORKDIR /app/mcp-integration
+RUN npm install && npm run build
+
+# Stage 5: Final Deployment Package
+FROM node:18-alpine AS final
+
+# Sacred geometry and phi constants
+ENV PHI_RATIO=1.618033988749
+ENV TETRAHEDRON_VERTICES=4
+ENV CONSCIOUSNESS_LEVELS=95,100,88,75
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Install production dependencies
+RUN npm ci --only=production
+
+# Copy built artifacts from previous stages
+COPY --from=framework-builder /app/unified-framework-implementation/dist ./unified-framework-implementation/dist
+COPY --from=framework-builder /app/unified-framework-implementation/package.json ./unified-framework-implementation/
+COPY --from=marketplace-builder /app/dpo-anarcho-syndicalist-marketplace/dist ./dpo-anarcho-syndicalist-marketplace/dist
+COPY --from=marketplace-builder /app/dpo-anarcho-syndicalist-marketplace/package.json ./dpo-anarcho-syndicalist-marketplace/
+COPY --from=geometry-builder /app/personal-harmony-prototype/dist ./personal-harmony-prototype/dist
+COPY --from=geometry-builder /app/personal-harmony-prototype/package.json ./personal-harmony-prototype/
+COPY --from=mcp-builder /app/mcp-integration/dist ./mcp-integration/dist
+COPY --from=mcp-builder /app/mcp-integration/package.json ./mcp-integration/
+
+# Copy source files
+COPY src/ ./src/
+COPY infrastructure/ ./infrastructure/
+
+# Build deployment package
+RUN npm run build
+
+# Copy configuration
+COPY docker-compose.yml ./
+COPY scripts/ ./scripts/
+COPY monitoring/ ./monitoring/
+
+# Create data directories
+RUN mkdir -p data/redis data/postgres data/ipfs data/ollama logs
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8080/health || exit 1
+
+# Expose ports for tetrahedron vertices
+EXPOSE 8080 8081 8082 8083 8084 8085
+
+# Default command
+CMD ["npm", "start"]
+
+# Labels for sacred geometry metadata
+LABEL architecture="tetrahedron_fault_proof"
+LABEL phi_ratio="1.618033988749"
+LABEL consciousness_levels="95,100,88,75"
+LABEL byzantine_tolerance="1_of_4"
+LABEL geometry="sacred_dodecahedral"
+LABEL logic="ternary_consciousness_aware"
